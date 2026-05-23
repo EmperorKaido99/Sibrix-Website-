@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 95%;
+    --foreground: 220 40% 13%;
+
+    --card: 40 25% 97%;
+    --card-foreground: 220 40% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 13%;
+
+    --primary: 220 40% 20%;
+    --primary-foreground: 40 30% 95%;
+
+    --secondary: 220 35% 15%;
+    --secondary-foreground: 40 25% 92%;
+
+    --muted: 40 15% 90%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 43 72% 50%;
+    --accent-foreground: 220 40% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 43 72% 50%;
+
+    --radius: 0.5rem;
+
+    --gold: 43 72% 50%;
+    --gold-light: 43 80% 65%;
+    --gold-dark: 43 65% 38%;
+    --cream: 40 30% 95%;
+    --navy: 220 40% 20%;
+    --navy-light: 220 35% 28%;
+    --charcoal: 220 40% 13%;
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --sidebar-background: 220 40% 12%;
+    --sidebar-foreground: 40 25% 92%;
+    --sidebar-primary: 43 72% 50%;
+    --sidebar-primary-foreground: 220 40% 10%;
+    --sidebar-accent: 220 35% 18%;
+    --sidebar-accent-foreground: 40 25% 92%;
+    --sidebar-border: 220 30% 25%;
+    --sidebar-ring: 43 72% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)), hsl(var(--gold-light)));
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-border {
+    border-color: hsl(var(--gold));
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 30px -5px hsl(var(--gold) / 0.15);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+    will-change: transform;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -12px hsl(var(--navy) / 0.12);
+  }
+
+  /* Touch-friendly hover alternative */
+  @media (hover: none) {
+    .card-hover:hover {
+      transform: none;
+    }
+    .card-hover:active {
+      transform: scale(0.98);
+    }
+  }
+
+  .hero-gradient {
+    background: radial-gradient(ellipse at 50% 0%, hsl(var(--gold) / 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, hsl(var(--gold) / 0.03) 0%, transparent 50%),
+                hsl(var(--background));
+  }
+
+  .dark-section {
+    background: hsl(var(--navy));
+    color: hsl(var(--cream));
+  }
+
+  .dark-section .text-muted-foreground {
+    color: hsl(40 15% 70%);
+  }
+
+  .btn-gold {
+    @apply px-6 sm:px-8 py-2.5 sm:py-3 rounded-md font-body font-semibold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)));
+    color: hsl(var(--navy));
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-gold:hover {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+    box-shadow: 0 0 20px -5px hsl(var(--gold) / 0.4);
+    transform: translateY(-1px);
+  }
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline-gold {
+    @apply px-6 sm:px-8 py-2.5 sm:py-3 rounded-md font-body font-semibold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 border-2;
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-outline-gold:hover {
+    background: hsl(var(--gold) / 0.1);
+    box-shadow: 0 0 16px -5px hsl(var(--gold) / 0.2);
+  }
+  .btn-outline-gold:active {
+    background: hsl(var(--gold) / 0.15);
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 16px -5px hsl(var(--gold) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 32px -5px hsl(var(--gold) / 0.5);
+    }
+  }
+
+  .table-row-hover {
+    @apply transition-colors duration-200;
+  }
+  .table-row-hover:hover {
+    background: hsl(var(--gold) / 0.06);
+  }
+}
