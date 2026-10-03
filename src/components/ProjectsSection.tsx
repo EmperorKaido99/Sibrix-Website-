@@ -1,139 +1,108 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink, Clock, Dumbbell, Sprout, type LucideIcon } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import crimeSpotsImage from "@/assets/project-crimespots.png";
 
-const projects = [
+type Project = {
+  title: string;
+  category: string;
+  image?: string;
+  icon?: LucideIcon;
+  description: string;
+  tech: string[];
+  demoUrl?: string;
+  comingSoon?: boolean;
+};
+
+const projects: Project[] = [
   {
-    title: "Luxe Boutique",
-    category: "E-Commerce",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    description: "A full-featured online store with AI-powered product recommendations, inventory management, and seamless payment integration.",
-    tech: ["React", "AI Chatbot", "Payment Gateway", "Inventory System"],
+    title: "CrimeSpots",
+    category: "AI Web Application",
+    image: crimeSpotsImage,
+    description:
+      "Real-time, AI-powered crime intelligence for Cape Town. News and community reports are processed by AI into verified incidents on a live, interactive map with severity coding, area rankings and neighbourhood alerts.",
+    tech: ["Next.js", "AI Extraction", "Live Map", "Supabase", "PWA"],
+    demoUrl: "https://crimespots.vercel.app/",
   },
   {
-    title: "FinTrack Pro",
-    category: "Business Automation",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    description: "End-to-end financial analytics dashboard with automated invoicing, expense tracking, and real-time reporting for a mid-size enterprise.",
-    tech: ["Dashboard", "Automation", "Analytics", "API Integration"],
+    title: "Sibrix Fit",
+    category: "Health & Fitness",
+    icon: Dumbbell,
+    description:
+      "A smart fitness companion with personalised training plans, progress tracking and AI-driven coaching to help you reach your goals.",
+    tech: ["Mobile App", "AI Coaching", "Progress Tracking"],
+    comingSoon: true,
   },
   {
-    title: "MediCare Connect",
-    category: "Web Application",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
-    description: "A patient management platform with appointment scheduling, telehealth integration, and automated reminders for a healthcare provider.",
-    tech: ["CRM", "Scheduling", "Notifications", "HIPAA Compliant"],
-  },
-  {
-    title: "GreenField Logistics",
-    category: "AI & Automation",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
-    description: "AI-driven supply chain optimization with real-time tracking, automated dispatch, and predictive demand forecasting.",
-    tech: ["AI Workflows", "Real-time Tracking", "Predictive Analytics"],
-  },
-  {
-    title: "Artisan Studio",
-    category: "Website",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
-    description: "A beautifully crafted portfolio website for a creative agency, featuring smooth animations, SEO optimization, and a custom CMS.",
-    tech: ["SEO", "CMS", "Responsive", "Animations"],
-  },
-  {
-    title: "PropVault",
-    category: "Business Suite",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-    description: "Property management system with tenant portals, automated rent collection, maintenance request tracking, and financial reporting.",
-    tech: ["Portal", "Payments", "HR System", "Reporting"],
+    title: "Sibrix Smart Farm",
+    category: "AgriTech",
+    icon: Sprout,
+    description:
+      "Connected farm management using sensors and AI to monitor crops, soil and livestock, automate routine tasks and boost yields.",
+    tech: ["IoT Sensors", "AI Insights", "Automation", "Dashboard"],
+    comingSoon: true,
   },
 ];
 
-const ProjectsSection = () => {
-  const [selected, setSelected] = useState<typeof projects[0] | null>(null);
+const ProjectsSection = () => (
+  <section id="projects" className="py-24 bg-background">
+    <div className="container mx-auto px-6">
+      <AnimateOnScroll>
+        <div className="text-center mb-16">
+          <p className="text-accent font-body text-sm tracking-widest uppercase mb-3">Our Work</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
+            Our Projects
+          </h2>
+          <p className="text-muted-foreground font-body max-w-2xl mx-auto">
+            Real products built by Sibrix — try CrimeSpots live today, with more on the way.
+          </p>
+        </div>
+      </AnimateOnScroll>
 
-  return (
-    <section id="projects" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <AnimateOnScroll>
-          <div className="text-center mb-16">
-            <p className="text-accent font-body text-sm tracking-widest uppercase mb-3">Our Work</p>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Projects We've Delivered
-            </h2>
-            <p className="text-muted-foreground font-body max-w-2xl mx-auto">
-              Real solutions built for real businesses — from sleek websites to full AI-powered enterprise systems.
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {projects.map((project, i) => (
-            <AnimateOnScroll key={project.title} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                className="group cursor-pointer rounded-lg overflow-hidden bg-card border border-border shadow-sm hover:shadow-lg transition-shadow duration-300"
-                onClick={() => setSelected(project)}
-              >
-                <div className="relative overflow-hidden h-40 sm:h-48">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        {projects.map((project, i) => (
+          <AnimateOnScroll key={project.title} delay={i * 0.1}>
+            <motion.div
+              whileHover={project.comingSoon ? undefined : { y: -6 }}
+              className="group h-full flex flex-col rounded-lg overflow-hidden bg-card border border-border shadow-sm hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="relative overflow-hidden h-40 sm:h-48">
+                {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
+                    className="w-full h-full object-cover object-left-top transition-transform duration-500 will-change-transform group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <ExternalLink className="w-8 h-8 text-primary-foreground" />
-                  </div>
-                </div>
-                <div className="p-5">
-                  <span className="text-xs font-body font-semibold tracking-wider uppercase text-accent">
-                    {project.category}
+                ) : (
+                  project.icon && (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-primary/80">
+                      <project.icon className="w-16 h-16 text-accent/80" strokeWidth={1.5} />
+                    </div>
+                  )
+                )}
+                {project.comingSoon && (
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-body font-semibold tracking-wider uppercase shadow">
+                    <Clock className="w-3.5 h-3.5" />
+                    Coming Soon
                   </span>
-                  <h3 className="text-lg font-heading font-bold text-foreground mt-1">{project.title}</h3>
-                  <p className="text-muted-foreground text-sm font-body mt-2 line-clamp-2">{project.description}</p>
-                </div>
-              </motion.div>
-            </AnimateOnScroll>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-foreground/60 backdrop-blur-sm"
-            onClick={() => setSelected(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="bg-card rounded-lg max-w-lg w-full overflow-hidden shadow-xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative h-56">
-                <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
-                <button
-                  onClick={() => setSelected(null)}
-                  className="absolute top-3 right-3 p-2 rounded-full bg-foreground/50 text-primary-foreground hover:bg-foreground/70 transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
+                )}
+                {project.demoUrl && (
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-body font-semibold tracking-wider uppercase shadow">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    Live
+                  </span>
+                )}
               </div>
-              <div className="p-6">
+              <div className="p-5 flex flex-col flex-1">
                 <span className="text-xs font-body font-semibold tracking-wider uppercase text-accent">
-                  {selected.category}
+                  {project.category}
                 </span>
-                <h3 className="text-2xl font-heading font-bold text-foreground mt-1 mb-3">{selected.title}</h3>
-                <p className="text-muted-foreground font-body leading-relaxed mb-5">{selected.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selected.tech.map((t) => (
+                <h3 className="text-lg font-heading font-bold text-foreground mt-1">{project.title}</h3>
+                <p className="text-muted-foreground text-sm font-body mt-2">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.tech.map((t) => (
                     <span
                       key={t}
                       className="text-xs font-body px-3 py-1 rounded-full bg-accent/10 text-accent font-medium"
@@ -142,14 +111,33 @@ const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
-                <button className="btn-gold w-full text-center">Request Similar Project</button>
+                <div className="mt-auto pt-6">
+                  {project.demoUrl ? (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-gold w-full inline-flex items-center justify-center gap-2"
+                    >
+                      View Live Demo
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  ) : (
+                    <button
+                      disabled
+                      className="w-full py-3 rounded-md border border-border text-muted-foreground font-body text-sm font-semibold cursor-not-allowed"
+                    >
+                      Coming Soon
+                    </button>
+                  )}
+                </div>
               </div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </section>
-  );
-};
+          </AnimateOnScroll>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default ProjectsSection;
