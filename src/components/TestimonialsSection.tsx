@@ -7,28 +7,24 @@ const testimonials = [
   {
     name: "Sarah Mitchell",
     role: "CEO, Luxe Boutique",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
     rating: 5,
     text: "They transformed our entire online presence. The AI chatbot alone increased our customer engagement by 40%. Absolutely world-class service.",
   },
   {
     name: "David Chen",
     role: "Operations Director, GreenField Logistics",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
     rating: 5,
     text: "The automation suite they built saved us over 20 hours a week. Our supply chain runs smoother than ever and the analytics dashboard is incredibly insightful.",
   },
   {
     name: "Amara Osei",
     role: "Founder, Artisan Studio",
-    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=face",
     rating: 5,
     text: "Beautiful design, blazing fast, and the SEO results speak for themselves. We went from page 5 to page 1 on Google within two months.",
   },
   {
     name: "James Thornton",
     role: "Managing Director, PropVault",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
     rating: 5,
     text: "The property management system they delivered is phenomenal. Our tenants love the portal and our admin workload dropped by 60%.",
   },
@@ -74,13 +70,12 @@ const TestimonialsSection = () => {
                   <Star key={i} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
-              <img
-                src={testimonials[current].avatar}
-                alt={testimonials[current].name}
-                loading="lazy"
-                decoding="async"
-                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full mx-auto mb-3 object-cover border-2 border-accent/30"
-              />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full mx-auto mb-3 flex items-center justify-center bg-accent/15 border-2 border-accent/30 text-accent font-heading font-bold">
+                {testimonials[current].name
+                  .split(" ")
+                  .map((n) => n[0])
+                  .join("")}
+              </div>
               <p className="font-heading font-bold text-lg">{testimonials[current].name}</p>
               <p className="text-muted-foreground font-body text-sm">{testimonials[current].role}</p>
             </motion.div>
