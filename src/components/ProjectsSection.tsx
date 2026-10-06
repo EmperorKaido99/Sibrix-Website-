@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Clock, Dumbbell, Sprout, type LucideIcon } from "lucide-react";
+import { ExternalLink, Clock, Dumbbell, Mountain, Sprout, type LucideIcon } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import crimeSpotsImage from "@/assets/project-crimespots.png";
 
@@ -25,13 +25,21 @@ const projects: Project[] = [
     demoUrl: "https://crimespots.vercel.app/",
   },
   {
-    title: "Sibrix Fit",
+    title: "HikeApp",
+    category: "Outdoor & Adventure",
+    icon: Mountain,
+    description:
+      "Discover trails, plan routes and track your hikes with offline maps, safety check-ins and a community of fellow hikers.",
+    tech: ["Mobile App", "Offline Maps", "GPS Tracking"],
+    comingSoon: true,
+  },
+  {
+    title: "Sibrix Fitness App",
     category: "Health & Fitness",
     icon: Dumbbell,
     description:
       "A smart fitness companion with personalised training plans, progress tracking and AI-driven coaching to help you reach your goals.",
     tech: ["Mobile App", "AI Coaching", "Progress Tracking"],
-    comingSoon: true,
   },
   {
     title: "Sibrix Smart Farm",
@@ -59,7 +67,7 @@ const ProjectsSection = () => (
         </div>
       </AnimateOnScroll>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
         {projects.map((project, i) => (
           <AnimateOnScroll key={project.title} delay={i * 0.1}>
             <motion.div
@@ -122,14 +130,14 @@ const ProjectsSection = () => (
                       View Live Demo
                       <ExternalLink className="w-4 h-4" />
                     </a>
-                  ) : (
+                  ) : project.comingSoon ? (
                     <button
                       disabled
                       className="w-full py-3 rounded-md border border-border text-muted-foreground font-body text-sm font-semibold cursor-not-allowed"
                     >
                       Coming Soon
                     </button>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </motion.div>
