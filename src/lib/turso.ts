@@ -1,15 +1,28 @@
-import { createClient } from "@libsql/client";
+import { createClient, type Client } from "@libsql/client";
 
 // Turso database client
 // Get your credentials from: https://turso.tech/app
-export const db = createClient({
-  url: import.meta.env.VITE_TURSO_DATABASE_URL || "file:local.db",
-  authToken: import.meta.env.VITE_TURSO_AUTH_TOKEN,
-});
+// The web client can't open "file:" URLs, so without a configured URL we skip
+// creating a client instead of crashing the whole app on load.
+const TURSO_URL = import.meta.env.VITE_TURSO_DATABASE_URL;
+
+let client: Client | null = null;
+
+function getDb(): Client {
+  if (!TURSO_URL) {
+    throw new Error("Turso is not configured: set VITE_TURSO_DATABASE_URL");
+  }
+  client ??= createClient({
+    url: TURSO_URL,
+    authToken: import.meta.env.VITE_TURSO_AUTH_TOKEN,
+  });
+  return client;
+}
 
 // Initialize database tables
 export async function initDatabase() {
-  await db.batch([
+  if (!TURSO_URL) return;
+  await getDb().batch([
     // Contact form submissions
     `CREATE TABLE IF NOT EXISTS contacts (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -45,7 +58,7 @@ export async function initDatabase() {
 // Contact form operations
 export const contacts = {
   async create(data: { name: string; email: string; phone?: string; message: string }) {
-    const result = await db.execute({
+    const result = await getDb().execute({
       sql: "INSERT INTO contacts (name, email, phone, message) VALUES (?, ?, ?, ?)",
       args: [data.name, data.email, data.phone || null, data.message],
     });
@@ -53,7 +66,7 @@ export const contacts = {
   },
 
   async getAll() {
-    const result = await db.execute("SELECT * FROM contacts ORDER BY created_at DESC");
+    const result = await getDb().execute("SELECT * FROM contacts ORDER BY created_at DESC");
     return result.rows;
   },
 };
@@ -68,7 +81,7 @@ export const inquiries = {
     budget?: string;
     details?: string;
   }) {
-    const result = await db.execute({
+    const result = await getDb().execute({
       sql: "INSERT INTO inquiries (name, email, company, package, budget, details) VALUES (?, ?, ?, ?, ?, ?)",
       args: [
         data.name,
@@ -83,12 +96,12 @@ export const inquiries = {
   },
 
   async getAll() {
-    const result = await db.execute("SELECT * FROM inquiries ORDER BY created_at DESC");
+    const result = await getDb().execute("SELECT * FROM inquiries ORDER BY created_at DESC");
     return result.rows;
   },
 
   async updateStatus(id: number, status: string) {
-    await db.execute({
+    await getDb().execute({
       sql: "UPDATE inquiries SET status = ? WHERE id = ?",
       args: [status, id],
     });
@@ -99,7 +112,7 @@ export const inquiries = {
 export const subscribers = {
   async add(email: string) {
     try {
-      await db.execute({
+      await getDb().execute({
         sql: "INSERT INTO subscribers (email) VALUES (?)",
         args: [email],
       });
@@ -113,7 +126,7 @@ export const subscribers = {
   },
 
   async getAll() {
-    const result = await db.execute("SELECT * FROM subscribers ORDER BY subscribed_at DESC");
+    const result = await getDb().execute("SELECT * FROM subscribers ORDER BY subscribed_at DESC");
     return result.rows;
   },
 };

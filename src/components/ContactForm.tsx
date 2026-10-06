@@ -30,6 +30,13 @@ const ContactForm = () => {
     setStatus("loading");
     setErrorMsg("");
 
+    if (!supabase) {
+      console.error("Submission error: Supabase is not configured");
+      setErrorMsg("Something went wrong. Please try again or email us directly.");
+      setStatus("error");
+      return;
+    }
+
     const { error } = await supabase.from("contacts").insert({
       name: form.name,
       email: form.email,
