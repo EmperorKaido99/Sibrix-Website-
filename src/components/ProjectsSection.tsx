@@ -40,6 +40,7 @@ const projects: Project[] = [
     description:
       "A smart fitness companion with personalised training plans, progress tracking and AI-driven coaching to help you reach your goals.",
     tech: ["Mobile App", "AI Coaching", "Progress Tracking"],
+    comingSoon: true,
   },
   {
     title: "Sibrix Smart Farm",
