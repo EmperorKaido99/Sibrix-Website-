@@ -50,9 +50,9 @@ const Navbar = () => {
         scrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-4 px-6">
+      <div className="container mx-auto flex items-center justify-between py-3 px-4 sm:px-6">
         <a href="#" className="flex items-center gap-2">
-          <img src={sibrixLogo} alt="Sibrix" className="h-24 md:h-28 w-auto" />
+          <img src={sibrixLogo} alt="Sibrix" className="h-20 md:h-24 w-auto -my-3" />
         </a>
 
         {/* Desktop */}
@@ -61,9 +61,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className={`text-sm font-body transition-colors duration-300 tracking-wide uppercase ${
-                scrolled ? "text-muted-foreground hover:text-accent" : "text-[hsl(40,15%,70%)] hover:text-accent"
-              }`}
+              className="text-sm font-body font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               {l.label}
             </a>
@@ -75,7 +73,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className={`md:hidden ${scrolled ? "text-foreground" : "text-[hsl(40,30%,95%)]"}`}
+          className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -98,7 +96,7 @@ const Navbar = () => {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm font-body text-muted-foreground hover:text-accent transition-colors tracking-wide uppercase"
+                  className="text-base font-body font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {l.label}
                 </a>
