@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Star, Info } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import {
   Accordion,
@@ -14,14 +14,14 @@ import {
   DialogTitle,
   DialogDescription,
 } from "./ui/dialog";
-import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 
 const packages = [
   {
     name: "Starter Web Presence",
     tier: "starter",
-    description: "Perfect for small businesses looking to establish a professional online presence with essential features.",
+    label: "Starter",
+    description: "For small businesses that need a professional, search-friendly online presence.",
     features: [
       { name: "SEO-optimised website", detail: "Your website will be built with search engine best practices so customers can find you on Google." },
       { name: "Social media integration (1 platform)", detail: "We connect one social media platform (e.g. Facebook or Instagram) directly to your website." },
@@ -34,8 +34,9 @@ const packages = [
   {
     name: "E-Commerce & Business Suite",
     tier: "business",
+    label: "Business",
     badge: "Most Popular",
-    description: "A complete digital business solution with online sales, AI support, and inventory management built in.",
+    description: "A complete digital operation: online sales, AI customer support and live inventory management.",
     features: [
       { name: "Everything in Starter, plus:", detail: "" },
       { name: "Full e-commerce store with payment gateway", detail: "A fully functional online shop where customers can browse products and pay securely." },
@@ -52,7 +53,8 @@ const packages = [
   {
     name: "Full AI & Automation Enterprise",
     tier: "enterprise",
-    description: "The ultimate digital transformation package — AI-driven automation, custom apps, and deep business intelligence.",
+    label: "Enterprise",
+    description: "End-to-end digital transformation with AI-driven automation, custom internal apps and business intelligence.",
     features: [
       { name: "Everything in Business Suite, plus:", detail: "" },
       { name: "AI-powered personalised user journeys", detail: "Your website adapts to each visitor, showing relevant content and recommendations." },
@@ -79,52 +81,48 @@ const packages = [
 
 type Package = typeof packages[0];
 
+const PREVIEW_COUNT = 6;
+
 const PackageModal = ({ pkg, open, onOpenChange }: { pkg: Package; open: boolean; onOpenChange: (v: boolean) => void }) => (
   <Dialog open={open} onOpenChange={onOpenChange}>
     <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto bg-card border-border">
       <DialogHeader>
-        <div className="flex items-center gap-3 mb-1">
-          {pkg.badge && (
-            <Badge className="gold-gradient text-accent-foreground font-body text-xs font-bold tracking-wider uppercase gap-1">
-              <Star size={10} fill="currentColor" /> {pkg.badge}
-            </Badge>
-          )}
-        </div>
+        <p className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-accent">{pkg.label}</p>
         <DialogTitle className="font-heading text-2xl font-bold text-left">{pkg.name}</DialogTitle>
         <DialogDescription className="font-body text-sm leading-relaxed text-left">
           {pkg.description}
         </DialogDescription>
       </DialogHeader>
 
-      <Accordion type="multiple" className="space-y-1">
+      <Accordion type="multiple">
         {pkg.features.map((f, i) =>
           f.detail ? (
-            <AccordionItem key={i} value={`f-${i}`} className="border-border/50">
-              <AccordionTrigger className="text-sm font-body hover:no-underline py-3 gap-3">
-                <span className="flex items-center gap-2 text-left">
-                  <Check size={14} className="text-accent shrink-0" />
+            <AccordionItem key={i} value={`f-${i}`} className="border-border">
+              <AccordionTrigger className="text-sm font-body font-medium hover:no-underline py-3 gap-3">
+                <span className="flex items-center gap-3 text-left">
+                  <Check size={16} className="text-accent shrink-0" />
                   {f.name}
                 </span>
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-sm pl-6">
+              <AccordionContent className="text-muted-foreground text-sm pl-7">
                 {f.detail}
               </AccordionContent>
             </AccordionItem>
           ) : (
-            <div key={i} className="py-3 text-sm font-body text-accent font-semibold">
+            <p key={i} className="pb-2 text-sm font-body font-semibold text-foreground">
               {f.name}
-            </div>
+            </p>
           )
         )}
       </Accordion>
 
       {pkg.expandedFeatures && (
-        <div className="mt-4 border-t border-border pt-4">
-          <p className="text-xs font-body text-muted-foreground uppercase tracking-wider mb-3">Included custom apps:</p>
-          <ul className="space-y-2">
+        <div className="mt-2 rounded-lg bg-muted/60 p-4">
+          <p className="text-xs font-body font-semibold text-muted-foreground uppercase tracking-[0.15em] mb-3">Included custom apps</p>
+          <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
             {pkg.expandedFeatures.map((ef, i) => (
-              <li key={i} className="flex items-center gap-2 text-sm font-body text-muted-foreground">
-                <Check size={12} className="text-accent shrink-0" />
+              <li key={i} className="flex items-start gap-2 text-sm font-body text-foreground">
+                <Check size={14} className="text-accent shrink-0 mt-0.5" />
                 {ef}
               </li>
             ))}
@@ -132,65 +130,82 @@ const PackageModal = ({ pkg, open, onOpenChange }: { pkg: Package; open: boolean
         </div>
       )}
 
-      <Button asChild className="btn-gold w-full mt-2">
-        <a href="#cta" onClick={() => onOpenChange(false)}>
-          Request Service
-        </a>
-      </Button>
+      <a href="#cta" onClick={() => onOpenChange(false)} className="btn-gold w-full mt-2 inline-flex items-center justify-center gap-2">
+        Request a Quote
+        <ArrowRight size={16} />
+      </a>
     </DialogContent>
   </Dialog>
 );
 
 const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const featured = pkg.highlighted;
+  const preview = pkg.features.slice(0, PREVIEW_COUNT);
+  const remaining = pkg.features.length - preview.length;
 
   return (
     <>
-      <AnimateOnScroll delay={index * 0.15} className={`${pkg.highlighted ? "md:-mt-4 md:mb-4" : ""}`}>
+      <AnimateOnScroll delay={index * 0.1} className="h-full">
         <div
-          onClick={() => setModalOpen(true)}
-          className={`relative rounded-xl p-8 card-hover border transition-all duration-500 h-full flex flex-col cursor-pointer group ${
-            pkg.highlighted
-              ? "bg-card border-accent gold-glow"
-              : "bg-card border-border hover:border-accent/30"
+          className={`relative h-full flex flex-col rounded-xl border p-6 sm:p-8 ${
+            featured
+              ? "bg-primary text-primary-foreground border-primary shadow-xl"
+              : "bg-card border-border shadow-sm"
           }`}
         >
-          {pkg.badge && (
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <Badge className="gold-gradient text-accent-foreground font-body text-xs font-bold tracking-wider uppercase gap-1 px-4 py-1">
-                <Star size={12} fill="currentColor" /> {pkg.badge}
-              </Badge>
-            </div>
-          )}
-
-          <h3 className="font-heading text-2xl font-bold mb-2 mt-2">{pkg.name}</h3>
-          <p className="font-body text-xs text-muted-foreground mb-6">{pkg.description}</p>
-
-          <ul className="space-y-3 flex-1">
-            {pkg.features.slice(0, 5).map((f, i) => (
-              <li key={i} className="flex items-start gap-3 font-body text-sm">
-                {f.name.includes("Everything") ? (
-                  <span className="text-accent font-semibold">{f.name}</span>
-                ) : (
-                  <>
-                    <Check size={16} className="text-accent mt-0.5 shrink-0" />
-                    <span className="text-muted-foreground">{f.name}</span>
-                  </>
-                )}
-              </li>
-            ))}
-            {pkg.features.length > 5 && (
-              <li className="font-body text-xs text-accent flex items-center gap-1">
-                <Info size={12} />
-                +{pkg.features.length - 5} more features — click to explore
-              </li>
+          <div className="flex items-center justify-between mb-4">
+            <p className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-accent">{pkg.label}</p>
+            {pkg.badge && (
+              <span className="rounded-full bg-accent px-3 py-1 font-body text-[11px] font-semibold text-accent-foreground">
+                {pkg.badge}
+              </span>
             )}
-          </ul>
+          </div>
 
-          <div className="mt-6 text-center">
-            <span className={`inline-block ${pkg.highlighted ? "btn-gold" : "btn-outline-gold"} group-hover:shadow-lg`}>
-              View Details
-            </span>
+          <h3 className="font-heading text-2xl font-bold leading-tight mb-3">{pkg.name}</h3>
+          <p className={`font-body text-sm leading-relaxed mb-6 ${featured ? "text-primary-foreground/75" : "text-muted-foreground"}`}>
+            {pkg.description}
+          </p>
+
+          <div className={`border-t pt-6 mb-8 flex-1 ${featured ? "border-primary-foreground/15" : "border-border"}`}>
+            <ul className="space-y-3">
+              {preview.map((f, i) =>
+                f.detail ? (
+                  <li key={i} className="flex items-start gap-3 font-body text-sm">
+                    <Check size={16} className="text-accent mt-0.5 shrink-0" />
+                    <span className={featured ? "text-primary-foreground/90" : "text-foreground/80"}>{f.name}</span>
+                  </li>
+                ) : (
+                  <li key={i} className="font-body text-sm font-semibold">
+                    {f.name}
+                  </li>
+                )
+              )}
+            </ul>
+            {remaining > 0 && (
+              <p className={`mt-4 font-body text-sm ${featured ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
+                + {remaining} more included
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-3">
+            <a
+              href="#cta"
+              className={`${featured ? "btn-gold" : "btn-outline-gold"} w-full inline-flex items-center justify-center gap-2`}
+            >
+              Request a Quote
+            </a>
+            <button
+              type="button"
+              onClick={() => setModalOpen(true)}
+              className={`w-full py-2 font-body text-sm font-medium underline-offset-4 hover:underline transition-colors ${
+                featured ? "text-primary-foreground/80 hover:text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              See full package details
+            </button>
           </div>
         </div>
       </AnimateOnScroll>
@@ -201,16 +216,20 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
 };
 
 const PackagesSection = () => (
-  <section id="packages" className="py-24 md:py-32">
-    <div className="container mx-auto px-6">
-      <AnimateOnScroll className="text-center mb-16">
-        <p className="text-accent font-body text-sm tracking-[0.3em] uppercase mb-4">Our Packages</p>
-        <h2 className="font-heading text-3xl md:text-5xl font-bold">
-          Service Packages
+  <section id="packages" className="py-20 md:py-28">
+    <div className="container mx-auto px-4 sm:px-6">
+      <AnimateOnScroll className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
+        <p className="font-body text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">Services</p>
+        <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">
+          Packages built around your business
         </h2>
+        <p className="font-body text-base sm:text-lg text-muted-foreground leading-relaxed">
+          Start with what you need today and add capability as you grow. Every package includes
+          mobile-responsive design and one month of post-launch support.
+        </p>
       </AnimateOnScroll>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
         {packages.map((pkg, i) => (
           <PackageCard key={pkg.tier} pkg={pkg} index={i} />
         ))}
