@@ -30,22 +30,36 @@ const ContactForm = () => {
     setStatus("loading");
     setErrorMsg("");
 
-    if (!supabase) {
-      console.error("Submission error: Supabase is not configured");
-      setErrorMsg("Something went wrong. Please try again or email us directly.");
-      setStatus("error");
-      return;
-    }
+    // Email the enquiry to the Sibrix mailbox, and keep a copy in Supabase when configured.
+    const sendEmail = fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    })
+      .then((res) => res.ok)
+      .catch((err) => {
+        console.error("Email submission error:", err);
+        return false;
+      });
 
-    const { error } = await supabase.from("contacts").insert({
-      name: form.name,
-      email: form.email,
-      phone: form.phone || null,
-      message: form.message,
-    });
+    const saveRecord = supabase
+      ? supabase
+          .from("contacts")
+          .insert({
+            name: form.name,
+            email: form.email,
+            phone: form.phone || null,
+            message: form.message,
+          })
+          .then(({ error }) => {
+            if (error) console.error("Database submission error:", error.message);
+            return !error;
+          })
+      : Promise.resolve(false);
 
-    if (error) {
-      console.error("Submission error:", error.message);
+    const [emailed, saved] = await Promise.all([sendEmail, saveRecord]);
+
+    if (!emailed && !saved) {
       setErrorMsg("Something went wrong. Please try again or email us directly.");
       setStatus("error");
       return;
