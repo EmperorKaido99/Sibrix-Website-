@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import sibrixLogo from "@/assets/sibrix-logo-trim.png";
 
 const links = [
+  { label: "About", href: "#about" },
   { label: "Work", href: "#projects" },
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#packages" },
@@ -16,7 +17,7 @@ const Navbar = () => {
   // Close the mobile menu when the viewport grows to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) setMobileOpen(false);
+      if (window.innerWidth >= 1024) setMobileOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -29,7 +30,7 @@ const Navbar = () => {
           <img src={sibrixLogo} alt="Sibrix" className="h-10 md:h-12 w-auto" width={520} height={342} />
         </a>
 
-        <div className="hidden md:flex items-center gap-8 lg:gap-10">
+        <div className="hidden lg:flex items-center gap-8 xl:gap-10">
           {links.map((l) => (
             <a
               key={l.href}
@@ -45,7 +46,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden p-2 -mr-2 text-navy"
+          className="lg:hidden p-2 -mr-2 text-navy"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
@@ -55,7 +56,7 @@ const Navbar = () => {
       </nav>
 
       {mobileOpen && (
-        <div className="md:hidden field-navy">
+        <div className="lg:hidden field-navy">
           <div className="frame flex flex-col py-6">
             {links.map((l) => (
               <a

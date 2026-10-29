@@ -1,6 +1,7 @@
 import { Mail, Phone } from "lucide-react";
 
 const links = [
+  { label: "About", href: "#about" },
   { label: "Work", href: "#projects" },
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#packages" },
@@ -34,7 +35,7 @@ const Footer = () => (
         </p>
       </div>
 
-      <p className="mt-16 md:mt-24 text-base text-paper/60">© {new Date().getFullYear()} Sibrix. All rights reserved.</p>
+      <p className="mt-16 md:mt-24 text-base text-paper/60">© {new Date().getFullYear()} Sibrix Group (Pty) Ltd. All rights reserved.</p>
     </div>
 
     <p
