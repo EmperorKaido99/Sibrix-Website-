@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Instagram, Mail, Phone } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 
 const Footer = () => (
   <footer className="border-t border-border py-8 sm:py-12 bg-card">
@@ -23,20 +23,13 @@ const Footer = () => (
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-4">
-          {[
-            { Icon: Linkedin, label: "LinkedIn" },
-            { Icon: Twitter, label: "Twitter" },
-            { Icon: Instagram, label: "Instagram" }
-          ].map(({ Icon, label }) => (
-            <a
-              key={label}
-              href="#"
-              aria-label={label}
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
-            >
-              <Icon size={16} />
-            </a>
-          ))}
+          <a
+            href="#"
+            aria-label="LinkedIn"
+            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
+          >
+            <Linkedin size={16} />
+          </a>
         </div>
       </div>
 
