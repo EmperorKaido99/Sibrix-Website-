@@ -175,7 +175,7 @@ const ContactForm = () => {
       <Button
         type="submit"
         disabled={status === "loading"}
-        className="btn-navy w-full h-auto rounded-none hover:bg-navy-deep disabled:opacity-70 disabled:cursor-not-allowed"
+        className="btn-green w-full h-auto rounded-none disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {status === "loading" ? (
           <>

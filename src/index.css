@@ -6,12 +6,14 @@
 
 @layer base {
   :root {
-    /* Brand colours, taken from the Sibrix logo */
-    --navy: 222 42% 19%;        /* #1C2844 */
-    --navy-deep: 223 44% 13%;   /* tone step for the closing chapter */
-    --gold: 39 66% 65%;         /* #E0B96D */
-    --paper: 45 17% 95%;        /* page ground */
-    --paper-2: 44 12% 89%;      /* tone step between light sections */
+    /* Sibrix Group brand palette */
+    --navy: 214 73% 9%;         /* Midnight Navy #061426 */
+    --navy-deep: 213 77% 5%;    /* tone step for the closing chapter */
+    --green: 160 100% 42%;      /* Sibrix Electric Green #00D68F */
+    --cyan: 189 100% 43%;       /* Digital Cyan #00B8D9 */
+    --blue: 196 91% 34%;        /* Technology Blue #087CA7 */
+    --paper: 0 0% 100%;         /* Clean White #FFFFFF */
+    --paper-2: 207 37% 94%;     /* Cool Mist Grey #EAF0F5 */
 
     --background: var(--paper);
     --foreground: var(--navy);
@@ -29,16 +31,16 @@
     --secondary-foreground: var(--paper);
 
     --muted: var(--paper-2);
-    --muted-foreground: 222 16% 36%;
+    --muted-foreground: 213 20% 35%;
 
-    --accent: var(--gold);
+    --accent: var(--green);
     --accent-foreground: var(--navy);
 
     --destructive: 0 72% 46%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 44 10% 80%;
-    --input: 44 10% 78%;
+    --border: 207 25% 84%;
+    --input: 207 22% 80%;
     --ring: var(--navy);
 
     --radius: 0rem;
@@ -48,12 +50,12 @@
 
     --sidebar-background: var(--navy);
     --sidebar-foreground: var(--paper);
-    --sidebar-primary: var(--gold);
+    --sidebar-primary: var(--green);
     --sidebar-primary-foreground: var(--navy);
     --sidebar-accent: var(--navy-deep);
     --sidebar-accent-foreground: var(--paper);
     --sidebar-border: var(--navy-deep);
-    --sidebar-ring: var(--gold);
+    --sidebar-ring: var(--green);
   }
 }
 
@@ -83,12 +85,12 @@
   }
 
   :focus-visible {
-    outline: 2px solid hsl(var(--gold));
+    outline: 2px solid hsl(var(--green));
     outline-offset: 3px;
   }
 
   ::selection {
-    background: hsl(var(--gold));
+    background: hsl(var(--green));
     color: hsl(var(--navy));
   }
 
@@ -140,7 +142,7 @@
   .field-paper-2 { background: hsl(var(--paper-2)); color: hsl(var(--navy)); }
   .field-navy { background: hsl(var(--navy)); color: hsl(var(--paper)); }
   .field-navy-deep { background: hsl(var(--navy-deep)); color: hsl(var(--paper)); }
-  .field-gold { background: hsl(var(--gold)); color: hsl(var(--navy)); }
+  .field-green { background: hsl(var(--green)); color: hsl(var(--navy)); }
 
   /* Buttons: flat, one fill, square corners. */
   .btn {
@@ -152,8 +154,11 @@
   .btn-navy { @apply btn; background: hsl(var(--navy)); color: hsl(var(--paper)); }
   .btn-navy:hover { background: hsl(var(--navy-deep)); }
 
-  .btn-gold { @apply btn; background: hsl(var(--gold)); color: hsl(var(--navy)); }
-  .btn-gold:hover { background: hsl(39 66% 58%); }
+  .btn-green { @apply btn; background: hsl(var(--green)); color: hsl(var(--navy)); }
+  .btn-green:hover { background: hsl(160 100% 48%); }
+
+  .btn-ghost-light { @apply btn; box-shadow: inset 0 0 0 2px hsl(var(--paper) / 0.6); color: hsl(var(--paper)); }
+  .btn-ghost-light:hover { box-shadow: inset 0 0 0 2px hsl(var(--paper)); }
 
   .btn-paper { @apply btn; background: hsl(var(--paper)); color: hsl(var(--navy)); }
   .btn-paper:hover { background: hsl(0 0% 100%); }

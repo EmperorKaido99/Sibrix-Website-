@@ -9,7 +9,7 @@ const perks = [
 ];
 
 const RetainerSection = () => (
-  <section id="retainer" className="field-gold section">
+  <section id="retainer" className="field-paper section">
     <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
       <AnimateOnScroll className="lg:col-span-5">
         <h2 className="heading-xl">Monthly retainer</h2>

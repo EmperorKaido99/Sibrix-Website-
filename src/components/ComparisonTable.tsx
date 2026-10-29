@@ -51,7 +51,7 @@ const tiers = [
 ] as const;
 
 const Cell = ({ included, featured }: { included: boolean; featured?: boolean }) => (
-  <td className={`py-4 px-2 sm:px-4 text-center ${featured ? "bg-gold/15" : ""}`}>
+  <td className={`py-4 px-2 sm:px-4 text-center ${featured ? "bg-green/15" : ""}`}>
     {included ? (
       <Check size={20} strokeWidth={2.25} className="text-navy mx-auto" aria-label="Included" />
     ) : (
@@ -83,7 +83,7 @@ const ComparisonTable = () => (
                     key={t.key}
                     scope="col"
                     className={`w-[18%] sm:w-[15%] py-5 sm:py-6 px-2 sm:px-4 text-center text-sm sm:text-lg font-semibold ${
-                      "featured" in t ? "bg-gold" : ""
+                      "featured" in t ? "bg-green" : ""
                     }`}
                   >
                     {t.label}

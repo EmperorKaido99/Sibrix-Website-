@@ -153,9 +153,9 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
           }`}
         >
           <div className="flex items-center justify-between mb-4">
-            <p className={`text-lg font-semibold ${featured ? "text-gold" : ""}`}>{pkg.label}</p>
+            <p className={`text-lg font-semibold ${featured ? "text-green" : ""}`}>{pkg.label}</p>
             {pkg.badge && (
-              <span className="bg-gold px-3 py-1 text-sm font-semibold text-navy">
+              <span className="bg-green px-3 py-1 text-sm font-semibold text-navy">
                 {pkg.badge}
               </span>
             )}
@@ -171,7 +171,7 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
               {preview.map((f, i) =>
                 f.detail ? (
                   <li key={i} className="flex items-start gap-3 text-base">
-                    <Check size={18} className={`mt-0.5 shrink-0 ${featured ? "text-gold" : "text-navy"}`} />
+                    <Check size={18} className={`mt-0.5 shrink-0 ${featured ? "text-green" : "text-navy"}`} />
                     <span>{f.name}</span>
                   </li>
                 ) : (
@@ -191,7 +191,7 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
           <div className="space-y-3">
             <a
               href="#cta"
-              className={`${featured ? "btn-gold" : "btn-navy"} w-full`}
+              className={`${featured ? "btn-green" : "btn-navy"} w-full`}
             >
               Request a Quote
             </a>

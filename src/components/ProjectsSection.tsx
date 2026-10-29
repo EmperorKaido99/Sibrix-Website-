@@ -45,7 +45,7 @@ const ProjectsSection = () => (
       {/* Featured: the live product */}
       <div className="mt-16 md:mt-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         <AnimateOnScroll className="lg:col-span-5 lg:order-1 order-2">
-          <p className="text-gold font-semibold">Live · {featured.category}</p>
+          <p className="text-cyan font-semibold">Live · {featured.category}</p>
           <h3 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight leading-none">{featured.title}</h3>
           <p className="mt-6 text-lg leading-relaxed text-paper/90 max-w-[46ch]">{featured.description}</p>
           <p className="mt-6 text-base text-paper/70">Built with {featured.tech.join(", ")}.</p>
@@ -53,7 +53,7 @@ const ProjectsSection = () => (
             href={featured.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-gold mt-10"
+            className="btn-green mt-10"
           >
             Visit CrimeSpots
             <ArrowUpRight size={18} />
@@ -91,7 +91,7 @@ const ProjectsSection = () => (
             <AnimateOnScroll key={p.title} delay={i * 0.08}>
               <li className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-8 py-8 border-t border-paper/15">
                 <p className="md:col-span-4 text-2xl md:text-3xl font-semibold tracking-tight">{p.title}</p>
-                <p className="md:col-span-3 text-gold font-medium md:pt-1.5">{p.category}</p>
+                <p className="md:col-span-3 text-cyan font-medium md:pt-1.5">{p.category}</p>
                 <p className="md:col-span-5 text-lg text-paper/85 leading-relaxed">{p.description}</p>
               </li>
             </AnimateOnScroll>

@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import crimeSpotsImage from "@/assets/project-crimespots.png";
+import capeTown from "@/assets/cape-town-network.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -16,44 +16,44 @@ const HeroSection = () => {
         };
 
   return (
-    <section id="top" className="field-paper pt-28 md:pt-36 pb-[clamp(5rem,9vw,8rem)]">
-      <div className="frame">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-end">
-          <motion.h1 {...rise(0)} className="display lg:col-span-8">
-            Smart systems, built&nbsp;right.
+    <section id="top" className="field-navy pt-28 md:pt-36 pb-[clamp(5rem,9vw,8rem)] overflow-hidden">
+      <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="lg:col-span-7">
+          <motion.p {...rise(0)} className="text-lg font-semibold text-cyan">
+            Systems built right.
+          </motion.p>
+          <motion.h1 {...rise(0.06)} className="mt-5 font-semibold text-[clamp(2.75rem,4.7vw,5.5rem)] leading-[1] tracking-[-0.035em]">
+            Technology.
+            <br />
+            <span className="text-green">Designed for Progress.</span>
           </motion.h1>
-          <div className="lg:col-span-4 lg:pb-3">
-            <motion.p {...rise(0.08)} className="lead max-w-[32ch]">
-              Sibrix designs and builds websites, automations, IoT and AI systems for South African
-              businesses, from first idea to running in production.
-            </motion.p>
-            <motion.div {...rise(0.16)} className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a href="#cta" className="btn-navy">
-                Start a project
-                <ArrowRight size={18} />
-              </a>
-              <a href="#projects" className="link-arrow">
-                See our work
-                <ArrowRight size={18} />
-              </a>
-            </motion.div>
-          </div>
+          <motion.p {...rise(0.12)} className="lead mt-8 max-w-[34ch] text-paper/90">
+            We design, develop and integrate technology solutions that turn real-world challenges into
+            opportunities.
+          </motion.p>
+          <motion.div {...rise(0.18)} className="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#cta" className="btn-green">
+              Discuss a project
+              <ArrowRight size={18} />
+            </a>
+            <a href="#services" className="btn-ghost-light">
+              Our services
+            </a>
+          </motion.div>
         </div>
 
-        <motion.figure {...rise(0.24)} className="mt-12 md:mt-16">
-          <div className="overflow-hidden bg-navy aspect-[4/3] md:aspect-[21/9]">
+        <motion.figure {...rise(0.24)} className="lg:col-span-5">
+          <div className="overflow-hidden aspect-[4/3] bg-navy-deep">
             <img
-              src={crimeSpotsImage}
-              alt="CrimeSpots live crime map of Cape Town, showing an incident feed, heatmap and area rankings"
-              className="w-full h-full object-cover object-left-top"
-              width={1440}
-              height={900}
+              src={capeTown}
+              alt="Cape Town and Table Mountain at dusk, with connected network lines over the city"
+              className="w-full h-full object-cover"
+              width={800}
+              height={450}
               fetchPriority="high"
             />
           </div>
-          <figcaption className="mt-3 text-base text-muted-foreground">
-            CrimeSpots: live crime intelligence for Cape Town, designed and built by Sibrix.
-          </figcaption>
+          <figcaption className="mt-3 text-base text-paper/70">Cape Town, South Africa</figcaption>
         </motion.figure>
       </div>
     </section>

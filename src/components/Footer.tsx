@@ -6,7 +6,6 @@ const links = [
   { label: "Services", href: "#services" },
   { label: "Packages", href: "#packages" },
   { label: "Retainer", href: "#retainer" },
-  { label: "Team", href: "#team" },
   { label: "Contact", href: "#cta" },
 ];
 
@@ -40,7 +39,7 @@ const Footer = () => (
 
     <p
       aria-hidden="true"
-      className="mt-6 text-gold font-semibold leading-[0.8] tracking-[-0.06em] text-center whitespace-nowrap select-none"
+      className="mt-6 text-green font-semibold leading-[0.8] tracking-[-0.06em] text-center whitespace-nowrap select-none"
       style={{ fontSize: "clamp(5rem, 30vw, 32rem)", marginBottom: "-0.04em" }}
     >
       Sibrix

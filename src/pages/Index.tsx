@@ -6,7 +6,6 @@ import AdditionalServices from "@/components/AdditionalServices";
 import PackagesSection from "@/components/PackagesSection";
 import ComparisonTable from "@/components/ComparisonTable";
 import RetainerSection from "@/components/RetainerSection";
-import TeamSection from "@/components/TeamSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -21,7 +20,6 @@ const Index = () => (
       <PackagesSection />
       <ComparisonTable />
       <RetainerSection />
-      <TeamSection />
       <CTASection />
     </main>
     <Footer />

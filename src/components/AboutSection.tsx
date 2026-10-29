@@ -62,7 +62,7 @@ const AboutSection = () => (
           </p>
         </AnimateOnScroll>
         <AnimateOnScroll delay={0.08} className="field-navy p-8 md:p-12 h-full">
-          <h3 className="text-2xl font-semibold tracking-tight text-gold">Our mission</h3>
+          <h3 className="text-2xl font-semibold tracking-tight text-green">Our mission</h3>
           <p className="mt-5 text-2xl md:text-[1.75rem] leading-snug tracking-tight">
             To deliver accessible, well-designed and forward-thinking technology solutions that address
             real challenges, support business growth and create lasting value for our clients and
@@ -103,8 +103,8 @@ const AboutSection = () => (
           </p>
         </AnimateOnScroll>
 
-        <AnimateOnScroll delay={0.08} className="lg:col-span-7 field-gold p-8 md:p-12 flex flex-col">
-          <h3 className="text-2xl font-semibold tracking-tight">Our brand promise</h3>
+        <AnimateOnScroll delay={0.08} className="lg:col-span-7 field-navy p-8 md:p-12 flex flex-col">
+          <h3 className="text-2xl font-semibold tracking-tight text-green">Our brand promise</h3>
           <p className="mt-4 text-5xl md:text-7xl font-semibold tracking-[-0.04em] leading-[0.95]">
             Systems built right.
           </p>
