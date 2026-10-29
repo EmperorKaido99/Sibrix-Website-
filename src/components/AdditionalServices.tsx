@@ -53,6 +53,40 @@ const groups = [
     ],
   },
   {
+    title: "IT infrastructure & support",
+    services: [
+      {
+        title: "Networking",
+        detail: "Office and site networks planned, installed and secured, so every device stays connected.",
+      },
+      {
+        title: "CCTV installations",
+        detail: "Camera systems installed and configured for homes, offices and business premises.",
+      },
+      {
+        title: "Installations & maintenance",
+        detail: "Hardware and system installations, with ongoing maintenance that keeps your IT running.",
+      },
+    ],
+  },
+  {
+    title: "Training & skills development",
+    services: [
+      {
+        title: "Digital skills training",
+        detail: "Practical training that builds your team's confidence with the tools and systems they use every day.",
+      },
+      {
+        title: "System handover & onboarding",
+        detail: "Hands-on onboarding for every system we deliver, so your people can run it from day one.",
+      },
+      {
+        title: "Technology awareness",
+        detail: "Workshops that make AI, IoT and new technology understandable and accessible.",
+      },
+    ],
+  },
+  {
     title: "Growth & care",
     services: [
       {
