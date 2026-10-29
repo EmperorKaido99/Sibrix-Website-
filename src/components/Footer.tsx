@@ -1,4 +1,4 @@
-import { Linkedin, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 const Footer = () => (
   <footer className="border-t border-border py-8 sm:py-12 bg-card">
@@ -22,15 +22,6 @@ const Footer = () => (
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-4">
-          <a
-            href="#"
-            aria-label="LinkedIn"
-            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
-          >
-            <Linkedin size={16} />
-          </a>
-        </div>
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
