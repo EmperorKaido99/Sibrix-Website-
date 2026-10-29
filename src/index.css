@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,55 +6,54 @@
 
 @layer base {
   :root {
-    --background: 40 30% 95%;
-    --foreground: 220 40% 13%;
+    /* Brand colours, taken from the Sibrix logo */
+    --navy: 222 42% 19%;        /* #1C2844 */
+    --navy-deep: 223 44% 13%;   /* tone step for the closing chapter */
+    --gold: 39 66% 65%;         /* #E0B96D */
+    --paper: 45 17% 95%;        /* page ground */
+    --paper-2: 44 12% 89%;      /* tone step between light sections */
 
-    --card: 40 25% 97%;
-    --card-foreground: 220 40% 13%;
+    --background: var(--paper);
+    --foreground: var(--navy);
+
+    --card: 0 0% 100%;
+    --card-foreground: var(--navy);
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 13%;
+    --popover-foreground: var(--navy);
 
-    --primary: 220 40% 20%;
-    --primary-foreground: 40 30% 95%;
+    --primary: var(--navy);
+    --primary-foreground: var(--paper);
 
-    --secondary: 220 35% 15%;
-    --secondary-foreground: 40 25% 92%;
+    --secondary: var(--navy-deep);
+    --secondary-foreground: var(--paper);
 
-    --muted: 40 15% 90%;
-    --muted-foreground: 220 15% 45%;
+    --muted: var(--paper-2);
+    --muted-foreground: 222 16% 36%;
 
-    --accent: 43 72% 50%;
-    --accent-foreground: 220 40% 10%;
+    --accent: var(--gold);
+    --accent-foreground: var(--navy);
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 46%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 40 15% 85%;
-    --input: 40 15% 85%;
-    --ring: 43 72% 50%;
+    --border: 44 10% 80%;
+    --input: 44 10% 78%;
+    --ring: var(--navy);
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
-    --gold: 43 72% 50%;
-    --gold-light: 43 80% 65%;
-    --gold-dark: 43 65% 38%;
-    --cream: 40 30% 95%;
-    --navy: 220 40% 20%;
-    --navy-light: 220 35% 28%;
-    --charcoal: 220 40% 13%;
+    --font-heading: 'Inter Tight', system-ui, sans-serif;
+    --font-body: 'Inter Tight', system-ui, sans-serif;
 
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-body: 'Inter', system-ui, sans-serif;
-
-    --sidebar-background: 220 40% 12%;
-    --sidebar-foreground: 40 25% 92%;
-    --sidebar-primary: 43 72% 50%;
-    --sidebar-primary-foreground: 220 40% 10%;
-    --sidebar-accent: 220 35% 18%;
-    --sidebar-accent-foreground: 40 25% 92%;
-    --sidebar-border: 220 30% 25%;
-    --sidebar-ring: 43 72% 50%;
+    --sidebar-background: var(--navy);
+    --sidebar-foreground: var(--paper);
+    --sidebar-primary: var(--gold);
+    --sidebar-primary-foreground: var(--navy);
+    --sidebar-accent: var(--navy-deep);
+    --sidebar-accent-foreground: var(--paper);
+    --sidebar-border: var(--navy-deep);
+    --sidebar-ring: var(--gold);
   }
 }
 
@@ -65,6 +64,8 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -72,14 +73,25 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    letter-spacing: -0.025em;
   }
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Reduce motion for users who prefer it */
+  :focus-visible {
+    outline: 2px solid hsl(var(--gold));
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: hsl(var(--gold));
+    color: hsl(var(--navy));
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -93,105 +105,64 @@
 }
 
 @layer components {
-  .gold-gradient {
-    background: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)), hsl(var(--gold-light)));
+  /* One frame for the whole page: equal tight margins, capped on very wide screens. */
+  .frame {
+    @apply mx-auto w-full;
+    max-width: 1680px;
+    padding-inline: clamp(1.25rem, 3vw, 3rem);
   }
 
-  .gold-text {
-    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .section {
+    padding-block: clamp(5rem, 11vw, 10rem);
   }
 
-  .gold-border {
-    border-color: hsl(var(--gold));
+  .display {
+    font-size: clamp(3rem, 7.4vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-weight: 600;
   }
 
-  .gold-glow {
-    box-shadow: 0 0 30px -5px hsl(var(--gold) / 0.15);
+  .heading-xl {
+    font-size: clamp(2.5rem, 5.6vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-weight: 600;
   }
 
-  .card-hover {
-    @apply transition-all duration-300;
-    will-change: transform;
-  }
-  .card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px -12px hsl(var(--navy) / 0.12);
+  .lead {
+    font-size: clamp(1.25rem, 1.7vw, 1.625rem);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
   }
 
-  /* Touch-friendly hover alternative */
-  @media (hover: none) {
-    .card-hover:hover {
-      transform: none;
-    }
-    .card-hover:active {
-      transform: scale(0.98);
-    }
-  }
+  .field-paper { background: hsl(var(--paper)); color: hsl(var(--navy)); }
+  .field-paper-2 { background: hsl(var(--paper-2)); color: hsl(var(--navy)); }
+  .field-navy { background: hsl(var(--navy)); color: hsl(var(--paper)); }
+  .field-navy-deep { background: hsl(var(--navy-deep)); color: hsl(var(--paper)); }
+  .field-gold { background: hsl(var(--gold)); color: hsl(var(--navy)); }
 
-  .hero-gradient {
-    background: radial-gradient(ellipse at 50% 0%, hsl(var(--gold) / 0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 50%, hsl(var(--gold) / 0.03) 0%, transparent 50%),
-                hsl(var(--background));
-  }
-
-  .dark-section {
-    background: hsl(var(--navy));
-    color: hsl(var(--cream));
-  }
-
-  .dark-section .text-muted-foreground {
-    color: hsl(40 15% 70%);
-  }
-
-  .btn-gold {
-    @apply px-6 sm:px-8 py-2.5 sm:py-3 rounded-md font-body font-semibold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300;
-    background: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)));
-    color: hsl(var(--navy));
+  /* Buttons: flat, one fill, square corners. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 font-body font-semibold text-base transition-colors duration-200;
     -webkit-tap-highlight-color: transparent;
   }
-  .btn-gold:hover {
-    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
-    box-shadow: 0 0 20px -5px hsl(var(--gold) / 0.4);
-    transform: translateY(-1px);
-  }
-  .btn-gold:active {
-    transform: translateY(0);
-  }
+  .btn:active { transform: translateY(1px); }
 
-  .btn-outline-gold {
-    @apply px-6 sm:px-8 py-2.5 sm:py-3 rounded-md font-body font-semibold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 border-2;
-    border-color: hsl(var(--gold));
-    color: hsl(var(--gold));
-    -webkit-tap-highlight-color: transparent;
-  }
-  .btn-outline-gold:hover {
-    background: hsl(var(--gold) / 0.1);
-    box-shadow: 0 0 16px -5px hsl(var(--gold) / 0.2);
-  }
-  .btn-outline-gold:active {
-    background: hsl(var(--gold) / 0.15);
-  }
+  .btn-navy { @apply btn; background: hsl(var(--navy)); color: hsl(var(--paper)); }
+  .btn-navy:hover { background: hsl(var(--navy-deep)); }
 
-  .pulse-glow {
-    animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
+  .btn-gold { @apply btn; background: hsl(var(--gold)); color: hsl(var(--navy)); }
+  .btn-gold:hover { background: hsl(39 66% 58%); }
 
-  @keyframes pulseGlow {
-    0%, 100% {
-      box-shadow: 0 0 16px -5px hsl(var(--gold) / 0.3);
-    }
-    50% {
-      box-shadow: 0 0 32px -5px hsl(var(--gold) / 0.5);
-    }
-  }
+  .btn-paper { @apply btn; background: hsl(var(--paper)); color: hsl(var(--navy)); }
+  .btn-paper:hover { background: hsl(0 0% 100%); }
 
-  .table-row-hover {
-    @apply transition-colors duration-200;
+  /* Plain text link with an arrow that moves on hover. */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 font-semibold underline-offset-4;
   }
-  .table-row-hover:hover {
-    background: hsl(var(--gold) / 0.06);
-  }
+  .link-arrow:hover { text-decoration: underline; }
+  .link-arrow svg { transition: transform 200ms ease; }
+  .link-arrow:hover svg { transform: translateX(3px); }
 }

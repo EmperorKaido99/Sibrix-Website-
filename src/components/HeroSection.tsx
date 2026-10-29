@@ -1,113 +1,63 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Bot, Cloud, Globe, Cpu } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import crimeSpotsImage from "@/assets/project-crimespots.png";
 
-const capabilities = [
-  {
-    icon: Globe,
-    title: "Web Platforms",
-    description: "Business websites, e-commerce stores and customer portals.",
-  },
-  {
-    icon: Bot,
-    title: "AI & Automation",
-    description: "Chatbots, workflow automation and AI-driven insights.",
-  },
-  {
-    icon: Cpu,
-    title: "IoT Systems",
-    description: "Connected devices, sensors and real-time monitoring.",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & Integrations",
-    description: "Secure hosting, APIs and links to the tools you already use.",
-  },
-];
+const ease = [0.22, 1, 0.36, 1] as const;
 
-const stats = [
-  { value: "150+", label: "Projects delivered" },
-  { value: "98%", label: "Client satisfaction" },
-  { value: "24/7", label: "Support" },
-];
+const HeroSection = () => {
+  const reduce = useReducedMotion();
+  const rise = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 24 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.7, delay, ease },
+        };
 
-const HeroSection = () => (
-  <section className="relative bg-background border-b border-border">
-    <div className="container mx-auto px-4 sm:px-6 pt-32 sm:pt-36 lg:pt-44 pb-16 lg:pb-24">
-      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* Left column: text */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="lg:col-span-7"
-        >
-          <p className="font-body text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-6">
-            Software &amp; Systems Engineering
-          </p>
-
-          <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 text-foreground">
-            Smart systems,
-            <br />
-            built right.
-          </h1>
-
-          <p className="font-body text-base sm:text-lg max-w-xl mb-10 leading-relaxed text-muted-foreground">
-            We design and build websites, business automations, IoT solutions and AI-driven
-            systems that help organisations work smarter and scale with confidence.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <a href="#cta" className="btn-gold inline-flex items-center justify-center gap-2">
-              Start a Project
-              <ArrowRight size={16} />
-            </a>
-            <a href="#packages" className="btn-outline-gold inline-flex items-center justify-center">
-              View Services
-            </a>
+  return (
+    <section id="top" className="field-paper pt-28 md:pt-36 pb-[clamp(5rem,9vw,8rem)]">
+      <div className="frame">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-end">
+          <motion.h1 {...rise(0)} className="display lg:col-span-8">
+            Smart systems, built&nbsp;right.
+          </motion.h1>
+          <div className="lg:col-span-4 lg:pb-3">
+            <motion.p {...rise(0.08)} className="lead max-w-[32ch]">
+              Sibrix designs and builds websites, automations, IoT and AI systems for South African
+              businesses, from first idea to running in production.
+            </motion.p>
+            <motion.div {...rise(0.16)} className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a href="#cta" className="btn-navy">
+                Start a project
+                <ArrowRight size={18} />
+              </a>
+              <a href="#projects" className="link-arrow">
+                See our work
+                <ArrowRight size={18} />
+              </a>
+            </motion.div>
           </div>
+        </div>
 
-          <dl className="mt-12 pt-8 border-t border-border grid grid-cols-3 gap-4 max-w-md">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-heading text-2xl sm:text-3xl font-bold text-foreground">{s.value}</dd>
-                <dd className="font-body text-xs text-muted-foreground mt-1">{s.label}</dd>
-              </div>
-            ))}
-          </dl>
-        </motion.div>
-
-        {/* Right column: capabilities */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-          className="lg:col-span-5"
-        >
-          <div className="rounded-xl border border-border bg-card shadow-sm">
-            <div className="px-6 py-4 border-b border-border">
-              <p className="font-body text-xs font-semibold tracking-[0.15em] uppercase text-muted-foreground">
-                What we deliver
-              </p>
-            </div>
-            <ul className="divide-y divide-border">
-              {capabilities.map(({ icon: Icon, title, description }) => (
-                <li key={title} className="flex items-start gap-4 px-6 py-5">
-                  <div className="shrink-0 w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                    <Icon size={18} className="text-accent" strokeWidth={1.75} />
-                  </div>
-                  <div>
-                    <p className="font-body font-semibold text-sm text-foreground">{title}</p>
-                    <p className="font-body text-sm text-muted-foreground mt-0.5 leading-relaxed">{description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        <motion.figure {...rise(0.24)} className="mt-12 md:mt-16">
+          <div className="overflow-hidden bg-navy aspect-[4/3] md:aspect-[21/9]">
+            <img
+              src={crimeSpotsImage}
+              alt="CrimeSpots live crime map of Cape Town, showing an incident feed, heatmap and area rankings"
+              className="w-full h-full object-cover object-left-top"
+              width={1440}
+              height={900}
+              fetchPriority="high"
+            />
           </div>
-        </motion.div>
+          <figcaption className="mt-3 text-base text-muted-foreground">
+            CrimeSpots: live crime intelligence for Cape Town, designed and built by Sibrix.
+          </figcaption>
+        </motion.figure>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default HeroSection;

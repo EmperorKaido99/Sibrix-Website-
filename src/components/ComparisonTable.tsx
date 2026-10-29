@@ -51,47 +51,44 @@ const tiers = [
 ] as const;
 
 const Cell = ({ included, featured }: { included: boolean; featured?: boolean }) => (
-  <td className={`py-3.5 px-2 sm:px-4 text-center ${featured ? "bg-accent/[0.06]" : ""}`}>
+  <td className={`py-4 px-2 sm:px-4 text-center ${featured ? "bg-gold/15" : ""}`}>
     {included ? (
-      <Check size={18} className="text-accent mx-auto" aria-label="Included" />
+      <Check size={20} strokeWidth={2.25} className="text-navy mx-auto" aria-label="Included" />
     ) : (
-      <Minus size={16} className="text-muted-foreground/40 mx-auto" aria-label="Not included" />
+      <Minus size={16} className="text-navy/30 mx-auto" aria-label="Not included" />
     )}
   </td>
 );
 
 const ComparisonTable = () => (
-  <section id="comparison" className="py-20 md:py-28 dark-section">
-    <div className="container mx-auto px-4 sm:px-6">
-      <AnimateOnScroll className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
-        <p className="font-body text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4">Compare</p>
-        <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[hsl(40,30%,95%)]">
-          Compare packages
-        </h2>
-        <p className="font-body text-base sm:text-lg leading-relaxed text-[hsl(40,15%,70%)]">
-          See exactly what is included at each level.
+  <section id="comparison" className="field-navy section">
+    <div className="frame">
+      <AnimateOnScroll className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end mb-12 md:mb-16">
+        <h2 className="heading-xl lg:col-span-7">Compare packages</h2>
+        <p className="lead lg:col-span-5 text-paper/80 max-w-[34ch]">
+          Everything included at each level, side by side.
         </p>
       </AnimateOnScroll>
 
       <AnimateOnScroll delay={0.1}>
-        <div className="max-w-5xl mx-auto rounded-xl bg-card text-card-foreground shadow-xl overflow-hidden">
+        <div className="bg-paper text-navy overflow-hidden">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-border">
-                <th scope="col" className="text-left py-4 sm:py-5 pl-4 sm:pl-6 pr-2 font-body text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+                <th scope="col" className="text-left py-5 sm:py-6 pl-4 sm:pl-8 pr-2 text-base font-semibold">
                   Feature
                 </th>
                 {tiers.map((t) => (
                   <th
                     key={t.key}
                     scope="col"
-                    className={`w-[18%] sm:w-[16%] py-4 sm:py-5 px-2 sm:px-4 text-center font-body text-xs sm:text-sm font-semibold ${
-                      "featured" in t ? "bg-accent/[0.06] text-foreground" : "text-foreground"
+                    className={`w-[18%] sm:w-[15%] py-5 sm:py-6 px-2 sm:px-4 text-center text-sm sm:text-lg font-semibold ${
+                      "featured" in t ? "bg-gold" : ""
                     }`}
                   >
                     {t.label}
                     {"featured" in t && (
-                      <span className="hidden sm:block mt-1 font-normal text-[11px] text-accent">Most popular</span>
+                      <span className="hidden sm:block mt-0.5 font-normal text-sm">Most popular</span>
                     )}
                   </th>
                 ))}
@@ -99,20 +96,20 @@ const ComparisonTable = () => (
             </thead>
             {groups.map((g) => (
               <tbody key={g.title}>
-                <tr className="bg-muted/60">
+                <tr className="bg-paper-2">
                   <th
                     scope="colgroup"
                     colSpan={4}
-                    className="text-left py-2.5 px-4 sm:px-6 font-body text-xs font-semibold uppercase tracking-[0.15em] text-foreground/70"
+                    className="text-left py-3 px-4 sm:px-8 text-base font-semibold"
                   >
                     {g.title}
                   </th>
                 </tr>
                 {g.features.map((f) => (
                   <tr key={f.name} className="border-t border-border first:border-t-0">
-                    <th scope="row" className="text-left font-normal py-3.5 pl-4 sm:pl-6 pr-2">
-                      <span className="block font-body text-sm text-foreground">{f.name}</span>
-                      <span className="hidden md:block font-body text-xs text-muted-foreground mt-0.5">{f.tip}</span>
+                    <th scope="row" className="text-left font-normal py-4 pl-4 sm:pl-8 pr-2">
+                      <span className="block text-base font-medium">{f.name}</span>
+                      <span className="hidden md:block text-sm text-navy/70 mt-0.5">{f.tip}</span>
                     </th>
                     <Cell included={f.starter} />
                     <Cell included={f.business} featured />
