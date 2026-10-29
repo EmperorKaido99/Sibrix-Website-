@@ -14,10 +14,10 @@ const CTASection = () => (
             <dt className="text-base text-paper/70">Email</dt>
             <dd>
               <a
-                href="mailto:sibusisogoodwill871@gmail.com"
-                className="text-xl md:text-2xl font-semibold break-all hover:underline underline-offset-4"
+                href="mailto:info@sibrixgroup.co.za"
+                className="text-xl md:text-2xl font-semibold hover:underline underline-offset-4"
               >
-                sibusisogoodwill871@gmail.com
+                info@sibrixgroup.co.za
               </a>
             </dd>
           </div>

@@ -1,4 +1,4 @@
-const OWNER_EMAIL = "sibusisogoodwill871@gmail.com";
+const OWNER_EMAIL = "info@sibrixgroup.co.za";
 
 // Note: Resend requires a backend server to send emails securely.
 // For now, we'll log the email content and store in database.

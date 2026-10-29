@@ -26,7 +26,7 @@ npm run build
 
 ## Contact
 
-- **Email:** sibusisogoodwill871@gmail.com
+- **Email:** info@sibrixgroup.co.za
 - **Phone:** 066 404 0070
 
 © 2026 Sibrix. All rights reserved.
