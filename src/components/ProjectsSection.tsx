@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
-import crimeSpotsImage from "@/assets/project-crimespots.png";
+import crimeSpotsImage from "@/assets/project-crimespots.webp";
 
 const featured = {
   title: "CrimeSpots",

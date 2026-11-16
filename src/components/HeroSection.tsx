@@ -50,7 +50,7 @@ const HeroSection = () => {
               className="w-full h-full object-cover"
               width={800}
               height={450}
-              fetchPriority="high"
+              {...{ fetchpriority: "high" }}
             />
           </div>
           <figcaption className="mt-3 text-base text-paper/70">Cape Town, South Africa</figcaption>
