@@ -5,6 +5,21 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-16 — SEO foundations (part 1)
+
+**Author:** Sibusiso (GitHub: Cibucico), with Claude Code. **Visible change:** none.
+
+- `index.html`: `lang="en-ZA"`, canonical URL, robots meta, `og:url`/`og:site_name`/`og:locale`, Twitter title/description;
+  removed `twitter:site="@Sibrix"` (handle not verified as ours).
+- Added JSON-LD structured data: `ProfessionalService` (name, Cape Town address, phone, email, services catalogue) + `WebSite`.
+- `public/robots.txt` simplified and now points to the new `public/sitemap.xml`.
+- **Assumes the live domain is `https://sibrixgroup.co.za/`.** On 2026-11-16 that domain returned HTTP 503, so check it is attached in Vercel → Domains.
+
+**Still to do (SEO part 2):** pre-render the page to static HTML at build time (content is currently JS-only), a 1200×630 `og:image`,
+self-host the Inter Tight font instead of the render-blocking Google Fonts `@import`, and submit the sitemap in Google Search Console.
+
+---
+
 ## 2026-11-16 — Security & health clean-up
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code
