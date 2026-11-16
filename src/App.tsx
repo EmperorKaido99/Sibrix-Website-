@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MotionConfig } from "framer-motion";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -9,23 +10,33 @@ import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <MotionConfig reducedMotion="user">
+// Providers shared by the browser (main.tsx) and the build-time pre-render (entry-server.tsx).
+// Each side supplies its own router: BrowserRouter in the browser, StaticRouter at build time.
+export const AppShell = ({ children }: { children: ReactNode }) => (
+  <QueryClientProvider client={queryClient}>
+    <MotionConfig reducedMotion="user">
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        {children}
       </TooltipProvider>
-      </MotionConfig>
-    </QueryClientProvider>
-  );
-};
+    </MotionConfig>
+  </QueryClientProvider>
+);
+
+export const AppRoutes = () => (
+  <Routes>
+    <Route path="/" element={<Index />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+);
+
+const App = () => (
+  <AppShell>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  </AppShell>
+);
 
 export default App;

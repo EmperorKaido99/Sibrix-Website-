@@ -5,6 +5,25 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — SEO part 2: pre-rendering, share image, self-hosted font
+
+**Author:** Sibusiso (GitHub: Cibucico), with Claude Code. **Visible change:** none (same design; text is now in the HTML).
+
+- **Build-time pre-rendering.** `npm run build` now runs three steps: the normal Vite build, an SSR build of
+  `src/entry-server.tsx`, then `scripts/prerender.mjs`, which renders `/` to HTML and injects it into `dist/index.html`.
+  Crawlers, AI search and link previews now see the full page text without running JavaScript.
+  - `src/App.tsx` now exports `AppShell` (providers) and `AppRoutes`; the browser uses `BrowserRouter`, the pre-render uses `StaticRouter`.
+  - `src/main.tsx` hydrates the pre-rendered HTML (`hydrateRoot`) and falls back to `createRoot` in dev.
+  - **Rule:** components must not touch `window`, `document` or `localStorage` while rendering (only inside `useEffect`/handlers),
+    or the build will fail. `supabase/client.ts` was made SSR-safe for this reason.
+  - `vite.config.ts`: `manualChunks` only applies to the client build (`isSsrBuild`).
+  - **Vercel:** the project must use the default build command (`npm run build`). If it is overridden to `vite build`, pre-rendering is skipped.
+- **Share image:** `public/og-image.jpg` (1200×630) plus `og:image*` and `twitter:image` tags.
+- **Font:** Inter Tight is self-hosted via `@fontsource/inter-tight` (Latin, weights 400–700) instead of the render-blocking Google Fonts `@import`.
+- Checked: `tsc` clean, lint 0 errors, build OK, page loads with JS on and off, hydration has no console warnings, nav links work.
+
+---
+
 ## 2026-11-16 — SEO foundations (part 1)
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code. **Visible change:** none.
@@ -15,8 +34,7 @@ Written for both people and AI coding assistants working on this repo — read t
 - `public/robots.txt` simplified and now points to the new `public/sitemap.xml`.
 - **Assumes the live domain is `https://sibrixgroup.co.za/`.** On 2026-11-16 that domain returned HTTP 503, so check it is attached in Vercel → Domains.
 
-**Still to do (SEO part 2):** pre-render the page to static HTML at build time (content is currently JS-only), a 1200×630 `og:image`,
-self-host the Inter Tight font instead of the render-blocking Google Fonts `@import`, and submit the sitemap in Google Search Console.
+**Still to do:** submit `https://sibrixgroup.co.za/sitemap.xml` in Google Search Console once the domain is live.
 
 ---
 
