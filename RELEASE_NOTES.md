@@ -5,6 +5,16 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Founder card redesigned (branch `automation-led`)
+
+- `TeamSection` now renders a wide founder card when there is one team member (two panels: navy identity panel with a large green
+  initials tile, name, role and LinkedIn; light panel with a personal line and credentials). With more members it switches to a grid.
+- Sibusiso Skhosana: line in his own words, "I solve problems and make life easier for myself.", **Education** (BSc Honours and BSc,
+  University of the Western Cape) and current **Certifications** (Microsoft AI Business Professional, Azure Fundamentals, Automation
+  Anywhere RPA Essentials). No bio paragraph, by request. `src/data/team.ts` fields: `quote`, `education`, `certifications`.
+
+---
+
 ## 2026-11-17 — "Meet the team" on About (branch `automation-led`)
 
 - New `TeamSection` (About page, after the company story), data in `src/data/team.ts`. No photos: each person gets a navy initials tile
