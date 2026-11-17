@@ -1,29 +1,36 @@
-import Navbar from "@/components/Navbar";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import AdditionalServices from "@/components/AdditionalServices";
-import PackagesSection from "@/components/PackagesSection";
-import ComparisonTable from "@/components/ComparisonTable";
-import RetainerSection from "@/components/RetainerSection";
+import HomeOverview from "@/components/HomeOverview";
 import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
 
-const Index = () => (
-  <div className="min-h-screen bg-background">
-    <Navbar />
-    <main>
+// Links from the old single-page site (e.g. sibrixgroup.co.za/#services) open the matching page.
+const LEGACY_HASHES: Record<string, string> = {
+  "#about": "/about",
+  "#projects": "/work",
+  "#services": "/services",
+  "#packages": "/packages",
+  "#comparison": "/packages",
+  "#retainer": "/packages",
+  "#cta": "/contact",
+};
+
+const Index = () => {
+  const { hash } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const to = LEGACY_HASHES[hash];
+    if (to) navigate(to, { replace: true });
+  }, [hash, navigate]);
+
+  return (
+    <>
       <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <AdditionalServices />
-      <PackagesSection />
-      <ComparisonTable />
-      <RetainerSection />
+      <HomeOverview />
       <CTASection />
-    </main>
-    <Footer />
-  </div>
-);
+    </>
+  );
+};
 
 export default Index;

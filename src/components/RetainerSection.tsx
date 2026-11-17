@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 
@@ -16,10 +17,10 @@ const RetainerSection = () => (
         <p className="lead mt-6 max-w-[30ch]">
           Keep your website and systems improving after launch, with a team that already knows them.
         </p>
-        <a href="#cta" className="btn-navy mt-10">
+        <Link to="/contact" className="btn-navy mt-10">
           Ask about a retainer
           <ArrowRight size={18} />
-        </a>
+        </Link>
       </AnimateOnScroll>
 
       <dl className="lg:col-span-6 lg:col-start-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10 lg:pt-3">

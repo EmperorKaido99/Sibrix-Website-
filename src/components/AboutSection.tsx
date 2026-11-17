@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 
@@ -132,10 +133,10 @@ const AboutSection = () => (
         </div>
         <div className="lg:col-span-5 lg:justify-self-end">
           <p className="text-xl font-semibold tracking-tight">Let's build something meaningful together.</p>
-          <a href="#cta" className="btn-navy mt-5">
+          <Link to="/contact" className="btn-navy mt-5">
             Get in touch
             <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </AnimateOnScroll>
     </div>

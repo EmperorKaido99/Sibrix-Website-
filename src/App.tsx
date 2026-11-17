@@ -5,7 +5,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import SiteLayout from "@/components/SiteLayout";
 import Index from "./pages/Index.tsx";
+import { AboutPage, ContactPage, PackagesPage, ServicesPage, WorkPage } from "./pages/SitePages.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,8 +28,15 @@ export const AppShell = ({ children }: { children: ReactNode }) => (
 
 export const AppRoutes = () => (
   <Routes>
-    <Route path="/" element={<Index />} />
-    <Route path="*" element={<NotFound />} />
+    <Route element={<SiteLayout />}>
+      <Route path="/" element={<Index />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/work" element={<WorkPage />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/packages" element={<PackagesPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="*" element={<NotFound />} />
+    </Route>
   </Routes>
 );
 

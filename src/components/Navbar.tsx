@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import sibrixLogo from "@/assets/sibrix-group-logo.png";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Packages", href: "#packages" },
-  { label: "Contact", href: "#cta" },
+  { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Packages", href: "/packages" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -25,23 +26,27 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-navy text-paper">
       <nav className="frame flex items-center justify-between h-16 md:h-20" aria-label="Main">
-        <a href="#top" className="flex items-center" aria-label="Sibrix Group home">
+        <Link to="/" className="flex items-center" aria-label="Sibrix Group home">
           <img src={sibrixLogo} alt="Sibrix Group (Pty) Ltd" className="h-9 md:h-11 w-auto" width={755} height={169} />
-        </a>
+        </Link>
 
         <div className="hidden lg:flex items-center gap-8 xl:gap-10">
           {links.map((l) => (
-            <a
+            <NavLink
               key={l.href}
-              href={l.href}
-              className="text-base font-medium text-paper/85 hover:text-paper hover:underline underline-offset-4"
+              to={l.href}
+              className={({ isActive }) =>
+                `text-base font-medium underline-offset-4 hover:text-paper hover:underline ${
+                  isActive ? "text-paper underline decoration-green decoration-2" : "text-paper/85"
+                }`
+              }
             >
               {l.label}
-            </a>
+            </NavLink>
           ))}
-          <a href="#cta" className="btn-green py-3">
+          <Link to="/contact" className="btn-green py-3">
             Discuss a project
-          </a>
+          </Link>
         </div>
 
         <button
@@ -58,18 +63,18 @@ const Navbar = () => {
         <div className="lg:hidden field-navy border-t border-paper/10">
           <div className="frame flex flex-col py-6">
             {links.map((l) => (
-              <a
+              <NavLink
                 key={l.href}
-                href={l.href}
+                to={l.href}
                 onClick={() => setMobileOpen(false)}
-                className="py-3 text-2xl font-semibold tracking-tight"
+                className={({ isActive }) => `py-3 text-2xl font-semibold tracking-tight ${isActive ? "text-green" : ""}`}
               >
                 {l.label}
-              </a>
+              </NavLink>
             ))}
-            <a href="#cta" onClick={() => setMobileOpen(false)} className="btn-green mt-6">
+            <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-green mt-6">
               Discuss a project
-            </a>
+            </Link>
           </div>
         </div>
       )}

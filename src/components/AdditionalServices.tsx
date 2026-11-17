@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const groups = [
@@ -114,9 +115,9 @@ const AdditionalServices = () => (
           <p className="lead mt-6 max-w-[28ch]">
             One team for the whole system: the website your customers see and the automation behind it.
           </p>
-          <a href="#cta" className="btn-navy mt-10">
+          <Link to="/contact" className="btn-navy mt-10">
             Discuss your project
-          </a>
+          </Link>
         </div>
       </AnimateOnScroll>
 

@@ -1,19 +1,20 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import capeTown from "@/assets/cape-town-network.jpg";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+// Same props on the server and in the browser so the pre-rendered HTML hydrates cleanly.
+// Reduced motion is handled globally by <MotionConfig reducedMotion="user"> in App.tsx,
+// which drops the movement and keeps only the fade.
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, delay, ease },
+});
+
 const HeroSection = () => {
-  const reduce = useReducedMotion();
-  const rise = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 24 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.7, delay, ease },
-        };
 
   return (
     <section id="top" className="field-navy pt-28 md:pt-36 pb-[clamp(5rem,9vw,8rem)] overflow-hidden">
@@ -32,13 +33,13 @@ const HeroSection = () => {
             opportunities.
           </motion.p>
           <motion.div {...rise(0.18)} className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#cta" className="btn-green">
+            <Link to="/contact" className="btn-green">
               Discuss a project
               <ArrowRight size={18} />
-            </a>
-            <a href="#services" className="btn-ghost-light">
+            </Link>
+            <Link to="/services" className="btn-ghost-light">
               Our services
-            </a>
+            </Link>
           </motion.div>
         </div>
 

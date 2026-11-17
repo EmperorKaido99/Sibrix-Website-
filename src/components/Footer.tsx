@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Packages", href: "#packages" },
-  { label: "Retainer", href: "#retainer" },
-  { label: "Contact", href: "#cta" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Packages", href: "/packages" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Footer = () => (
@@ -15,9 +16,9 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
         <nav className="md:col-span-5 flex flex-wrap gap-x-8 gap-y-3" aria-label="Footer">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-lg font-medium hover:underline underline-offset-4">
+            <Link key={l.href} to={l.href} className="text-lg font-medium hover:underline underline-offset-4">
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="md:col-span-3 flex flex-col gap-3 text-base">

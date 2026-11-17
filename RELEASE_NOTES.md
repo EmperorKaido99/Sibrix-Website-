@@ -5,6 +5,24 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Split the one-page site into pages (branch `multi-page`)
+
+**Author:** Sibusiso (GitHub: Cibucico), with Claude Code. **Design:** unchanged; the existing sections were moved onto separate pages.
+
+- Routes: `/` (hero + four signpost tiles + contact), `/about`, `/work`, `/services`, `/packages` (packages, comparison, retainer), `/contact`.
+  Every page except Contact ends with the existing contact section. Shared frame: `src/components/SiteLayout.tsx`.
+- New files: `src/seo/pages.ts` (title + description per page, single source of truth), `src/pages/SitePages.tsx`, `src/components/HomeOverview.tsx`.
+- All `#cta` / `#services` style anchors are now router links; the navbar highlights the current page.
+- Old links like `/#services`, `/#packages`, `/#cta` redirect to the matching page (see `LEGACY_HASHES` in `src/pages/Index.tsx`).
+- Pre-render now writes one HTML file per page (`dist/about.html` ...) with its own title, description, canonical and OG tags,
+  plus `dist/404.html` (noindex). `vercel.json` adds `"cleanUrls": true` so `/about` serves `about.html`.
+- `sitemap.xml` lists all six pages.
+- Fix: `HeroSection` no longer branches on `useReducedMotion()`; that made the pre-rendered hero stay invisible for reduced-motion visitors.
+  **Rule:** never render different markup on server vs browser (no `useReducedMotion`, `window` checks, dates) during render.
+- Checked: tsc clean, lint 0 errors, build OK, all 6 pages hydrate with no console errors (motion on and reduced), nav, CTA and old-link redirects work, no mobile overflow.
+
+---
+
 ## 2026-11-17 — SEO part 2: pre-rendering, share image, self-hosted font
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code. **Visible change:** none (same design; text is now in the HTML).

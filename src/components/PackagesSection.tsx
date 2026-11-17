@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
@@ -130,10 +131,10 @@ const PackageModal = ({ pkg, open, onOpenChange }: { pkg: Package; open: boolean
         </div>
       )}
 
-      <a href="#cta" onClick={() => onOpenChange(false)} className="btn-navy w-full mt-2">
+      <Link to="/contact" onClick={() => onOpenChange(false)} className="btn-navy w-full mt-2">
         Request a Quote
         <ArrowRight size={16} />
-      </a>
+      </Link>
     </DialogContent>
   </Dialog>
 );
@@ -189,12 +190,12 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
           </div>
 
           <div className="space-y-3">
-            <a
-              href="#cta"
+            <Link
+              to="/contact"
               className={`${featured ? "btn-green" : "btn-navy"} w-full`}
             >
               Request a Quote
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setModalOpen(true)}
