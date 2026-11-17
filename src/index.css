@@ -107,6 +107,30 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+   PALETTE LAB (preview branch only): same brand family, three refinements.
+   Switch with the panel bottom-left or ?palette=a|b|c. Remove before going live
+   and copy the chosen values into :root above.
+   --------------------------------------------------------------------------- */
+html[data-palette="a"] { /* Refined: softer neon, off-white paper, cleaner mist */
+  --navy: 215 62% 11%; --navy-deep: 217 66% 6%;
+  --green: 158 82% 43%; --cyan: 190 82% 44%; --blue: 198 80% 36%;
+  --paper: 210 40% 99%; --paper-2: 210 30% 95%;
+  --border: 210 22% 86%; --input: 210 20% 80%; --muted-foreground: 213 18% 36%;
+}
+html[data-palette="b"] { /* Ocean: bluer navy, brighter aqua mist, vivid green */
+  --navy: 219 58% 14%; --navy-deep: 221 62% 8%;
+  --green: 163 88% 44%; --cyan: 195 88% 47%; --blue: 205 80% 40%;
+  --paper: 200 33% 99%; --paper-2: 197 33% 93%;
+  --border: 197 22% 84%; --input: 197 20% 78%; --muted-foreground: 210 20% 34%;
+}
+html[data-palette="c"] { /* Teal night: navy leaning teal, calmer green, mint paper */
+  --navy: 198 64% 10%; --navy-deep: 200 70% 6%;
+  --green: 154 78% 45%; --cyan: 180 70% 42%; --blue: 190 70% 34%;
+  --paper: 150 25% 99%; --paper-2: 155 20% 94%;
+  --border: 155 14% 85%; --input: 155 12% 79%; --muted-foreground: 190 16% 34%;
+}
+
 @layer components {
   /* One frame for the whole page: equal tight margins, capped on very wide screens. */
   .frame {

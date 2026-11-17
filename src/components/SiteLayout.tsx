@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PaletteLab from "@/components/PaletteLab";
 import { metaFor, urlFor } from "@/seo/pages";
 
 const setAttr = (selector: string, attr: string, value: string) => {
@@ -36,6 +37,7 @@ const SiteLayout = () => {
       </main>
       <Footer />
       <WhatsAppButton />
+      <PaletteLab />
     </div>
   );
 };
