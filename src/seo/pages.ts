@@ -1,6 +1,6 @@
 // One entry per page: used by the browser (document title/description) and by
 // scripts/prerender.mjs (static HTML per route). Keep paths in sync with AppRoutes in App.tsx.
-export const SITE_URL = "https://sibrixgroup.co.za";
+export const SITE_URL = "https://www.sibrixgroup.co.za";
 
 export interface PageMeta {
   path: string;
@@ -23,13 +23,13 @@ export const PAGES: PageMeta[] = [
   },
   {
     path: "/work",
-    title: "Our work: CrimeSpots and products in development | Sibrix Group",
+    title: "Our work: CrimeSpots and more | Sibrix Group",
     description:
       "Products Sibrix Group designs, builds and runs, including CrimeSpots, real-time AI crime intelligence for Cape Town.",
   },
   {
     path: "/work/crimespots",
-    title: "CrimeSpots case study: AI crime intelligence for Cape Town | Sibrix Group",
+    title: "CrimeSpots case study: AI crime map | Sibrix Group",
     description:
       "How Sibrix designed and built CrimeSpots: AI that turns news reports into verified incidents on a live map of Cape Town, with area rankings and alerts.",
   },

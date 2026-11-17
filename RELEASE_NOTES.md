@@ -5,6 +5,25 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — SEO and speed fixes after the multi-page launch
+
+**Found on the live site:** Vercel serves `https://www.sibrixgroup.co.za` and 308-redirects the bare domain to it, but every canonical,
+`og:url`, the sitemap, `robots.txt` and the JSON-LD pointed at the bare domain (a redirecting URL). Slow-phone LCP was 3.3 s to 3.8 s (target under 2.5 s).
+
+- **Canonical host is now `https://www.sibrixgroup.co.za`** in `src/seo/pages.ts` (`SITE_URL`), `index.html`, `public/robots.txt`, `public/sitemap.xml`.
+  If the Vercel primary domain is ever switched to the bare domain, change these back together.
+- **Titles under ~60 characters:** Work and the CrimeSpots case study were being truncated in Google.
+- **Entrance animations moved from framer-motion to CSS** (`.anim-rise`, `.anim-settle`, `.word-rise` in `src/index.css`) in `HeroSection` and `PageIntro`,
+  so headlines show at first paint instead of after JavaScript loads. Reduced motion: no animation.
+- **Fonts:** `scripts/prerender.mjs` adds `<link rel="preload">` for Inter Tight 400 and 600 to every page (removes the font-swap layout shift).
+- **Images:** hero photo JPEG 112 KB → WebP 62 KB; navbar logo PNG 80 KB (755px) → WebP 14 KB (400px).
+- **Video:** `DemoVideo` no longer autoplays on load; the poster and MP4 load only as the video nears the viewport (saves about 320 KB on Home).
+- **Measured** with `node scripts/measure-lcp.mjs <url> [paths]` (390px phone, 4x CPU, about 1.6 Mbps, 150 ms latency, median of 3; on Git Bash prefix `MSYS_NO_PATHCONV=1`):
+  Home 3.27 → 2.84 s, Packages 3.83 → 3.22 s, Work 3.38 → 2.80 s; CLS 0.000 on all.
+- Checked: tsc clean, lint 0 errors, test + build OK, all 8 pages one h1 and no console errors (motion on and reduced), video lazy-loads and plays, no mobile overflow.
+
+---
+
 ## 2026-11-17 — New phone number: (+27) 60 960 9830
 
 - Replaces 066 404 0070 everywhere: `src/lib/contact.ts` (display, `tel:` link and WhatsApp), the JSON-LD `telephone` in `index.html`,

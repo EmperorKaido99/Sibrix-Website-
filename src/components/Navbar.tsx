@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ThemeMenu, ThemeSwatches } from "@/components/ThemePicker";
 import { Menu, X } from "lucide-react";
-import sibrixLogo from "@/assets/sibrix-group-logo.png";
+import sibrixLogo from "@/assets/sibrix-group-logo.webp";
 
 const links = [
   { label: "About", href: "/about" },
@@ -28,7 +28,7 @@ const Navbar = () => {
     <header className="fixed top-0 inset-x-0 z-50 bg-navy text-paper">
       <nav className="frame flex items-center justify-between h-16 md:h-20" aria-label="Main">
         <Link to="/" className="flex items-center" aria-label="Sibrix Group home">
-          <img src={sibrixLogo} alt="Sibrix Group (Pty) Ltd" className="h-9 md:h-11 w-auto" width={755} height={169} />
+          <img src={sibrixLogo} alt="Sibrix Group (Pty) Ltd" className="h-9 md:h-11 w-auto" width={400} height={90} />
         </Link>
 
         <div className="hidden lg:flex items-center gap-8 xl:gap-10">

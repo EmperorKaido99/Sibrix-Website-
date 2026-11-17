@@ -234,6 +234,18 @@ html[data-theme="teal"] { /* Teal night: navy leaning teal, calmer green, mint p
     .tw-char::after { display: none; }
   }
 
+  /* Entrance animations in CSS so headlines appear at first paint, before JavaScript
+     loads (they are usually the Largest Contentful Paint). --d = delay, --i = word index. */
+  .anim-rise { animation: rise-in 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms) both; }
+  .anim-settle { animation: settle-in 1600ms cubic-bezier(0.22, 1, 0.36, 1) 240ms both; }
+  .word-rise > span { animation: word-up 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(100ms + var(--i, 0) * 80ms) both; }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(24px); } }
+  @keyframes settle-in { from { transform: scale(1.12); } }
+  @keyframes word-up { from { transform: translateY(105%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-rise, .anim-settle, .word-rise > span { animation: none; }
+  }
+
   /* Inner-page intro band: slow drifting green glow behind the headline. */
   .page-intro::before {
     content: "";

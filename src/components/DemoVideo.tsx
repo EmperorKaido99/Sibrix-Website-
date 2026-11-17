@@ -13,13 +13,14 @@ interface DemoVideoProps {
   className?: string;
 }
 
-// Silent looping product video. Autoplays muted (allowed on all browsers), shows the poster
-// until it loads, pauses when scrolled off screen, and starts paused for reduced-motion
+// Silent looping product video. Downloads and plays (muted) only once it scrolls into view,
+// shows the poster until then, pauses when scrolled off screen, and starts paused for reduced-motion
 // visitors. Has a visible pause/play button, since moving content that runs longer than
 // 5 seconds needs one (WCAG 2.2.2). Markup is identical on server and browser.
 const DemoVideo = ({ src, srcSmall, poster, label, className }: DemoVideoProps) => {
   const ref = useRef<HTMLVideoElement>(null);
   const [paused, setPaused] = useState(false);
+  const [near, setNear] = useState(false);
   const userPaused = useRef(false);
 
   useEffect(() => {
@@ -30,13 +31,27 @@ const DemoVideo = ({ src, srcSmall, poster, label, className }: DemoVideoProps) 
       video.pause();
       setPaused(true);
     }
+    // Attach the poster shortly before the video scrolls into view (saves ~70 KB on page load).
+    const nearIo = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNear(true);
+          nearIo.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    nearIo.observe(video);
     const io = new IntersectionObserver(([entry]) => {
       if (userPaused.current) return;
       if (entry.isIntersecting) video.play().catch(() => {});
       else video.pause();
     });
     io.observe(video);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      nearIo.disconnect();
+    };
   }, []);
 
   const toggle = () => {
@@ -58,12 +73,11 @@ const DemoVideo = ({ src, srcSmall, poster, label, className }: DemoVideoProps) 
       <video
         ref={ref}
         className="block w-full h-full object-cover"
-        autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
-        poster={poster}
+        preload="none"
+        poster={near ? poster : undefined}
         aria-label={label}
         width={1280}
         height={800}

@@ -9,7 +9,19 @@ import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dist = path.join(root, "dist");
-const template = await readFile(path.join(dist, "index.html"), "utf8");
+let template = await readFile(path.join(dist, "index.html"), "utf8");
+{
+  const { readdir } = await import("node:fs/promises");
+  const assets = await readdir(path.join(dist, "assets"));
+  const fonts = ["inter-tight-latin-400-normal", "inter-tight-latin-600-normal"]
+    .map((n) => assets.find((f) => f.startsWith(n) && f.endsWith(".woff2")))
+    .filter(Boolean);
+  if (fonts.length !== 2) throw new Error("prerender: Inter Tight 400/600 woff2 not found in dist/assets");
+  // Preload the two fonts used above the fold so text paints in Inter Tight from the start
+  // (avoids a fallback-to-webfont swap that shifted the layout on slow phones).
+  const links = fonts.map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`);
+  template = template.replace("</head>", `    ${links.join("\n    ")}\n  </head>`);
+}
 const { render, PAGES, NOT_FOUND, urlFor } = await import(
   pathToFileURL(path.join(root, "dist-server/entry-server.js")).href
 );
