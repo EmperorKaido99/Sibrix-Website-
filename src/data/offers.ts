@@ -38,38 +38,39 @@ export interface Offer {
   promise: string;
   detail: string;
   icon: LucideIcon;
-  examples: { icon: LucideIcon; text: string }[];
+  /** Capability areas: a short label plus what it covers. */
+  examples: { icon: LucideIcon; label: string; text: string }[];
 }
 
 export const LEAD_OFFERS: Offer[] = [
   {
     id: "automation",
     title: "Business automation",
-    promise: "Less manual work. Fewer errors.",
+    promise: "Efficient processes that scale with your business.",
     detail:
-      "We analyse how work moves through your business and automate the repetitive steps, integrated with the systems you already use.",
+      "We design and implement automated processes that reduce manual effort, improve accuracy and give you clear visibility of your operations, integrated with the systems you already use.",
     icon: Workflow,
     examples: [
-      { icon: FileCheck2, text: "Automated quoting, invoicing and payment follow-ups" },
-      { icon: MessagesSquare, text: "Enquiry capture and routing from your website, email and WhatsApp" },
-      { icon: Bot, text: "AI-assisted document processing, review and reporting" },
-      { icon: Cpu, text: "IoT monitoring and alerts for equipment, power and premises" },
-      { icon: Cable, text: "System integration across sales, accounting and operations" },
+      { icon: FileCheck2, label: "Finance and administration", text: "Quotations, invoicing and payment reminders" },
+      { icon: MessagesSquare, label: "Customer enquiries", text: "Capture, routing and follow-up across web, email and WhatsApp" },
+      { icon: Bot, label: "Document workflows", text: "AI-assisted processing, review and reporting" },
+      { icon: Cpu, label: "Operational monitoring", text: "IoT sensors with real-time alerts for equipment, power and premises" },
+      { icon: Cable, label: "Systems integration", text: "Connected sales, accounting and operational data" },
     ],
   },
   {
     id: "it-support",
     title: "IT support",
-    promise: "Secure, dependable technology.",
+    promise: "Secure, well-managed technology.",
     detail:
-      "We design, secure and maintain the technology your team depends on, with responsive support when issues arise.",
+      "We design, secure and maintain the technology your organisation depends on, with responsive support whenever issues arise.",
     icon: Headset,
     examples: [
-      { icon: Network, text: "Network design, installation and security" },
-      { icon: HardDrive, text: "Device, email and cloud set-up and management" },
-      { icon: ShieldCheck, text: "Patch management, backups and endpoint protection" },
-      { icon: Cctv, text: "CCTV design and installation" },
-      { icon: LifeBuoy, text: "Remote and on-site support" },
+      { icon: Network, label: "Networks", text: "Design, installation and security" },
+      { icon: HardDrive, label: "Devices and cloud", text: "Set-up and ongoing management of devices, email and storage" },
+      { icon: ShieldCheck, label: "Security", text: "Patch management, backups and endpoint protection" },
+      { icon: Cctv, label: "Surveillance", text: "CCTV design and installation" },
+      { icon: LifeBuoy, label: "Support", text: "Remote and on-site assistance" },
     ],
   },
 ];

@@ -38,10 +38,13 @@ const ServicesDetail = () => (
             </AnimateOnScroll>
             <ul className="mt-8 space-y-4">
               {automation.examples.map((e, i) => (
-                <AnimateOnScroll key={e.text} delay={i * 0.05}>
+                <AnimateOnScroll key={e.label} delay={i * 0.05}>
                   <li className="flex gap-5 bg-paper-2 p-6">
                     <e.icon size={24} strokeWidth={1.75} className="mt-0.5 shrink-0" aria-hidden="true" />
-                    <span className="text-lg leading-relaxed">{e.text}</span>
+                    <span className="text-lg leading-relaxed">
+                      <span className="block font-semibold">{e.label}</span>
+                      <span className="block text-navy/80">{e.text}</span>
+                    </span>
                   </li>
                 </AnimateOnScroll>
               ))}
@@ -85,12 +88,15 @@ const ServicesDetail = () => (
         </AnimateOnScroll>
         <ul className="lg:col-span-7">
           {itSupport.examples.map((e, i) => (
-            <AnimateOnScroll key={e.text} delay={i * 0.06}>
+            <AnimateOnScroll key={e.label} delay={i * 0.06}>
               <li className="flex gap-6 py-7 border-t border-paper/15 first:border-t-0 first:pt-0">
                 <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center bg-paper/10 text-green">
                   <e.icon size={22} strokeWidth={1.75} aria-hidden="true" />
                 </span>
-                <span className="text-xl leading-relaxed pt-2">{e.text}</span>
+                <span className="text-lg leading-relaxed pt-1">
+                  <span className="block text-xl font-semibold">{e.label}</span>
+                  <span className="block text-paper/80">{e.text}</span>
+                </span>
               </li>
             </AnimateOnScroll>
           ))}

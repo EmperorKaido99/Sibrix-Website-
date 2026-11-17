@@ -23,14 +23,17 @@ const LeadOffers = () => (
               <p className={`mt-4 text-lg leading-relaxed ${i === 0 ? "text-paper/85" : "text-navy/85"}`}>{o.detail}</p>
               <ul className="mt-8 flex-1 space-y-4">
                 {o.examples.slice(0, 4).map((e) => (
-                  <li key={e.text} className="flex items-start gap-3 text-base">
+                  <li key={e.label} className="flex items-start gap-3 text-base">
                     <e.icon size={20} strokeWidth={1.75} className={`mt-0.5 shrink-0 ${i === 0 ? "text-green" : "text-navy"}`} aria-hidden="true" />
-                    {e.text}
+                    <span>
+                      <span className="font-semibold">{e.label}</span>
+                      <span className={`block ${i === 0 ? "text-paper/75" : "text-navy/75"}`}>{e.text}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
               <Link to={`/services#${o.id}`} className={`${i === 0 ? "btn-green" : "btn-navy"} mt-10 self-start`}>
-                How it works
+                Learn more
                 <ArrowRight size={18} />
               </Link>
             </article>

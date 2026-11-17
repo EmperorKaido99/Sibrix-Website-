@@ -5,6 +5,17 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Core service cards rewritten (branch `automation-led`)
+
+- Business automation: "Efficient processes that scale with your business." + "We design and implement automated processes that reduce
+  manual effort, improve accuracy and give you clear visibility of your operations, integrated with the systems you already use."
+- IT support: "Secure, well-managed technology." + a matching one-sentence description.
+- Capabilities are now **labelled areas** (`label` + `text` in `src/data/offers.ts`): Finance and administration, Customer enquiries,
+  Document workflows, Operational monitoring, Systems integration; Networks, Devices and cloud, Security, Surveillance, Support.
+  Rendered on Home (`LeadOffers`) and Services (`ServicesDetail`). Home card buttons: "Learn more".
+
+---
+
 ## 2026-11-17 — No separate Contact page (branch `automation-led`)
 
 - Every page already ends with the booking section (`CTASection`, `id="cta"`), so `/contact` was repetitive and is gone.
