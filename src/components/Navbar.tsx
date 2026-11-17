@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { ThemeMenu, ThemeSwatches } from "@/components/ThemePicker";
 import { Menu, X } from "lucide-react";
 import sibrixLogo from "@/assets/sibrix-group-logo.png";
 
@@ -42,6 +43,7 @@ const Navbar = () => {
               {l.label}
             </NavLink>
           ))}
+          <ThemeMenu />
           <Link to="/contact" className="btn-green py-3">
             Discuss a project
           </Link>
@@ -73,6 +75,7 @@ const Navbar = () => {
             <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-green mt-6">
               Discuss a project
             </Link>
+            <ThemeSwatches />
           </div>
         </div>
       )}

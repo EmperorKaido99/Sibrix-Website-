@@ -5,6 +5,18 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Visitor colour themes (branch `palettes`, based on `recommendations`)
+
+- Visitors can switch the site's colours from a **palette icon in the navbar** (mobile: inside the menu): **Classic** (default), **Refined**, **Ocean**, **Teal night**.
+  All are the same brand family; every pair passes WCAG AA (white on navy 16.3:1 or more, green on navy 8.0:1 or more).
+- `src/lib/theme.ts` (themes + `useSiteTheme` hook), `src/components/ThemePicker.tsx` (desktop menu + mobile buttons),
+  `html[data-theme="…"]` blocks in `src/index.css` that override the brand tokens.
+- Choice saved in `localStorage` (`sibrix-theme`). A small inline script in `index.html` applies it **before first paint**, so there is no flash
+  and the pre-rendered HTML still hydrates cleanly (React never renders the attribute).
+- Checked: switching works on desktop and mobile, persists across pages, applied before React loads, no console errors, no mobile overflow.
+
+---
+
 ## 2026-11-17 — Packages page restructured (branch `recommendations`)
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code.
