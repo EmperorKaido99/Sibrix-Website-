@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
 import LeadOffers from "@/components/LeadOffers";
-import ClientTestimonial from "@/components/ClientTestimonial";
 import ClientJourney from "@/components/ClientJourney";
 import DataTrust from "@/components/DataTrust";
 import FeaturedWork from "@/components/FeaturedWork";
@@ -31,7 +30,6 @@ const Index = () => {
   return (
     <>
       <HeroSection />
-      <ClientTestimonial />
       <LeadOffers />
       <FeaturedWork />
       <ClientJourney />
