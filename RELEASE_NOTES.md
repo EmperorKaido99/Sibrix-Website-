@@ -5,6 +5,16 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Founder card filled in from LinkedIn (branch `automation-led`)
+
+- Sibusiso Skhosana's card (`src/data/team.ts`) now has an experience line, a short bio and qualifications, taken from his LinkedIn profile:
+  BSc Honours and BSc (UWC), Microsoft Certified AI Business Professional and Azure Fundamentals, Automation Anywhere RPA Essentials;
+  RPA developer at the Samsung Future Innovation Lab; data analytics (SQL, Excel, Power BI); trains and mentors IT learners.
+- Expired certifications (Azure Data Engineer Associate, Power BI Data Analyst Associate, both expired Feb 2026) are deliberately not listed.
+- His current employer is not named on the site (the bio says he trains and mentors learners on IT learnership programmes).
+
+---
+
 ## 2026-11-17 — "Meet the team" on About (branch `automation-led`)
 
 - New `TeamSection` (About page, after the company story), data in `src/data/team.ts`. No photos: each person gets a navy initials tile
