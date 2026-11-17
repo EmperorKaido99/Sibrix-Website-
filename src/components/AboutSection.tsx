@@ -1,3 +1,4 @@
+import { bookingLink } from "@/lib/booking";
 import Typewriter from "./Typewriter";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -130,7 +131,7 @@ const AboutSection = () => (
         </div>
         <div className="lg:col-span-5 lg:justify-self-end">
           <p className="text-xl font-semibold tracking-tight">Let's build something meaningful together.</p>
-          <Link to="/contact" className="btn-navy mt-5">
+          <Link to={bookingLink()} className="btn-navy mt-5">
             Book a free consultation
             <ArrowRight size={18} />
           </Link>

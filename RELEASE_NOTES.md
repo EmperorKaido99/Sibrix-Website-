@@ -5,6 +5,21 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — No separate Contact page (branch `automation-led`)
+
+- Every page already ends with the booking section (`CTASection`, `id="cta"`), so `/contact` was repetitive and is gone.
+  "Contact" removed from the navbar and footer.
+- **All "Book a free consultation" buttons scroll to the booking section on the current page** via `bookingLink(pkg?)` in `src/lib/booking.ts`
+  (`?package=…#cta`, so the WhatsApp/email message still names the package). `SiteLayout` scrolls to the hash after navigation, also when the
+  same button is clicked twice (uses `location.key`).
+- Privacy and the 404 page now end with the booking section too, so the navbar button works everywhere.
+- **Old links:** `vercel.json` 301-redirects `/contact` → `/#cta`; the React route does the same for in-app navigation. `/contact` removed
+  from `src/seo/pages.ts` and the sitemap. The legacy `#cta` → `/contact` hash mapping on Home was removed.
+- Checked: tsc clean, lint 0 errors, build OK, every page has one h1 and one booking section, nav and package buttons scroll and prefill
+  correctly, `/contact` lands on Home's booking section, 404.html hydrates cleanly, no mobile overflow.
+
+---
+
 ## 2026-11-17 — About "What we do": merged repetitive pillars (branch `automation-led`)
 
 - "Software & Digital Solutions" and "Smart Technology & Innovation" said the same thing and overlapped the core service. Merged into one

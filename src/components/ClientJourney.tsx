@@ -1,3 +1,4 @@
+import { bookingLink } from "@/lib/booking";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -43,7 +44,7 @@ const ClientJourney = () => (
       </motion.ol>
 
       <AnimateOnScroll className="mt-16">
-        <Link to="/contact" className="btn-green">
+        <Link to={bookingLink()} className="btn-green">
           Book a free consultation
           <ArrowRight size={18} />
         </Link>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 import { PACKAGE_LABELS } from "@/data/packages";
@@ -14,18 +15,18 @@ const BASE_MESSAGE = "Hi Sibrix, I'd like to book a free 30-minute consultation.
 
 // Booking panel (replaces the old contact form, per reviewer feedback: a service business should invite
 // people to a free consultation, not a "send us a message for a quote" form). Visitors book by WhatsApp,
-// phone or email with the message pre-written. On the Contact page the heading is the page's h1.
-const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
-  const Heading = asPage ? "h1" : "h2";
+// phone or email with the message pre-written. Appears at the end of every page (there is no Contact page).
+const CTASection = () => {
+  const { search } = useLocation();
   const [message, setMessage] = useState(BASE_MESSAGE);
 
-  // Arriving from a package or the picker (/contact?package=automation-growth): mention it in the message.
-  // Runs after hydration so the pre-rendered links are unchanged.
+  // Clicked "Book a free consultation" on a package (?package=automation-growth#cta): mention it in the message.
+  // Runs after hydration and on every navigation, so the pre-rendered links are unchanged.
   useEffect(() => {
-    const pkg = new URLSearchParams(window.location.search).get("package");
+    const pkg = new URLSearchParams(search).get("package");
     const name = pkg && PACKAGE_LABELS[pkg];
-    if (name) setMessage(`${BASE_MESSAGE} I'm interested in: ${name}.`);
-  }, []);
+    setMessage(name ? `${BASE_MESSAGE} I'm interested in: ${name}.` : BASE_MESSAGE);
+  }, [search]);
 
   const options = [
     {
@@ -57,10 +58,10 @@ const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
   ];
 
   return (
-    <section id="cta" className={`field-navy section ${asPage ? "pt-32 md:pt-44" : ""}`}>
+    <section id="cta" className="field-navy section scroll-mt-16 md:scroll-mt-20">
       <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
         <AnimateOnScroll className="lg:col-span-5">
-          <Heading className="heading-xl">Book a free consultation</Heading>
+          <h2 className="heading-xl">Book a free consultation</h2>
           <p className="lead mt-6 max-w-[30ch] text-paper/85">
             A complimentary, no-obligation 30-minute session to assess your operations and identify where time and cost can be saved.
           </p>

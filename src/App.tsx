@@ -1,15 +1,16 @@
 import type { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MotionConfig } from "framer-motion";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SiteLayout from "@/components/SiteLayout";
+import CTASection from "@/components/CTASection";
 import Index from "./pages/Index.tsx";
 import PrivacyPage from "./pages/PrivacyPage.tsx";
 import CrimeSpotsCaseStudy from "./pages/CrimeSpotsCaseStudy.tsx";
-import { AboutPage, ContactPage, PackagesPage, ServicesPage, WorkPage } from "./pages/SitePages.tsx";
+import { AboutPage, PackagesPage, ServicesPage, WorkPage } from "./pages/SitePages.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -37,9 +38,17 @@ export const AppRoutes = () => (
       <Route path="/work/crimespots" element={<CrimeSpotsCaseStudy />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/packages" element={<PackagesPage />} />
-      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/contact" element={<Navigate to="/#cta" replace />} />
       <Route path="/privacy" element={<PrivacyPage />} />
-      <Route path="*" element={<NotFound />} />
+      <Route
+        path="*"
+        element={
+          <>
+            <NotFound />
+            <CTASection />
+          </>
+        }
+      />
     </Route>
   </Routes>
 );

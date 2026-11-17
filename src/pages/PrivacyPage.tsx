@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import CTASection from "@/components/CTASection";
 import { CONTACT } from "@/lib/contact";
 
 // POPIA privacy notice for the website. Plain-language draft: have it reviewed before
@@ -47,6 +47,7 @@ const sections = [
 ];
 
 const PrivacyPage = () => (
+  <>
   <section className="field-paper section">
     <div className="frame max-w-[920px]">
       <h1 className="heading-xl pt-8 md:pt-12">Privacy policy</h1>
@@ -78,13 +79,13 @@ const PrivacyPage = () => (
             </a>
             .
           </p>
-          <Link to="/contact" className="btn-navy mt-8">
-            Back to contact
-          </Link>
+
         </div>
       </div>
     </div>
   </section>
+  <CTASection />
+  </>
 );
 
 export default PrivacyPage;

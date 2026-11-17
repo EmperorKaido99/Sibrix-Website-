@@ -1,3 +1,5 @@
+import type { To } from "react-router-dom";
+import { bookingLink } from "@/lib/booking";
 import {
   AppWindow,
   Bot,
@@ -72,10 +74,10 @@ export const LEAD_OFFERS: Offer[] = [
   },
 ];
 
-export const EXTRAS: { id: string; title: string; detail: string; icon: LucideIcon; to: string }[] = [
+export const EXTRAS: { id: string; title: string; detail: string; icon: LucideIcon; to: To }[] = [
   { id: "websites", title: "Website creation", detail: "Professional, search-optimised websites and e-commerce.", icon: Globe, to: "/packages#websites" },
-  { id: "apps", title: "App development", detail: "Custom mobile and web applications, integrated with your systems.", icon: AppWindow, to: "/contact?package=apps" },
-  { id: "training", title: "Training & skills", detail: "Practical training that equips your team to use new systems with confidence.", icon: GraduationCap, to: "/contact?package=training" },
+  { id: "apps", title: "App development", detail: "Custom mobile and web applications, integrated with your systems.", icon: AppWindow, to: bookingLink("apps") },
+  { id: "training", title: "Training & skills", detail: "Practical training that equips your team to use new systems with confidence.", icon: GraduationCap, to: bookingLink("training") },
 ];
 
 /** The client journey, from the five "What we do" pillars, starting with a free consultation. */

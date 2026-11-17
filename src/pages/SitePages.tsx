@@ -55,4 +55,3 @@ export const PackagesPage = () => (
   </>
 );
 
-export const ContactPage = () => <CTASection asPage />;

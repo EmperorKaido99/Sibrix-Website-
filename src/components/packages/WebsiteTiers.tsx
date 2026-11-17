@@ -1,3 +1,4 @@
+import { bookingLink } from "@/lib/booking";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
@@ -37,7 +38,7 @@ const WebsiteTiers = () => (
                 ))}
               </ul>
 
-              <Link to={`/contact?package=${t.id}`} className={`${t.featured ? "btn-green" : "btn-navy"} w-full`}>
+              <Link to={bookingLink(t.id)} className={`${t.featured ? "btn-green" : "btn-navy"} w-full`}>
                 Book a free consultation
                 <ArrowRight size={18} />
               </Link>

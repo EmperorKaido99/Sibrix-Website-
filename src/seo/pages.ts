@@ -46,12 +46,6 @@ export const PAGES: PageMeta[] = [
       "Automation Starter, Growth and Care, IT setup and monthly IT support plans, plus Launch, Grow and Online Store websites and website care.",
   },
   {
-    path: "/contact",
-    title: "Book a free consultation | Sibrix Group",
-    description:
-      "Book a free, no-obligation 30-minute consultation about where your business loses time or money. Email info@sibrixgroup.co.za or call (+27) 60 960 9830.",
-  },
-  {
     path: "/privacy",
     title: "Privacy policy | Sibrix Group",
     description:

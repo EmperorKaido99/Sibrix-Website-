@@ -1,3 +1,4 @@
+import { bookingLink } from "@/lib/booking";
 import Typewriter from "./Typewriter";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -26,7 +27,7 @@ const HeroSection = () => (
           opportunities.
         </p>
         <div className="anim-rise mt-10 flex flex-wrap items-center gap-4" style={{ "--d": "180ms" } as React.CSSProperties}>
-          <Link to="/contact" className="btn-green">
+          <Link to={bookingLink()} className="btn-green">
             Book a free consultation
             <ArrowRight size={18} />
           </Link>

@@ -1,3 +1,4 @@
+import { bookingLink } from "@/lib/booking";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ThemeMenu, ThemeSwatches } from "@/components/ThemePicker";
@@ -9,7 +10,6 @@ const links = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
             </NavLink>
           ))}
           <ThemeMenu />
-          <Link to="/contact" className="btn-green py-3">
+          <Link to={bookingLink()} className="btn-green py-3">
             Book a free consultation
           </Link>
         </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-green mt-6">
+            <Link to={bookingLink()} onClick={() => setMobileOpen(false)} className="btn-green mt-6">
               Book a free consultation
             </Link>
             <ThemeSwatches />

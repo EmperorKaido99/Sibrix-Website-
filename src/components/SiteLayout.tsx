@@ -13,7 +13,7 @@ const setAttr = (selector: string, attr: string, value: string) => {
 // in step with the route during in-browser navigation (the pre-rendered HTML of each
 // page already has its own values).
 const SiteLayout = () => {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
     const meta = metaFor(pathname);
@@ -25,8 +25,17 @@ const SiteLayout = () => {
     setAttr('meta[name="twitter:description"]', "content", meta.description);
     setAttr('link[rel="canonical"]', "href", urlFor(meta));
     setAttr('meta[property="og:url"]', "content", urlFor(meta));
-    if (!hash) window.scrollTo(0, 0);
-  }, [pathname, hash]);
+  }, [pathname]);
+
+  // Jump to the top on a new page, or to #section (e.g. the booking section #cta) when a link has a hash.
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    const id = requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView());
+    return () => cancelAnimationFrame(id);
+  }, [pathname, hash, key]);
 
   return (
     <div className="min-h-screen bg-background">

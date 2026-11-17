@@ -1,3 +1,4 @@
+import { bookingLink } from "@/lib/booking";
 import { Link } from "react-router-dom";
 import { ArrowRight, Bot, Cable, Cpu } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
@@ -24,7 +25,7 @@ const ServicesDetail = () => (
             <h2 className="heading-xl mt-8">{automation.title}</h2>
             <p className="mt-4 text-2xl font-semibold tracking-tight">{automation.promise}</p>
             <p className="lead mt-6 max-w-[36ch]">{automation.detail}</p>
-            <Link to="/contact?package=automation" className="btn-navy mt-10">
+            <Link to={bookingLink("automation")} className="btn-navy mt-10">
               Book a free consultation
               <ArrowRight size={18} />
             </Link>
@@ -76,7 +77,7 @@ const ServicesDetail = () => (
             <h2 className="heading-xl mt-8">{itSupport.title}</h2>
             <p className="mt-4 text-2xl font-semibold tracking-tight text-green">{itSupport.promise}</p>
             <p className="lead mt-6 max-w-[36ch] text-paper/85">{itSupport.detail}</p>
-            <Link to="/contact?package=it" className="btn-green mt-10">
+            <Link to={bookingLink("it")} className="btn-green mt-10">
               Book a free consultation
               <ArrowRight size={18} />
             </Link>

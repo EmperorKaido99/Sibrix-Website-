@@ -15,7 +15,6 @@ const LEGACY_HASHES: Record<string, string> = {
   "#packages": "/packages",
   "#comparison": "/packages",
   "#retainer": "/packages",
-  "#cta": "/contact",
 };
 
 const Index = () => {

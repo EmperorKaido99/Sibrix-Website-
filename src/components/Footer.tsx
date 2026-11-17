@@ -8,7 +8,6 @@ const links = [
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
   { label: "Packages", href: "/packages" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const Footer = () => (

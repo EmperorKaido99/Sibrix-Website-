@@ -1,3 +1,4 @@
+import { bookingLink } from "@/lib/booking";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
@@ -32,7 +33,7 @@ const PlanGrid = ({ plans, dark }: { plans: Plan[]; dark?: boolean }) => (
               ))}
             </ul>
             <Link
-              to={`/contact?package=${p.id}`}
+              to={bookingLink(p.id)}
               className={`${featured ? (dark ? "btn-navy" : "btn-green") : dark ? "btn-green" : "btn-navy"} w-full`}
             >
               Book a free consultation
