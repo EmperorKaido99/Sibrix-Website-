@@ -185,6 +185,31 @@
   .nav-link:hover::after,
   .nav-link[aria-current="page"]::after { transform: scaleX(1); }
 
+  /* Typewriter (src/components/Typewriter.tsx): letters appear one by one at --tw-at,
+     a cursor sits after the newest letter, then blinks 4 times at the end and hides. */
+  .typewriter { white-space: pre-wrap; }
+  .tw-char { position: relative; opacity: 0; }
+  .typewriter[data-play="true"] .tw-char { animation: tw-in 0s linear var(--tw-at) forwards; }
+  .tw-char::after {
+    content: "";
+    position: absolute;
+    right: -0.08em;
+    top: 0.12em;
+    bottom: 0.08em;
+    width: max(2px, 0.07em);
+    background: currentColor;
+    opacity: 0;
+  }
+  .typewriter[data-play="true"] .tw-char::after { animation: tw-cursor var(--tw-step) steps(1, end) var(--tw-at); }
+  .typewriter[data-play="true"] .tw-last::after { animation: tw-blink 0.9s steps(1, end) var(--tw-at) 4; }
+  @keyframes tw-in { to { opacity: 1; } }
+  @keyframes tw-cursor { 0% { opacity: 1; } 100% { opacity: 0; } }
+  @keyframes tw-blink { 0% { opacity: 1; } 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .tw-char { opacity: 1; animation: none !important; }
+    .tw-char::after { display: none; }
+  }
+
   /* Comparison groups: hide the native disclosure marker. */
   .compare-group > summary::-webkit-details-marker { display: none; }
 

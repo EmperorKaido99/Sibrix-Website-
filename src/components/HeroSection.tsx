@@ -1,3 +1,4 @@
+import Typewriter from "./Typewriter";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -20,9 +21,9 @@ const HeroSection = () => {
     <section id="top" className="field-navy pt-28 md:pt-36 pb-[clamp(5rem,9vw,8rem)] overflow-hidden">
       <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
         <div className="lg:col-span-7">
-          <motion.p {...rise(0)} className="text-lg font-semibold text-cyan">
-            Systems built right.
-          </motion.p>
+          <p className="text-lg font-semibold text-cyan">
+            <Typewriter text="Systems built right." delay={250} speed={60} />
+          </p>
           <motion.h1 {...rise(0.06)} className="mt-5 font-semibold text-[clamp(2.75rem,4.7vw,5.5rem)] leading-[1] tracking-[-0.035em]">
             Technology.
             <br />

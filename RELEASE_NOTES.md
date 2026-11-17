@@ -5,6 +5,17 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — "Systems built right." typewriter animation (branch `multi-page`)
+
+- New `src/components/Typewriter.tsx` (+ `.typewriter` / `.tw-char` CSS in `src/index.css`): types text letter by letter with a cursor
+  that follows the newest letter, blinks 4 times at the end, then hides.
+- Used on the Home hero line above the headline (types on load) and the About "Our brand promise" text (`startOnView`: types when scrolled into view).
+- Timing is pure CSS (`--tw-at` per letter), so pre-rendered HTML and the browser render match (no hydration mismatch).
+  Screen readers get the full phrase once (`sr-only`); reduced-motion visitors see the text immediately.
+- Checked: typing order verified frame by frame, About waits until visible, no console errors, build OK.
+
+---
+
 ## 2026-11-17 — Taste pass (design-taste-frontend skill, preserve mode) (branch `multi-page`)
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code. Same brand, colours, content and pages; detail and motion upgraded.
