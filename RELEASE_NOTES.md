@@ -5,6 +5,18 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Easy Scribe moved into "Selected work"; assessment-marking case study parked (branch `automation-led`)
+
+- Easy Scribe is now the lead **client project card** in `FeaturedWork` ("Selected work"): logo, one-line description, a one-sentence quote
+  on Home and the full quote on Work (`<FeaturedWork full />`). The standalone full-width testimonial section was removed.
+  Note: the reviewer asked for testimonials to lead on the landing page; "Selected work" currently sits below "Our core services".
+- **The assessment-marking case study is parked**, not deleted: everything (page, data, card, route, sitemap entry) is preserved on branch
+  **`parked/assessment-marking`** (commit c512ee0). Removed here: `src/pages/MarkingCaseStudy.tsx`, `src/data/caseStudies.ts`, the
+  `/work/assessment-marking` route, its SEO entry and sitemap URL. To restore, check those files out from that branch.
+- Checked: tsc clean, lint 0 errors, build OK, pages without console errors, old URL returns the 404 page.
+
+---
+
 ## 2026-11-17 — Original hero headline restored (branch `automation-led`)
 
 - Back to **"Technology. / Designed for Progress."** (stronger, more memorable brand line than "Streamlined operations. Dependable IT.").

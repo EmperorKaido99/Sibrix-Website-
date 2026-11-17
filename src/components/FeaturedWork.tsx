@@ -3,11 +3,10 @@ import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import DemoVideo from "./DemoVideo";
 import { CRIMESPOTS_VIDEO } from "@/lib/media";
-import { MARKING_STEPS } from "@/data/caseStudies";
 import { TESTIMONIALS } from "@/data/testimonials";
 
-// "Selected work": the client project (Easy Scribe, with the client's own words) leads; the marking
-// automation and CrimeSpots sit beside it. On the Work page (`full`) the complete client quote is shown.
+// "Selected work": the client project (Easy Scribe, with the client's own words) leads; CrimeSpots sits
+// beside it. (The assessment-marking case study is parked on branch parked/assessment-marking.) On the Work page (`full`) the complete client quote is shown.
 const FeaturedWork = ({ full = false }: { full?: boolean }) => {
   const client = TESTIMONIALS[0];
   const quote = full ? client.full : client.short.split(". ")[0].replace(/\.?$/, ".");
@@ -37,7 +36,7 @@ const FeaturedWork = ({ full = false }: { full?: boolean }) => {
                 A platform Sibrix conceptualised and built for Easy Chats to replace time-consuming transcript editing,
                 coordinate their team and produce consistent, client-ready documents.
               </p>
-              <figure className="mt-8 flex-1 border-l-4 border-green pl-6">
+              <figure className="mt-8 border-l-4 border-green pl-6">
                 <blockquote className={`font-semibold tracking-[-0.01em] ${full ? "text-xl leading-relaxed" : "text-2xl md:text-[1.75rem] leading-snug"}`}>
                   “{quote}”
                 </blockquote>
@@ -47,26 +46,10 @@ const FeaturedWork = ({ full = false }: { full?: boolean }) => {
           </AnimateOnScroll>
 
           <div className="lg:col-span-5 grid grid-cols-1 gap-4 lg:gap-5">
-            {/* Marking automation */}
-            <AnimateOnScroll delay={0.08} className="h-full">
-              <article className="h-full bg-paper/5 ring-1 ring-paper/15 p-8 flex flex-col">
-                <p className="font-semibold text-paper/60">Case study · Skills development</p>
-                <h3 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">Assessment marking, automated</h3>
-                <p className="mt-3 text-base leading-relaxed text-paper/80">
-                  {MARKING_STEPS.length} manual steps, from collecting submissions to returning feedback, automated end to end.
-                  The assessor keeps final sign-off.
-                </p>
-                <Link to="/work/assessment-marking" className="link-arrow mt-6 text-paper">
-                  View the case study
-                  <ArrowRight size={18} />
-                </Link>
-              </article>
-            </AnimateOnScroll>
-
             {/* Own product */}
-            <AnimateOnScroll delay={0.16} className="h-full">
+            <AnimateOnScroll delay={0.08} className="h-full">
               <article className="h-full bg-paper/5 ring-1 ring-paper/15 flex flex-col">
-                <DemoVideo {...CRIMESPOTS_VIDEO} className="aspect-[16/9]" />
+                <DemoVideo {...CRIMESPOTS_VIDEO} className="aspect-[16/10]" />
                 <div className="p-8 pt-6">
                   <p className="font-semibold text-cyan">Our own product</p>
                   <h3 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight">CrimeSpots</h3>

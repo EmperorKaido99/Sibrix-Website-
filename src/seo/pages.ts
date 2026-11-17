@@ -25,19 +25,13 @@ export const PAGES: PageMeta[] = [
     path: "/work",
     title: "Our work: automation case studies | Sibrix Group",
     description:
-      "Automation Sibrix has built: automated assessment marking for a skills-development provider, and CrimeSpots, AI crime intelligence for Cape Town.",
+      "Work by Sibrix: Easy Scribe, a platform built for Easy Chats Projects, and CrimeSpots, AI crime intelligence for Cape Town.",
   },
   {
     path: "/work/crimespots",
     title: "CrimeSpots case study: AI crime map | Sibrix Group",
     description:
       "How Sibrix designed and built CrimeSpots: AI that turns news reports into verified incidents on a live map of Cape Town, with area rankings and alerts.",
-  },
-  {
-    path: "/work/assessment-marking",
-    title: "Case study: automated assessment marking | Sibrix Group",
-    description:
-      "How Sibrix automated assessment marking: fetching submissions, memo-based scoring, integrity checks, marked PDFs and feedback, with the assessor in control.",
   },
   {
     path: "/services",
