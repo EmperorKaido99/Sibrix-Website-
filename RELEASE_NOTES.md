@@ -5,6 +5,20 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Contact form removed: book a consultation by WhatsApp, phone or email (branch `automation-led`)
+
+- Per reviewer feedback, the contact form is gone. `CTASection` (Contact page and the end of every page) is now a **"Choose how to book"** panel:
+  WhatsApp, Call and Email, each pre-filled with "Hi Sibrix, I'd like to book a free 30-minute consultation." plus the package name when
+  arriving from `/contact?package=…` (applied after hydration).
+- Deleted `src/components/ContactForm.tsx`. **`api/contact.ts` and the Supabase client are now unused** (kept in case a booking form returns; safe to delete).
+- Privacy policy updated: no form, no database copy of enquiries; WhatsApp, email and phone only.
+- **Hero sub-line rewritten:** "We take the repetitive admin off your team's plate and keep your IT running smoothly." (the old line led with
+  "built with AI and IoT where it helps", which read as technology-first and hesitant). The same "where it helps" phrasing was removed from
+  the automation offer, the Growth plan and the FAQ; AI and IoT are explained on the Services page under "How we do it".
+- Checked: tsc clean, build OK, all 9 pages no console errors and no forms (motion on and reduced), booking links verified with and without a package, no mobile overflow.
+
+---
+
 ## 2026-11-17 — Repositioned: lead with workflow automation and IT support (branch `automation-led`)
 
 **Why:** a reviewer said the site read like a jack-of-all-trades. Lead with one or two specialities, show proof, invite people to a free

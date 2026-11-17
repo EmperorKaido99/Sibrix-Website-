@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "What kind of work can you automate?",
-    a: "Repetitive admin that follows the same steps every time: quotes and invoices, payment reminders, enquiries, reports, document checks and moving data between systems. We use AI and IoT where they help.",
+    a: "Repetitive admin that follows the same steps every time: quotes and invoices, payment reminders, enquiries, reports, document checks and moving data between systems. AI handles documents and messages, and IoT sensors keep an eye on equipment and premises.",
   },
   {
     q: "What is included in every website?",

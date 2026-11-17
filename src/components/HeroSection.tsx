@@ -22,7 +22,7 @@ const HeroSection = () => (
           <span className="text-green">Keep your IT running.</span>
         </h1>
         <p className="anim-rise lead mt-8 max-w-[34ch] text-paper/90" style={{ "--d": "120ms" } as React.CSSProperties}>
-          Workflow automation and IT support for South African businesses, built with AI and IoT where it helps.
+          We take the repetitive admin off your team's plate and keep your IT running smoothly.
         </p>
         <div className="anim-rise mt-10 flex flex-wrap items-center gap-4" style={{ "--d": "180ms" } as React.CSSProperties}>
           <Link to="/contact" className="btn-green">

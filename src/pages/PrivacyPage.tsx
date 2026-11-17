@@ -13,8 +13,7 @@ const sections = [
   {
     title: "What we collect",
     body: [
-      "When you use our contact form we collect your name, email address, phone number (if you give it) and your message.",
-      "When you contact us on WhatsApp, by email or by phone, we receive the details you share with us there.",
+      "When you contact us on WhatsApp, by email or by phone to book a consultation, we receive the details you share with us there, such as your name, number, email address and message.",
       "Our hosting provider keeps basic technical logs (such as IP address and browser type) to keep the website running and secure. We do not use advertising or tracking cookies.",
     ],
   },
@@ -27,8 +26,8 @@ const sections = [
   {
     title: "Where it is stored and who sees it",
     body: [
-      "Enquiries are delivered to our business mailbox, hosted by our email provider in South Africa. A copy may also be stored in our secure database.",
-      "The website is hosted by Vercel, and our database provider may store data outside South Africa. We only use providers that protect personal information to a standard comparable to POPIA.",
+      "Emails reach our business mailbox, hosted by our email provider in South Africa. WhatsApp messages are handled through WhatsApp.",
+      "The website is hosted by Vercel, which may process basic technical data outside South Africa. We only use providers that protect personal information to a standard comparable to POPIA.",
       "Only Sibrix staff who need your details to help you can access them.",
     ],
   },

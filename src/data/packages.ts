@@ -139,8 +139,8 @@ export const AUTOMATION_PLANS: Plan[] = [
       "Everything in Starter",
       "Several connected workflows",
       "Integrations between your systems",
-      "AI for documents, messages or reporting where it helps",
-      "IoT sensors and alerts where it helps",
+      "AI that reads documents, answers messages or builds reports",
+      "IoT sensors that alert you about equipment or premises",
       "A dashboard to see what is happening",
     ],
   },
@@ -209,7 +209,7 @@ export const CARE_PLANS: CarePlan[] = [
   },
 ];
 
-/** Used by the contact form when arriving from the picker (/contact?package=grow). */
+/** Used by the booking panel (CTASection) when arriving from a package or the picker (/contact?package=grow). */
 export const PACKAGE_LABELS: Record<string, string> = {
   automation: "Workflow automation",
   "automation-starter": "Automation Starter",
