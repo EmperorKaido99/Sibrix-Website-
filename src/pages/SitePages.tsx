@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection";
+import TeamSection from "@/components/TeamSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ServicesDetail from "@/components/ServicesDetail";
 import FeaturedWork from "@/components/FeaturedWork";
@@ -15,6 +16,7 @@ export const AboutPage = () => (
   <>
     <PageIntro title="Bridging ideas and *implementation.*" lead="A South African technology company focused on business automation and IT support." />
     <AboutSection />
+    <TeamSection />
     <CTASection />
   </>
 );

@@ -5,6 +5,15 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — "Meet the team" on About (branch `automation-led`)
+
+- New `TeamSection` (About page, after the company story), data in `src/data/team.ts`. No photos: each person gets a navy initials tile
+  that turns green on hover; add a `photo` later without changing the layout.
+- First member: **Sibusiso Skhosana, Founder & Director**, with LinkedIn link. **To add:** his experience line, short bio and
+  qualifications, plus any other team members (name, role, experience, bio, qualifications, LinkedIn). Optional fields render only when set.
+
+---
+
 ## 2026-11-17 — Full POPIA privacy policy; Information Officer named; footer link fix (branch `automation-led`)
 
 - `src/pages/PrivacyPage.tsx` rewritten as a full POPIA privacy policy (15 sections with a contents list): who we are, Information Officer,

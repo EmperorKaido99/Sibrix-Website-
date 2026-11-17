@@ -297,6 +297,11 @@ html[data-theme="teal"] { /* Teal night: navy leaning teal, calmer green, mint p
     .logo-tile { transition: none; }
   }
 
+  /* Team cards: the initials tile turns green on hover. */
+  .team-card__mark { transition: background-color 300ms ease, color 300ms ease, transform 400ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .team-card:hover .team-card__mark { background-color: hsl(var(--green)); color: hsl(var(--navy)); transform: rotate(-3deg) scale(1.04); }
+  @media (prefers-reduced-motion: reduce) { .team-card__mark { transition: none; } .team-card:hover .team-card__mark { transform: none; } }
+
   /* Comparison groups: hide the native disclosure marker. */
   .compare-group > summary::-webkit-details-marker { display: none; }
 
