@@ -6,22 +6,23 @@ import AnimateOnScroll from "./AnimateOnScroll";
 type Answer = boolean | null;
 
 const questions = [
-  { id: "sell", text: "Do you want to sell online or keep track of stock?" },
-  { id: "bot", text: "Would a 24/7 AI chatbot for your customers help?" },
+  { id: "sell", text: "Do you want to sell products online?" },
+  { id: "book", text: "Should customers be able to book or request quotes online?" },
   { id: "ops", text: "Do you need internal systems (CRM, HR, finance) or end-to-end automation?" },
 ] as const;
 
 const results = {
-  starter: { name: "Starter Web Presence", why: "A professional, search-friendly website is the right place to start. You can add more later." },
-  business: { name: "E-Commerce & Business Suite", why: "Online sales, an AI chatbot and live inventory in one system fit what you described." },
-  enterprise: { name: "Full AI & Automation Enterprise", why: "Internal apps and end-to-end automation are what this package is built for." },
+  launch: { name: "Launch", why: "A professional, search-friendly website is the right place to start. Add more any time." },
+  grow: { name: "Grow", why: "Online bookings or quote requests, plus room for a page per service." },
+  store: { name: "Online Store", why: "An online store with local payments, live stock and lay-bys fits what you described." },
+  custom: { name: "Custom systems", why: "Internal systems and automation are custom work. We start with a discovery workshop." },
 };
 
-// "Which package fits me?": three yes/no questions, recommendation updates as you answer.
+// "Not sure which fits?": three yes/no questions, suggestion updates as you answer.
 const PackagePicker = () => {
-  const [answers, setAnswers] = useState<Record<string, Answer>>({ sell: null, bot: null, ops: null });
+  const [answers, setAnswers] = useState<Record<string, Answer>>({ sell: null, book: null, ops: null });
   const done = Object.values(answers).every((a) => a !== null);
-  const tier = answers.ops ? "enterprise" : answers.sell || answers.bot ? "business" : "starter";
+  const tier = answers.ops ? "custom" : answers.sell ? "store" : answers.book ? "grow" : "launch";
   const result = results[tier];
 
   return (
@@ -29,7 +30,7 @@ const PackagePicker = () => {
       <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
         <AnimateOnScroll className="lg:col-span-5">
           <h2 className="heading-xl max-w-[12ch]">Not sure which fits?</h2>
-          <p className="lead mt-6 max-w-[34ch]">Answer three quick questions and we'll point you to a package.</p>
+          <p className="lead mt-6 max-w-[34ch]">Answer three quick questions and we'll point you in the right direction.</p>
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={0.1} className="lg:col-span-7">
@@ -45,7 +46,9 @@ const PackagePicker = () => {
                       aria-pressed={answers[q.id] === v}
                       onClick={() => setAnswers((a) => ({ ...a, [q.id]: v }))}
                       className={`btn min-w-[5.5rem] ${
-                        answers[q.id] === v ? "bg-navy text-paper" : "bg-paper text-navy shadow-[inset_0_0_0_2px_hsl(var(--navy)/0.25)] hover:shadow-[inset_0_0_0_2px_hsl(var(--navy))]"
+                        answers[q.id] === v
+                          ? "bg-navy text-paper"
+                          : "bg-paper text-navy shadow-[inset_0_0_0_2px_hsl(var(--navy)/0.25)] hover:shadow-[inset_0_0_0_2px_hsl(var(--navy))]"
                       }`}
                     >
                       {v ? "Yes" : "No"}
@@ -56,7 +59,7 @@ const PackagePicker = () => {
             ))}
           </ol>
 
-          <div className="mt-4 field-navy p-6 md:p-8" aria-live="polite">
+          <div className="picker-result mt-4 field-navy p-6 md:p-8" aria-live="polite">
             {done ? (
               <>
                 <p className="text-green font-semibold">We'd suggest</p>
@@ -69,7 +72,7 @@ const PackagePicker = () => {
                   </Link>
                   <button
                     type="button"
-                    onClick={() => setAnswers({ sell: null, bot: null, ops: null })}
+                    onClick={() => setAnswers({ sell: null, book: null, ops: null })}
                     className="inline-flex items-center gap-2 font-semibold underline-offset-4 hover:underline"
                   >
                     <RotateCcw size={16} /> Start again

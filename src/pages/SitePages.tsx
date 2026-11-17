@@ -1,9 +1,9 @@
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import AdditionalServices from "@/components/AdditionalServices";
-import PackagesSection from "@/components/PackagesSection";
+import WebsiteTiers from "@/components/packages/WebsiteTiers";
+import { AddOns, CarePlans, CustomBand, ITSecurity } from "@/components/packages/ExtraOffers";
 import ComparisonTable from "@/components/ComparisonTable";
-import RetainerSection from "@/components/RetainerSection";
 import CTASection from "@/components/CTASection";
 import ProcessSection from "@/components/ProcessSection";
 import PageIntro from "@/components/PageIntro";
@@ -39,11 +39,14 @@ export const ServicesPage = () => (
 
 export const PackagesPage = () => (
   <>
-    <PageIntro title="Start where *you are.*" lead="Every package includes a month of support after launch. Pay once, monthly or annually." />
-    <PackagesSection />
+    <PageIntro title="Start where *you are.*" lead="Websites, add-ons, IT and security, care plans and custom systems. Pay once, monthly or annually." />
+    <WebsiteTiers />
     <PackagePicker />
+    <AddOns />
+    <ITSecurity />
+    <CarePlans />
+    <CustomBand />
     <ComparisonTable />
-    <RetainerSection />
     <PackagesFAQ />
     <CTASection />
   </>

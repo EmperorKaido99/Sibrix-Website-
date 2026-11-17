@@ -7,8 +7,8 @@ import { CONTACT } from "@/lib/contact";
 // confirms them.
 const faqs = [
   {
-    q: "What is included in every package?",
-    a: "Every package includes a mobile-responsive, search-friendly website with a contact form and social media integration, plus one month of support after launch for bug fixes, minor tweaks and guidance.",
+    q: "What is included in every website?",
+    a: "Every website is mobile-responsive and search-friendly, with a contact form and a WhatsApp button, plus one month of support after launch for bug fixes, minor tweaks and guidance.",
   },
   {
     q: "Can I pay monthly?",
@@ -16,15 +16,19 @@ const faqs = [
   },
   {
     q: "What happens after the first month of support?",
-    a: "You can add a monthly retainer: four hours of development and support time every month, priority response, and extra hours at our standard rate when you need more.",
+    a: "You can add a care plan to keep your site updated and backed up, or a development retainer: four hours of development and support every month, priority response, and extra hours at our standard rate.",
   },
   {
     q: "Can you connect the tools I already use?",
     a: "Yes. We integrate payment processors, CRMs, accounting and shipping tools so your systems work as one flow.",
   },
   {
+    q: "Can I get CCTV or IT support without a website?",
+    a: "Yes. CCTV installation, network setup and IT maintenance are available on their own or alongside a website.",
+  },
+  {
     q: "Do you build custom solutions?",
-    a: "Yes. The packages are a starting point, and custom solutions are available on request.",
+    a: "Yes. For larger projects we start with a discovery workshop and then quote exactly what you need.",
   },
   {
     q: "How quickly will you reply?",

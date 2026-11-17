@@ -41,9 +41,9 @@ export const PAGES: PageMeta[] = [
   },
   {
     path: "/packages",
-    title: "Packages: Starter, Business, Enterprise | Sibrix Group",
+    title: "Packages: websites, IT & security, care plans | Sibrix Group",
     description:
-      "Compare the Starter, E-Commerce & Business Suite and Enterprise AI & Automation packages, plus our monthly retainer.",
+      "Launch, Grow and Online Store websites, AI and automation add-ons, CCTV and IT support, monthly care plans and custom systems.",
   },
   {
     path: "/contact",

@@ -1,3 +1,4 @@
+import { PACKAGE_LABELS } from "@/data/packages";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -18,11 +19,7 @@ interface FormState {
 const INITIAL: FormState = { name: "", email: "", phone: "", message: "" };
 
 const NEEDS = ["Website", "Online store", "AI & automation", "IoT", "IT & CCTV", "Training"];
-const PACKAGE_NAMES: Record<string, string> = {
-  starter: "Starter Web Presence",
-  business: "E-Commerce & Business Suite",
-  enterprise: "Full AI & Automation Enterprise",
-};
+const PACKAGE_NAMES: Record<string, string> = { ...PACKAGE_LABELS, it: "IT & Security" };
 
 const ContactForm = () => {
   const [form, setForm] = useState<FormState>(INITIAL);
@@ -35,7 +32,7 @@ const ContactForm = () => {
   useEffect(() => {
     const pkg = new URLSearchParams(window.location.search).get("package");
     const name = pkg && PACKAGE_NAMES[pkg];
-    if (name) setForm((f) => (f.message ? f : { ...f, message: `I'm interested in the ${name} package.\n\n` }));
+    if (name) setForm((f) => (f.message ? f : { ...f, message: `I'm interested in: ${name}.\n\n` }));
   }, []);
 
   const toggleNeed = (n: string) =>

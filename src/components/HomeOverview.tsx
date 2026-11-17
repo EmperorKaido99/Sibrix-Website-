@@ -6,7 +6,7 @@ const tiles = [
   { to: "/about", title: "About Sibrix Group", detail: "Who we are, our vision and mission, and how we work.", field: "field-paper-2" },
   { to: "/work", title: "Our work", detail: "CrimeSpots is live today. Three more products are on the way.", field: "field-navy" },
   { to: "/services", title: "Services", detail: "Websites, AI, automation, IoT, IT infrastructure and training.", field: "field-navy" },
-  { to: "/packages", title: "Packages", detail: "Starter, Business and Enterprise, plus a monthly retainer.", field: "field-paper-2" },
+  { to: "/packages", title: "Packages", detail: "Websites, add-ons, IT and security, care plans and custom systems.", field: "field-paper-2" },
 ];
 
 // Home page signposts to the other pages, in the site's existing visual language.

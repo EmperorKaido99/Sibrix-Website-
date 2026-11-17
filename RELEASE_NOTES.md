@@ -5,6 +5,26 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Packages page restructured (branch `recommendations`)
+
+**Author:** Sibusiso (GitHub: Cibucico), with Claude Code.
+
+New order on `/packages`: **Websites** (Launch / Grow / Online Store) → "Not sure which fits?" picker → **Add-ons** (AI chatbot, automation,
+integrations, dashboards) → **IT & Security** (CCTV, network setup, monthly IT support) → **Care plans** (care plan + development retainer)
+→ **Custom systems** (discovery workshop, example systems) → Compare websites → FAQ → contact.
+
+- **Single source:** all package content, prices and the comparison live in `src/data/packages.ts`. Cards show "Price on request" until a `price` is set.
+- **Needs Sibrix sign-off before going live** (listed at the top of `src/data/packages.ts`): prices; WhatsApp button + Google Business Profile in Launch;
+  bookings/quotes + blog in Grow; PayFast/Yoco/Ozow; what the care plan includes; chatbot monthly fee; IT & Security sold on its own;
+  whether the discovery workshop is paid. The FAQ repeats some of these.
+- Removed: `PackagesSection.tsx` (old Starter/Business/Enterprise cards and modal) and `RetainerSection.tsx` (now inside Care plans).
+  The old Enterprise promise of "5 custom internal apps" is gone on purpose: custom work is quoted after a workshop.
+- Picker now answers Launch / Grow / Online Store / Custom; `/contact?package=launch|grow|store|custom|it` pre-fills the message.
+- WhatsApp button has a white ring so it stays visible on the green Custom band.
+- Checked: tsc clean, lint 0 errors, build OK, no console errors on /, /packages, /contact (motion on and reduced), all 4 picker outcomes and 5 prefill links verified, no mobile overflow.
+
+---
+
 ## 2026-11-17 — UI/UX recommendations (branch `recommendations`, based on `multi-page`)
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code. Everything here uses only facts already on the site or visible in the live CrimeSpots app.
