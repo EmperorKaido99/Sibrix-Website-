@@ -9,6 +9,7 @@ import SiteLayout from "@/components/SiteLayout";
 import Index from "./pages/Index.tsx";
 import PrivacyPage from "./pages/PrivacyPage.tsx";
 import CrimeSpotsCaseStudy from "./pages/CrimeSpotsCaseStudy.tsx";
+import MarkingCaseStudy from "./pages/MarkingCaseStudy.tsx";
 import { AboutPage, ContactPage, PackagesPage, ServicesPage, WorkPage } from "./pages/SitePages.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -35,6 +36,7 @@ export const AppRoutes = () => (
       <Route path="/about" element={<AboutPage />} />
       <Route path="/work" element={<WorkPage />} />
       <Route path="/work/crimespots" element={<CrimeSpotsCaseStudy />} />
+      <Route path="/work/assessment-marking" element={<MarkingCaseStudy />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/packages" element={<PackagesPage />} />
       <Route path="/contact" element={<ContactPage />} />

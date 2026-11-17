@@ -18,7 +18,7 @@ interface FormState {
 
 const INITIAL: FormState = { name: "", email: "", phone: "", message: "" };
 
-const NEEDS = ["Website", "Online store", "AI & automation", "IoT", "IT & CCTV", "Training"];
+const NEEDS = ["Workflow automation", "IT support", "Website", "App", "Training", "Not sure yet"];
 const PACKAGE_NAMES: Record<string, string> = { ...PACKAGE_LABELS, it: "IT & Security" };
 
 const ContactForm = () => {
@@ -100,9 +100,9 @@ const ContactForm = () => {
           Thanks for reaching out. Here is what happens next:
         </p>
         <ol className="mx-auto mb-6 max-w-sm space-y-2 text-left text-base">
-          <li><strong>1.</strong> We reply within one business day.</li>
-          <li><strong>2.</strong> We talk through what you need.</li>
-          <li><strong>3.</strong> You get a clear proposal and quote.</li>
+          <li><strong>1.</strong> We reply within one business day to book a time.</li>
+          <li><strong>2.</strong> We spend 30 minutes understanding how you work.</li>
+          <li><strong>3.</strong> You get a written proposal.</li>
         </ol>
         <button
           onClick={() => { setForm(INITIAL); setStatus("idle"); }}
@@ -206,7 +206,7 @@ const ContactForm = () => {
 
       <div className="space-y-1.5">
         <Label htmlFor="message" className="text-base font-medium">
-          Tell us about your project *
+          What's slowing your business down? *
         </Label>
         <Textarea
           id="message"
@@ -215,7 +215,7 @@ const ContactForm = () => {
           onChange={handleChange}
           required
           rows={4}
-          placeholder="What do you need? (e.g., website, e-commerce store, automation, mobile app...)"
+          placeholder="e.g. we re-type orders into our accounting system every day, or our office Wi-Fi keeps dropping"
           className="bg-white text-base resize-none focus-visible:ring-navy focus-visible:ring-offset-0"
         />
       </div>
@@ -233,7 +233,7 @@ const ContactForm = () => {
         ) : (
           <>
             <Send size={16} />
-            Send Message
+            Request my consultation
           </>
         )}
       </Button>

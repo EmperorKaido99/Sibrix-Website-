@@ -34,9 +34,11 @@ const inDevelopment = [
   },
 ];
 
-const ProjectsSection = () => (
+const ProjectsSection = ({ inDevelopmentOnly = false }: { inDevelopmentOnly?: boolean }) => (
   <section id="projects" className="field-navy section">
     <div className="frame">
+      {!inDevelopmentOnly && (
+        <>
       <AnimateOnScroll>
         <h2 className="heading-xl">Our work</h2>
         <p className="lead mt-6 text-paper/80 max-w-[40ch]">
@@ -71,8 +73,11 @@ const ProjectsSection = () => (
         </AnimateOnScroll>
       </div>
 
+        </>
+      )}
+
       {/* In development */}
-      <div className="mt-24 md:mt-32">
+      <div className={inDevelopmentOnly ? "" : "mt-24 md:mt-32"}>
         <AnimateOnScroll>
           <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">In development</h3>
         </AnimateOnScroll>

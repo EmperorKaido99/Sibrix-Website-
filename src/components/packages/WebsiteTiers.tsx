@@ -7,9 +7,9 @@ const WebsiteTiers = () => (
   <section id="websites" className="field-paper-2 section">
     <div className="frame">
       <AnimateOnScroll className="mb-12 md:mb-16">
-        <h2 className="heading-xl">Websites</h2>
+        <h2 className="heading-xl">Website creation</h2>
         <p className="lead mt-6 max-w-[44ch]">
-          Three ways to get online. Every website includes one month of support after launch.
+          Also available: three ways to get online. Every website includes one month of support after launch.
         </p>
       </AnimateOnScroll>
 
@@ -38,7 +38,7 @@ const WebsiteTiers = () => (
               </ul>
 
               <Link to={`/contact?package=${t.id}`} className={`${t.featured ? "btn-green" : "btn-navy"} w-full`}>
-                Discuss a project
+                Book a free consultation
                 <ArrowRight size={18} />
               </Link>
             </article>

@@ -1,14 +1,4 @@
-import {
-  BarChart3,
-  Bot,
-  Cctv,
-  LifeBuoy,
-  Network,
-  Plug,
-  Workflow,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
+import { LifeBuoy, Wrench, type LucideIcon } from "lucide-react";
 
 /*
  * Everything on the Packages page comes from this file.
@@ -21,9 +11,8 @@ import {
  *   - Grow: online bookings or quote requests, blog/news section
  *   - Online Store: naming PayFast, Yoco and Ozow as the payment gateways
  *   - Care plan: what is included (hosting? domain? email?) and its price
- *   - AI chatbot add-on: monthly running fee
- *   - IT & Security sold on its own (without a website)
- *   - Custom systems start with a discovery workshop (paid or free?)
+ *   - Automation plans (Starter / Growth / Automation care) and IT plans (IT setup / IT support plan):
+ *     contents, prices, on-site visits and response times. Added 2026-11 with the automation-led positioning.
  *   The FAQ in src/components/PackagesFAQ.tsx repeats some of these, so update both.
  *   Everything else restates services, features and the retainer from the previous site.
  */
@@ -115,25 +104,86 @@ export const COMPARISON: { title: string; rows: { name: string; tip: string; tie
   },
 ];
 
-export interface Offer {
-  title: string;
-  detail: string;
-  icon: LucideIcon;
+export interface Plan {
+  id: string;
+  name: string;
+  forWho: string;
   price?: string;
-  note?: string;
+  monthly?: boolean;
+  featured?: boolean;
+  badge?: string;
+  features: string[];
 }
 
-export const ADD_ONS: Offer[] = [
-  { title: "AI chatbot", detail: "Trained on your products, services and FAQs, answering customers around the clock.", icon: Bot, note: "Setup + monthly running fee" },
-  { title: "Business automation", detail: "Invoicing, scheduling, alerts and reporting handled automatically.", icon: Workflow },
-  { title: "Integrations", detail: "Connect payments, CRMs, accounting and shipping tools into one flow.", icon: Plug },
-  { title: "Dashboards", detail: "Power BI and SQL dashboards that turn your data into clear decisions.", icon: BarChart3 },
+export const AUTOMATION_PLANS: Plan[] = [
+  {
+    id: "automation-starter",
+    name: "Starter",
+    forWho: "Automate one workflow that eats your team's time.",
+    features: [
+      "Free consultation to find the best first workflow",
+      "One workflow automated end to end",
+      "Connected to the tools you already use",
+      "Testing with your team before go-live",
+      "Handover training",
+      "1 month post-launch support",
+    ],
+  },
+  {
+    id: "automation-growth",
+    name: "Growth",
+    forWho: "Several workflows working together across your business.",
+    featured: true,
+    badge: "Most popular",
+    features: [
+      "Everything in Starter",
+      "Several connected workflows",
+      "Integrations between your systems",
+      "AI for documents, messages or reporting where it helps",
+      "IoT sensors and alerts where it helps",
+      "A dashboard to see what is happening",
+    ],
+  },
+  {
+    id: "automation-care",
+    name: "Automation care",
+    forWho: "Keep your automations running and improving.",
+    monthly: true,
+    features: [
+      "Monitoring and fixes",
+      "Changes as your business changes",
+      "Priority response",
+      "Monthly check-in",
+    ],
+  },
 ];
 
-export const IT_SECURITY: Offer[] = [
-  { title: "CCTV installation", detail: "Camera systems installed and configured for homes, offices and business premises.", icon: Cctv },
-  { title: "Network setup", detail: "Office and site networks planned, installed and secured.", icon: Network },
-  { title: "Monthly IT support", detail: "Hardware and system maintenance that keeps your IT running.", icon: Wrench },
+export const IT_PLANS: Plan[] = [
+  {
+    id: "it-setup",
+    name: "IT setup",
+    forWho: "Get your office set up properly, once.",
+    features: [
+      "Network and Wi-Fi planned, installed and secured",
+      "Laptops, printers, email and cloud storage set up",
+      "Backups and antivirus in place",
+      "CCTV installation if you need it",
+      "Handover and training",
+    ],
+  },
+  {
+    id: "it-support-plan",
+    name: "IT support plan",
+    forWho: "We look after your IT every month.",
+    monthly: true,
+    featured: true,
+    features: [
+      "Help when something breaks, remotely or on site",
+      "Updates, backups and security checks",
+      "Advice on what to buy and when to upgrade",
+      "Priority response",
+    ],
+  },
 ];
 
 export interface CarePlan {
@@ -159,23 +209,20 @@ export const CARE_PLANS: CarePlan[] = [
   },
 ];
 
-export const CUSTOM_EXAMPLES = [
-  "CRM",
-  "HR management",
-  "Project tracking",
-  "Financial dashboards",
-  "Supplier management",
-  "AI assistants",
-  "AI analytics",
-  "End-to-end automation",
-];
-
 /** Used by the contact form when arriving from the picker (/contact?package=grow). */
 export const PACKAGE_LABELS: Record<string, string> = {
+  automation: "Workflow automation",
+  "automation-starter": "Automation Starter",
+  "automation-growth": "Automation Growth",
+  "automation-care": "Automation care",
+  it: "IT support",
+  "it-setup": "IT setup",
+  "it-support-plan": "IT support plan",
   launch: "Launch website",
   grow: "Grow website",
   store: "Online Store",
-  custom: "Custom system",
+  apps: "App development",
+  training: "Training",
 };
 
 export const priceLabel = (price?: string) => price ?? "Price on request";

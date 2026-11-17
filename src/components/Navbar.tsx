@@ -45,7 +45,7 @@ const Navbar = () => {
           ))}
           <ThemeMenu />
           <Link to="/contact" className="btn-green py-3">
-            Discuss a project
+            Book a free consultation
           </Link>
         </div>
 
@@ -73,7 +73,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-green mt-6">
-              Discuss a project
+              Book a free consultation
             </Link>
             <ThemeSwatches />
           </div>

@@ -112,8 +112,8 @@ const AboutSection = () => (
           </p>
           <p className="mt-8 text-lg leading-relaxed max-w-[56ch]">
             This reflects our commitment to thoughtful planning, practical implementation and solutions
-            designed with purpose. Whether we are developing software, integrating smart technology or
-            supporting IT infrastructure, our goal is to build systems that work for the people and
+            designed with purpose. Whether we are automating a workflow or supporting your IT infrastructure,
+            our goal is to build systems that work for the people and
             businesses that rely on them.
           </p>
         </AnimateOnScroll>
@@ -135,7 +135,7 @@ const AboutSection = () => (
         <div className="lg:col-span-5 lg:justify-self-end">
           <p className="text-xl font-semibold tracking-tight">Let's build something meaningful together.</p>
           <Link to="/contact" className="btn-navy mt-5">
-            Discuss a project
+            Book a free consultation
             <ArrowRight size={18} />
           </Link>
         </div>

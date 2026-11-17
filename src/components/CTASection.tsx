@@ -2,7 +2,11 @@ import { CONTACT } from "@/lib/contact";
 import AnimateOnScroll from "./AnimateOnScroll";
 import ContactForm from "./ContactForm";
 
-const nextSteps = ["We reply within one business day.", "We talk through what you need.", "You get a clear proposal and quote."];
+const nextSteps = [
+  "We reply within one business day to book a time.",
+  "In 30 minutes we look at how you work and where you lose time or money.",
+  "You get a written proposal showing what we would build and what it saves you.",
+];
 
 // On the Contact page this is the page's main heading (h1); elsewhere it is a section (h2).
 const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
@@ -11,9 +15,9 @@ const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
   <section id="cta" className={`field-navy section ${asPage ? "pt-32 md:pt-44" : ""}`}>
     <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
       <AnimateOnScroll className="lg:col-span-5">
-        <Heading className="heading-xl">Discuss a project</Heading>
+        <Heading className="heading-xl">Book a free consultation</Heading>
         <p className="lead mt-6 max-w-[30ch] text-paper/85">
-          Tell us what you need. We reply within one business day with next steps and a quote.
+          A free, no-obligation 30-minute conversation about where your business loses time or money.
         </p>
         <dl className="mt-12 space-y-6">
           <div>

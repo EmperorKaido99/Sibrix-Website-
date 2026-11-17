@@ -6,24 +6,25 @@ import AnimateOnScroll from "./AnimateOnScroll";
 type Answer = boolean | null;
 
 const questions = [
-  { id: "sell", text: "Do you want to sell products online?" },
-  { id: "book", text: "Should customers be able to book or request quotes online?" },
-  { id: "ops", text: "Do you need internal systems (CRM, HR, finance) or end-to-end automation?" },
+  { id: "admin", text: "Does your team re-type or copy the same information between systems?" },
+  { id: "it", text: "Do you need help keeping computers, Wi-Fi or security working?" },
+  { id: "site", text: "Do you mainly need a website or an online store?" },
 ] as const;
 
-const results = {
-  launch: { name: "Launch", why: "A professional, search-friendly website is the right place to start. Add more any time." },
-  grow: { name: "Grow", why: "Online bookings or quote requests, plus room for a page per service." },
-  store: { name: "Online Store", why: "An online store with local payments, live stock and lay-bys fits what you described." },
-  custom: { name: "Custom systems", why: "Internal systems and automation are custom work. We start with a discovery workshop." },
+const results: Record<string, { name: string; why: string; id: string }> = {
+  both: { id: "automation", name: "Automation + IT support", why: "Automate the admin and let us look after the IT behind it. We'll scope both in your consultation." },
+  automation: { id: "automation-starter", name: "Automation Starter", why: "Start by automating the one workflow that costs your team the most time." },
+  it: { id: "it-support-plan", name: "IT support plan", why: "Monthly support so problems get fixed fast and your systems stay secure." },
+  site: { id: "launch", name: "Website creation", why: "A professional, search-friendly website. We'll suggest Launch, Grow or Online Store." },
+  unsure: { id: "automation", name: "A free consultation", why: "Not sure yet? That's what the consultation is for. In 30 minutes we'll find where you lose time." },
 };
 
 // "Not sure which fits?": three yes/no questions, suggestion updates as you answer.
 const PackagePicker = () => {
-  const [answers, setAnswers] = useState<Record<string, Answer>>({ sell: null, book: null, ops: null });
+  const [answers, setAnswers] = useState<Record<string, Answer>>({ admin: null, it: null, site: null });
   const done = Object.values(answers).every((a) => a !== null);
-  const tier = answers.ops ? "custom" : answers.sell ? "store" : answers.book ? "grow" : "launch";
-  const result = results[tier];
+  const key = answers.admin && answers.it ? "both" : answers.admin ? "automation" : answers.it ? "it" : answers.site ? "site" : "unsure";
+  const result = results[key];
 
   return (
     <section className="field-paper section">
@@ -66,13 +67,13 @@ const PackagePicker = () => {
                 <p className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">{result.name}</p>
                 <p className="mt-3 text-lg text-paper/85 max-w-[48ch]">{result.why}</p>
                 <div className="mt-8 flex flex-wrap items-center gap-6">
-                  <Link to={`/contact?package=${tier}`} className="btn-green">
-                    Discuss a project
+                  <Link to={`/contact?package=${result.id}`} className="btn-green">
+                    Book a free consultation
                     <ArrowRight size={18} />
                   </Link>
                   <button
                     type="button"
-                    onClick={() => setAnswers({ sell: null, book: null, ops: null })}
+                    onClick={() => setAnswers({ admin: null, it: null, site: null })}
                     className="inline-flex items-center gap-2 font-semibold underline-offset-4 hover:underline"
                   >
                     <RotateCcw size={16} /> Start again

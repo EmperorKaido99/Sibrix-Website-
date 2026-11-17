@@ -1,20 +1,23 @@
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import AdditionalServices from "@/components/AdditionalServices";
+import ServicesDetail from "@/components/ServicesDetail";
+import FeaturedWork from "@/components/FeaturedWork";
+import ClientJourney from "@/components/ClientJourney";
+import DataTrust from "@/components/DataTrust";
 import WebsiteTiers from "@/components/packages/WebsiteTiers";
-import { AddOns, CarePlans, CustomBand, ITSecurity } from "@/components/packages/ExtraOffers";
+import { AutomationPlans, ITPlans } from "@/components/packages/LeadPlans";
+import { CarePlans } from "@/components/packages/ExtraOffers";
 import ComparisonTable from "@/components/ComparisonTable";
 import CTASection from "@/components/CTASection";
-import ProcessSection from "@/components/ProcessSection";
 import PageIntro from "@/components/PageIntro";
 import PackagePicker from "@/components/PackagePicker";
 import PackagesFAQ from "@/components/PackagesFAQ";
 
-// Each page reuses the existing sections unchanged; every page ends with the contact form.
+// Positioning: lead with workflow automation and IT support; websites, apps and training are "also available".
 
 export const AboutPage = () => (
   <>
-    <PageIntro title="Bridging ideas and *implementation.*" lead="A South African technology company built around practical, reliable solutions." />
+    <PageIntro title="Bridging ideas and *implementation.*" lead="A South African technology company focused on workflow automation and IT support." />
     <AboutSection />
     <CTASection />
   </>
@@ -22,30 +25,32 @@ export const AboutPage = () => (
 
 export const WorkPage = () => (
   <>
-    <PageIntro title="Products we build *and run.*" lead="One is live today. Three more are on the way." />
-    <ProjectsSection />
+    <PageIntro title="Automation we build *and run.*" lead="Real systems doing real work, and the products we are building next." />
+    <FeaturedWork />
+    <section className="field-navy pb-[clamp(5rem,11vw,10rem)]">
+      <ProjectsSection inDevelopmentOnly />
+    </section>
     <CTASection />
   </>
 );
 
 export const ServicesPage = () => (
   <>
-    <PageIntro title="Everything a business *runs on.*" lead="Six practices, one team. Pick one service or let us run the whole stack." />
-    <AdditionalServices />
-    <ProcessSection />
+    <PageIntro title="Automation and IT support, *built right.*" lead="We automate the work that slows you down and keep the technology behind it running." />
+    <ServicesDetail />
+    <ClientJourney />
     <CTASection />
   </>
 );
 
 export const PackagesPage = () => (
   <>
-    <PageIntro title="Start where *you are.*" lead="Websites, add-ons, IT and security, care plans and custom systems. Pay once, monthly or annually." />
-    <WebsiteTiers />
+    <PageIntro title="Start where *you are.*" lead="Automation and IT support plans first, plus websites and website care. Pay once, monthly or annually." />
+    <AutomationPlans />
+    <ITPlans />
     <PackagePicker />
-    <AddOns />
-    <ITSecurity />
+    <WebsiteTiers />
     <CarePlans />
-    <CustomBand />
     <ComparisonTable />
     <PackagesFAQ />
     <CTASection />

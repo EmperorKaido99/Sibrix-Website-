@@ -11,21 +11,21 @@ export interface PageMeta {
 export const PAGES: PageMeta[] = [
   {
     path: "/",
-    title: "Sibrix Group | Technology. Designed for Progress.",
+    title: "Sibrix Group | Workflow automation & IT support",
     description:
-      "Sibrix Group designs, develops and integrates technology solutions that turn real-world challenges into opportunities. Cape Town, South Africa.",
+      "Workflow automation and IT support for South African businesses. We automate the admin that slows you down and keep your IT running. Book a free consultation.",
   },
   {
     path: "/about",
     title: "About Sibrix Group | South African technology company",
     description:
-      "Who we are, our vision and mission, and how Sibrix Group brings together software, smart technology, IT infrastructure and advisory.",
+      "Who we are, our vision and mission, and how Sibrix Group helps South African businesses with workflow automation and IT support.",
   },
   {
     path: "/work",
-    title: "Our work: CrimeSpots and more | Sibrix Group",
+    title: "Our work: automation case studies | Sibrix Group",
     description:
-      "Products Sibrix Group designs, builds and runs, including CrimeSpots, real-time AI crime intelligence for Cape Town.",
+      "Automation Sibrix has built: automated assessment marking for a skills-development provider, and CrimeSpots, AI crime intelligence for Cape Town.",
   },
   {
     path: "/work/crimespots",
@@ -34,22 +34,28 @@ export const PAGES: PageMeta[] = [
       "How Sibrix designed and built CrimeSpots: AI that turns news reports into verified incidents on a live map of Cape Town, with area rankings and alerts.",
   },
   {
-    path: "/services",
-    title: "Services: websites, AI, automation, IoT & IT | Sibrix Group",
+    path: "/work/assessment-marking",
+    title: "Case study: automated assessment marking | Sibrix Group",
     description:
-      "Websites and e-commerce, mobile apps, AI chatbots, automation, IoT, cloud, networking, CCTV, training and SEO for South African businesses.",
+      "How Sibrix automated assessment marking: fetching submissions, memo-based scoring, integrity checks, marked PDFs and feedback, with the assessor in control.",
+  },
+  {
+    path: "/services",
+    title: "Services: workflow automation & IT support | Sibrix Group",
+    description:
+      "Workflow automation with AI, IoT and integrations, and IT support: networks, devices, security, CCTV and help when things break. Plus websites, apps and training.",
   },
   {
     path: "/packages",
-    title: "Packages: websites, IT & security, care plans | Sibrix Group",
+    title: "Packages: automation, IT support & websites | Sibrix Group",
     description:
-      "Launch, Grow and Online Store websites, AI and automation add-ons, CCTV and IT support, monthly care plans and custom systems.",
+      "Automation Starter, Growth and Care, IT setup and monthly IT support plans, plus Launch, Grow and Online Store websites and website care.",
   },
   {
     path: "/contact",
-    title: "Contact Sibrix Group | Discuss a project",
+    title: "Book a free consultation | Sibrix Group",
     description:
-      "Tell us what you need. Email info@sibrixgroup.co.za or call (+27) 60 960 9830. We reply within one business day with next steps and a quote.",
+      "Book a free, no-obligation 30-minute consultation about where your business loses time or money. Email info@sibrixgroup.co.za or call (+27) 60 960 9830.",
   },
   {
     path: "/privacy",

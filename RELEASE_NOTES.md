@@ -5,6 +5,33 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Repositioned: lead with workflow automation and IT support (branch `automation-led`)
+
+**Why:** a reviewer said the site read like a jack-of-all-trades. Lead with one or two specialities, show proof, invite people to a free
+consultation instead of "get a quote", show the client journey and how data is handled. Decision: **lead with Workflow automation
+(built with AI and IoT where it helps) and IT support**; website creation, app development and training are "also available".
+
+- **Content lives in data files:** `src/data/offers.ts` (lead offers, extras, client journey), `src/data/packages.ts` (automation + IT plans,
+  websites, care), `src/data/caseStudies.ts` (marking case study). Each has a TO CONFIRM list at the top.
+- **Home:** hero "Automate the busywork. / Keep your IT running." (the "Systems built right." typewriter stays) → `LeadOffers`
+  (two big offers + "Also available") → `FeaturedWork` (marking case study + CrimeSpots) → `ClientJourney` (6 steps from free consultation
+  to aftercare, replaces ProcessSection) → `DataTrust` (POPIA-minded, only what's needed, person in the loop) → contact.
+- **One call to action everywhere: "Book a free consultation".** Contact page reframed: free, no-obligation 30-minute consultation;
+  form asks "What's slowing your business down?"; need chips: Workflow automation, IT support, Website, App, Training, Not sure yet.
+- **Services:** `ServicesDetail` (Automation with examples + AI / IoT / Integration; IT support; Also available) + journey. Old `AdditionalServices` removed.
+- **Packages:** Automation (Starter / Growth / Automation care) → IT support (IT setup / IT support plan) → picker (new questions) → Website creation
+  (Launch / Grow / Online Store) → Website care → compare websites → FAQ (consultation and automation questions added). Old add-ons, IT & Security and Custom sections removed.
+- **New page:** `/work/assessment-marking`, an anonymised case study of the automated marking pipeline (fetch → memo → integrity checks → scoring →
+  marked PDF → tracker → feedback), assessor stays in control. **Results block is hidden until real numbers are added to `MARKING_RESULTS`.**
+- **Work page:** marking case study + CrimeSpots first, then products in development.
+- SEO titles/descriptions, JSON-LD description and service list, sitemap updated.
+- **Before going live, confirm:** plan contents and prices; proposal turnaround after the consultation; consultation length; IT on-site visits and
+  response times; the data-handling commitments in `DataTrust.tsx`; whether the marking case study may name the provider; real results.
+- Checked: tsc clean, lint 0 errors, test + build OK, 9 pages one h1 and no console errors (motion on and reduced), one CTA label site-wide,
+  nav on one line at 1024px, picker (5 outcomes) and contact prefill verified, no mobile overflow.
+
+---
+
 ## 2026-11-17 — SEO and speed fixes after the multi-page launch
 
 **Found on the live site:** Vercel serves `https://www.sibrixgroup.co.za` and 308-redirects the bare domain to it, but every canonical,

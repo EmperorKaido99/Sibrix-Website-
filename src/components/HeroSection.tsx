@@ -17,17 +17,16 @@ const HeroSection = () => (
           className="anim-rise mt-5 font-semibold text-[clamp(2.75rem,4.7vw,5.5rem)] leading-[1] tracking-[-0.035em]"
           style={{ "--d": "60ms" } as React.CSSProperties}
         >
-          Technology.
+          Automate the busywork.
           <br />
-          <span className="text-green">Designed for Progress.</span>
+          <span className="text-green">Keep your IT running.</span>
         </h1>
         <p className="anim-rise lead mt-8 max-w-[34ch] text-paper/90" style={{ "--d": "120ms" } as React.CSSProperties}>
-          We design, develop and integrate technology solutions that turn real-world challenges into
-          opportunities.
+          Workflow automation and IT support for South African businesses, built with AI and IoT where it helps.
         </p>
         <div className="anim-rise mt-10 flex flex-wrap items-center gap-4" style={{ "--d": "180ms" } as React.CSSProperties}>
           <Link to="/contact" className="btn-green">
-            Discuss a project
+            Book a free consultation
             <ArrowRight size={18} />
           </Link>
           <Link to="/services" className="btn-ghost-light">

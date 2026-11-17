@@ -7,6 +7,14 @@ import { CONTACT } from "@/lib/contact";
 // confirms them.
 const faqs = [
   {
+    q: "What happens in the free consultation?",
+    a: "A 30-minute, no-obligation conversation about how your business works and where you lose time or money. If we can help, we follow up with a written proposal.",
+  },
+  {
+    q: "What kind of work can you automate?",
+    a: "Repetitive admin that follows the same steps every time: quotes and invoices, payment reminders, enquiries, reports, document checks and moving data between systems. We use AI and IoT where they help.",
+  },
+  {
     q: "What is included in every website?",
     a: "Every website is mobile-responsive and search-friendly, with a contact form and a WhatsApp button, plus one month of support after launch for bug fixes, minor tweaks and guidance.",
   },
@@ -23,16 +31,16 @@ const faqs = [
     a: "Yes. We integrate payment processors, CRMs, accounting and shipping tools so your systems work as one flow.",
   },
   {
-    q: "Can I get CCTV or IT support without a website?",
-    a: "Yes. CCTV installation, network setup and IT maintenance are available on their own or alongside a website.",
+    q: "Do you offer IT support on its own?",
+    a: "Yes. IT setup and monthly IT support (networks, devices, security, CCTV and help when things break) are available on their own or alongside automation.",
   },
   {
     q: "Do you build custom solutions?",
-    a: "Yes. For larger projects we start with a discovery workshop and then quote exactly what you need.",
+    a: "Yes. Larger projects start with the free consultation, then a proposal scoped to exactly what you need.",
   },
   {
     q: "How quickly will you reply?",
-    a: `Within one business day, with next steps and a quote. You can also WhatsApp or call us on ${CONTACT.phoneDisplay}.`,
+    a: `Within one business day, to book your free consultation. You can also WhatsApp or call us on ${CONTACT.phoneDisplay}.`,
   },
 ];
 
