@@ -43,47 +43,47 @@ export const LEAD_OFFERS: Offer[] = [
   {
     id: "automation",
     title: "Workflow automation",
-    promise: "Stop doing the same admin by hand.",
+    promise: "Less manual work. Fewer errors.",
     detail:
-      "We find the repetitive work in your business and build systems that do it for you, connected to the tools you already use.",
+      "We analyse how work moves through your business and automate the repetitive steps, integrated with the systems you already use.",
     icon: Workflow,
     examples: [
-      { icon: FileCheck2, text: "Quotes become invoices, and overdue invoices get reminders, automatically" },
-      { icon: MessagesSquare, text: "Website and WhatsApp enquiries land in one place and alert the right person" },
-      { icon: Bot, text: "AI that reads, checks and sorts documents, forms and reports" },
-      { icon: Cpu, text: "IoT sensors that watch generators, fridges, tanks or equipment and alert you" },
-      { icon: Cable, text: "Your store, accounting and spreadsheets sharing data, so nobody re-types it" },
+      { icon: FileCheck2, text: "Automated quoting, invoicing and payment follow-ups" },
+      { icon: MessagesSquare, text: "Enquiry capture and routing from your website, email and WhatsApp" },
+      { icon: Bot, text: "AI-assisted document processing, review and reporting" },
+      { icon: Cpu, text: "IoT monitoring and alerts for equipment, power and premises" },
+      { icon: Cable, text: "System integration across sales, accounting and operations" },
     ],
   },
   {
     id: "it-support",
     title: "IT support",
-    promise: "Keep your business running.",
+    promise: "Secure, dependable technology.",
     detail:
-      "We set up, secure and look after the technology your team relies on every day, and fix it fast when something goes wrong.",
+      "We design, secure and maintain the technology your team depends on, with responsive support when issues arise.",
     icon: Headset,
     examples: [
-      { icon: Network, text: "Office Wi-Fi and networks planned, installed and secured" },
-      { icon: HardDrive, text: "Laptops, printers, email accounts and cloud storage set up properly" },
-      { icon: ShieldCheck, text: "Updates, backups, antivirus and access control" },
-      { icon: Cctv, text: "CCTV installed and configured for offices and premises" },
-      { icon: LifeBuoy, text: "Help when something breaks, remotely or on site" },
+      { icon: Network, text: "Network design, installation and security" },
+      { icon: HardDrive, text: "Device, email and cloud set-up and management" },
+      { icon: ShieldCheck, text: "Patch management, backups and endpoint protection" },
+      { icon: Cctv, text: "CCTV design and installation" },
+      { icon: LifeBuoy, text: "Remote and on-site support" },
     ],
   },
 ];
 
 export const EXTRAS: { id: string; title: string; detail: string; icon: LucideIcon; to: string }[] = [
-  { id: "websites", title: "Website creation", detail: "Fast, search-friendly websites and online stores.", icon: Globe, to: "/packages#websites" },
-  { id: "apps", title: "App development", detail: "Mobile and web apps connected to your business systems.", icon: AppWindow, to: "/contact?package=apps" },
-  { id: "training", title: "Training & skills", detail: "Hands-on training so your team can run what we build.", icon: GraduationCap, to: "/contact?package=training" },
+  { id: "websites", title: "Website creation", detail: "Professional, search-optimised websites and e-commerce.", icon: Globe, to: "/packages#websites" },
+  { id: "apps", title: "App development", detail: "Custom mobile and web applications, integrated with your systems.", icon: AppWindow, to: "/contact?package=apps" },
+  { id: "training", title: "Training & skills", detail: "Practical training that equips your team to use new systems with confidence.", icon: GraduationCap, to: "/contact?package=training" },
 ];
 
 /** The client journey, from the five "What we do" pillars, starting with a free consultation. */
 export const JOURNEY = [
-  { title: "Free consultation", detail: "30 minutes, no obligation. We learn how you work and where you lose time or money." },
-  { title: "Proposal", detail: "A written proposal: what we will build, what it will do, and what it saves you." },
-  { title: "Build together", detail: "We build in stages and check in with you, so it fits how your team really works." },
-  { title: "Automate & connect", detail: "AI, IoT and integrations wired into your existing tools." },
-  { title: "IT support", detail: "We keep the systems behind it running, secure and backed up." },
-  { title: "Training & aftercare", detail: "Your team learns to use it, and we stay on hand when you need us." },
+  { title: "Consultation", detail: "A complimentary 30-minute session to understand your operations and identify where time and cost are lost." },
+  { title: "Proposal", detail: "A written proposal setting out the solution, its scope and the expected return." },
+  { title: "Delivery", detail: "Delivered in stages with regular reviews, so the solution fits how your team works." },
+  { title: "Integration", detail: "Automation, AI and IoT integrated with your existing systems." },
+  { title: "IT support", detail: "Ongoing infrastructure support to keep systems secure, backed up and available." },
+  { title: "Training and aftercare", detail: "Team training at go-live, with continued support as your needs evolve." },
 ];

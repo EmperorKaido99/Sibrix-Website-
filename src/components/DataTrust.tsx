@@ -5,16 +5,16 @@ import AnimateOnScroll from "./AnimateOnScroll";
 // Trust block for compliance-minded clients. Wording is a commitment Sibrix makes;
 // keep it in step with the privacy policy (src/pages/PrivacyPage.tsx).
 const points = [
-  { icon: ShieldCheck, title: "POPIA-minded", detail: "We handle personal information in line with the Protection of Personal Information Act." },
-  { icon: Lock, title: "Only what's needed", detail: "We access only the data a job requires, and keep access limited to the people doing the work." },
-  { icon: UserCheck, title: "You stay in control", detail: "Automations that make decisions keep a person in the loop to check and sign off." },
+  { icon: ShieldCheck, title: "POPIA-aligned", detail: "Personal information is processed in line with the Protection of Personal Information Act." },
+  { icon: Lock, title: "Least-privilege access", detail: "We access only the data a project requires, restricted to the people delivering it." },
+  { icon: UserCheck, title: "Human oversight", detail: "Automated decisions remain subject to human review and approval." },
 ];
 
 const DataTrust = () => (
   <section className="field-paper-2 section">
     <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
       <AnimateOnScroll className="lg:col-span-4">
-        <h2 className="heading-xl max-w-[10ch]">Your data, handled properly</h2>
+        <h2 className="heading-xl max-w-[12ch]">Data protection and compliance</h2>
         <Link to="/privacy" className="link-arrow mt-8 text-lg">
           Read our privacy policy
         </Link>

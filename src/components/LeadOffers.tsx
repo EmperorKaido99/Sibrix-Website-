@@ -8,7 +8,7 @@ const LeadOffers = () => (
   <section className="field-paper section">
     <div className="frame">
       <AnimateOnScroll>
-        <h2 className="heading-xl max-w-[16ch]">Two things we do best</h2>
+        <h2 className="heading-xl max-w-[16ch]">Our core services</h2>
       </AnimateOnScroll>
 
       <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">

@@ -10,9 +10,9 @@ const ClientJourney = () => (
   <section className="field-navy-deep section">
     <div className="frame">
       <AnimateOnScroll>
-        <h2 className="heading-xl max-w-[14ch]">How working with us goes</h2>
+        <h2 className="heading-xl max-w-[14ch]">Our approach</h2>
         <p className="lead mt-6 max-w-[44ch] text-paper/80">
-          From a free first conversation to support long after launch. You always know what happens next.
+          A structured engagement, from the first consultation to long-term support.
         </p>
       </AnimateOnScroll>
 

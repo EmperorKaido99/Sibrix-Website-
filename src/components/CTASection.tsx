@@ -5,9 +5,9 @@ import { PACKAGE_LABELS } from "@/data/packages";
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const nextSteps = [
-  "We reply within one business day to book a time.",
-  "In 30 minutes we look at how you work and where you lose time or money.",
-  "You get a written proposal showing what we would build and what it saves you.",
+  "We respond within one business day to schedule your session.",
+  "We assess your current processes and systems.",
+  "You receive a written proposal with scope, timeline and expected return.",
 ];
 
 const BASE_MESSAGE = "Hi Sibrix, I'd like to book a free 30-minute consultation.";
@@ -31,7 +31,7 @@ const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
     {
       icon: MessageCircle,
       title: "WhatsApp us",
-      detail: "Send a message and we'll find a time that suits you.",
+      detail: "Message us to arrange a time.",
       href: `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`,
       external: true,
       style: "bg-green text-navy hover:bg-[hsl(160_100%_48%)]",
@@ -39,7 +39,7 @@ const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
     {
       icon: Phone,
       title: `Call ${CONTACT.phoneDisplay}`,
-      detail: "Talk to us directly and book on the call.",
+      detail: "Speak to us directly.",
       href: CONTACT.phoneHref,
       external: false,
       style: "bg-navy text-paper hover:bg-navy-deep",
@@ -62,7 +62,7 @@ const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
         <AnimateOnScroll className="lg:col-span-5">
           <Heading className="heading-xl">Book a free consultation</Heading>
           <p className="lead mt-6 max-w-[30ch] text-paper/85">
-            A free, no-obligation 30-minute conversation about where your business loses time or money.
+            A complimentary, no-obligation 30-minute session to assess your operations and identify where time and cost can be saved.
           </p>
           <div className="mt-12 border-t border-paper/15 pt-8">
             <p className="text-base text-paper/70">What happens next</p>
@@ -81,7 +81,7 @@ const CTASection = ({ asPage = false }: { asPage?: boolean }) => {
 
         <AnimateOnScroll delay={0.1} className="lg:col-span-6 lg:col-start-7">
           <div className="bg-paper text-navy p-6 sm:p-10">
-            <p className="text-2xl font-semibold tracking-tight">Choose how to book</p>
+            <p className="text-2xl font-semibold tracking-tight">Schedule your consultation</p>
             <ul className="mt-6 space-y-3">
               {options.map((o) => (
                 <li key={o.title}>

@@ -13,7 +13,7 @@ export const PAGES: PageMeta[] = [
     path: "/",
     title: "Sibrix Group | Workflow automation & IT support",
     description:
-      "Workflow automation and IT support for South African businesses. We automate the admin that slows you down and keep your IT running. Book a free consultation.",
+      "Business automation and IT support for South African organisations. We automate processes and support the technology behind them. Book a complimentary consultation.",
   },
   {
     path: "/about",

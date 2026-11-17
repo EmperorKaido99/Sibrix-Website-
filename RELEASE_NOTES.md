@@ -5,6 +5,19 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Professional tone pass; package picker removed (branch `automation-led`)
+
+- Feedback: the copy read as casual ("busywork", "off your team's plate", quiz-style questions). Rewrote ~60 strings in a confident,
+  consultative B2B tone: hero "Streamlined operations. / Dependable IT." with "We automate business processes and support the technology
+  behind them, so your team can focus on growth."; "Our core services"; "Selected work"; "Our approach"; "Data protection and compliance";
+  offer examples, plans, journey steps and the booking panel ("Schedule your consultation") reworded accordingly. Most copy is in
+  `src/data/offers.ts` and `src/data/packages.ts`.
+- **Tone rule going forward:** professional and specific, outcome-led, no slang or jokey questions. Keep "Systems built right." as the tagline.
+- Removed the "Not sure which fits?" yes/no picker (`PackagePicker.tsx`); the free consultation does that job.
+- Checked: tsc clean, lint 0 errors, build OK, all 9 pages without console errors.
+
+---
+
 ## 2026-11-17 — Contact form removed: book a consultation by WhatsApp, phone or email (branch `automation-led`)
 
 - Per reviewer feedback, the contact form is gone. `CTASection` (Contact page and the end of every page) is now a **"Choose how to book"** panel:

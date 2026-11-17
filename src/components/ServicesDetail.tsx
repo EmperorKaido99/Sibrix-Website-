@@ -6,9 +6,9 @@ import { EXTRAS, LEAD_OFFERS } from "@/data/offers";
 const [automation, itSupport] = LEAD_OFFERS;
 
 const howWeAutomate = [
-  { icon: Bot, title: "AI", detail: "Reads, checks, sorts and writes: documents, emails, forms, reports and customer questions." },
-  { icon: Cpu, title: "IoT", detail: "Sensors on generators, fridges, tanks, doors or machines that act or alert you when something changes." },
-  { icon: Cable, title: "Integration", detail: "Connects the tools you already pay for so information flows once, without re-typing." },
+  { icon: Bot, title: "AI", detail: "Processes documents, emails, forms and customer queries, and generates reports." },
+  { icon: Cpu, title: "IoT", detail: "Sensors on equipment, power supply and premises that trigger alerts or actions." },
+  { icon: Cable, title: "Integration", detail: "Connects your existing platforms so data is captured once and shared reliably." },
 ];
 
 // Services page: the two lead offers in depth, then the three extras.
@@ -33,7 +33,7 @@ const ServicesDetail = () => (
         <div className="lg:col-span-7 space-y-14">
           <div>
             <AnimateOnScroll>
-              <h3 className="text-3xl font-semibold tracking-tight">What we automate</h3>
+              <h3 className="text-3xl font-semibold tracking-tight">Typical engagements</h3>
             </AnimateOnScroll>
             <ul className="mt-8 space-y-4">
               {automation.examples.map((e, i) => (
@@ -48,7 +48,7 @@ const ServicesDetail = () => (
           </div>
           <div>
             <AnimateOnScroll>
-              <h3 className="text-3xl font-semibold tracking-tight">How we do it</h3>
+              <h3 className="text-3xl font-semibold tracking-tight">Technology we apply</h3>
             </AnimateOnScroll>
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
               {howWeAutomate.map((h, i) => (

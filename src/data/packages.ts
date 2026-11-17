@@ -119,9 +119,9 @@ export const AUTOMATION_PLANS: Plan[] = [
   {
     id: "automation-starter",
     name: "Starter",
-    forWho: "Automate one workflow that eats your team's time.",
+    forWho: "A single, high-impact workflow, fully automated.",
     features: [
-      "Free consultation to find the best first workflow",
+      "Consultation to identify the highest-value workflow",
       "One workflow automated end to end",
       "Connected to the tools you already use",
       "Testing with your team before go-live",
@@ -132,7 +132,7 @@ export const AUTOMATION_PLANS: Plan[] = [
   {
     id: "automation-growth",
     name: "Growth",
-    forWho: "Several workflows working together across your business.",
+    forWho: "Multiple integrated workflows across your operations.",
     featured: true,
     badge: "Most popular",
     features: [
@@ -147,7 +147,7 @@ export const AUTOMATION_PLANS: Plan[] = [
   {
     id: "automation-care",
     name: "Automation care",
-    forWho: "Keep your automations running and improving.",
+    forWho: "Ongoing monitoring, maintenance and optimisation.",
     monthly: true,
     features: [
       "Monitoring and fixes",
@@ -162,7 +162,7 @@ export const IT_PLANS: Plan[] = [
   {
     id: "it-setup",
     name: "IT setup",
-    forWho: "Get your office set up properly, once.",
+    forWho: "Professional set-up of your office technology.",
     features: [
       "Network and Wi-Fi planned, installed and secured",
       "Laptops, printers, email and cloud storage set up",
@@ -174,11 +174,11 @@ export const IT_PLANS: Plan[] = [
   {
     id: "it-support-plan",
     name: "IT support plan",
-    forWho: "We look after your IT every month.",
+    forWho: "Managed IT support on a monthly basis.",
     monthly: true,
     featured: true,
     features: [
-      "Help when something breaks, remotely or on site",
+      "Remote and on-site support",
       "Updates, backups and security checks",
       "Advice on what to buy and when to upgrade",
       "Priority response",
@@ -203,7 +203,7 @@ export const CARE_PLANS: CarePlan[] = [
   },
   {
     name: "Development retainer",
-    forWho: "A team that already knows your systems, every month.",
+    forWho: "Dedicated development time from a team that knows your systems.",
     icon: Wrench,
     features: ["4 hours of development and support a month", "Use it for design, fixes, updates or automations", "Priority response", "Extra hours at our standard rate"],
   },

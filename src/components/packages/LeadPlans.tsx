@@ -51,7 +51,7 @@ export const AutomationPlans = () => (
       <AnimateOnScroll>
         <h2 className="heading-xl">Workflow automation</h2>
         <p className="lead mt-6 max-w-[46ch]">
-          Start with one workflow, grow to a connected business, and keep it running with monthly care.
+          From a single workflow to integrated operations, with optional monthly care.
         </p>
       </AnimateOnScroll>
       <PlanGrid plans={AUTOMATION_PLANS} />
@@ -65,7 +65,7 @@ export const ITPlans = () => (
       <AnimateOnScroll>
         <h2 className="heading-xl">IT support</h2>
         <p className="lead mt-6 max-w-[46ch] text-paper/85">
-          Get set up properly once, then let us look after it every month.
+          Professional set-up, followed by managed monthly support.
         </p>
       </AnimateOnScroll>
       <PlanGrid plans={IT_PLANS} dark />
