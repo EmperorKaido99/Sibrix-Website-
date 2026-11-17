@@ -18,7 +18,7 @@ const RetainerSection = () => (
           Keep your website and systems improving after launch, with a team that already knows them.
         </p>
         <Link to="/contact" className="btn-navy mt-10">
-          Ask about a retainer
+          Discuss a project
           <ArrowRight size={18} />
         </Link>
       </AnimateOnScroll>

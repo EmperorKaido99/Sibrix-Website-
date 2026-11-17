@@ -1,4 +1,4 @@
-import { Check, Minus } from "lucide-react";
+import { Check, Minus, Plus } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const groups = [
@@ -63,62 +63,62 @@ const Cell = ({ included, featured }: { included: boolean; featured?: boolean })
 const ComparisonTable = () => (
   <section id="comparison" className="field-navy section">
     <div className="frame">
-      <AnimateOnScroll className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end mb-12 md:mb-16">
-        <h2 className="heading-xl lg:col-span-7">Compare packages</h2>
-        <p className="lead lg:col-span-5 text-paper/80 max-w-[34ch]">
-          Everything included at each level, side by side.
+      <AnimateOnScroll className="mb-12 md:mb-16">
+        <h2 className="heading-xl">Compare packages</h2>
+        <p className="lead mt-6 text-paper/80 max-w-[40ch]">
+          Everything included at each level, grouped by what it does for your business.
         </p>
       </AnimateOnScroll>
 
       <AnimateOnScroll delay={0.1}>
-        <div className="bg-paper text-navy overflow-hidden">
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="border-b border-border">
-                <th scope="col" className="text-left py-5 sm:py-6 pl-4 sm:pl-8 pr-2 text-base font-semibold">
-                  Feature
-                </th>
-                {tiers.map((t) => (
-                  <th
-                    key={t.key}
-                    scope="col"
-                    className={`w-[18%] sm:w-[15%] py-5 sm:py-6 px-2 sm:px-4 text-center text-sm sm:text-lg font-semibold ${
-                      "featured" in t ? "bg-green" : ""
-                    }`}
-                  >
-                    {t.label}
-                    {"featured" in t && (
-                      <span className="hidden sm:block mt-0.5 font-normal text-sm">Most popular</span>
-                    )}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            {groups.map((g) => (
-              <tbody key={g.title}>
-                <tr className="bg-paper-2">
-                  <th
-                    scope="colgroup"
-                    colSpan={4}
-                    className="text-left py-3 px-4 sm:px-8 text-base font-semibold"
-                  >
-                    {g.title}
-                  </th>
-                </tr>
-                {g.features.map((f) => (
-                  <tr key={f.name} className="border-t border-border first:border-t-0">
-                    <th scope="row" className="text-left font-normal py-4 pl-4 sm:pl-8 pr-2">
-                      <span className="block text-base font-medium">{f.name}</span>
-                      <span className="hidden md:block text-sm text-navy/70 mt-0.5">{f.tip}</span>
-                    </th>
-                    <Cell included={f.starter} />
-                    <Cell included={f.business} featured />
-                    <Cell included={f.enterprise} />
+        <div className="bg-paper text-navy">
+          {groups.map((g, gi) => (
+            <details key={g.title} open={gi === 0} className="compare-group group border-t border-border first:border-t-0">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 sm:px-8 py-6 text-xl md:text-2xl font-semibold tracking-tight">
+                {g.title}
+                <span className="text-sm md:text-base font-medium text-navy/60 ml-auto">
+                  {g.features.length} {g.features.length === 1 ? "feature" : "features"}
+                </span>
+                <Plus
+                  size={22}
+                  className="shrink-0 text-navy transition-transform duration-300 group-open:rotate-45"
+                  aria-hidden="true"
+                />
+              </summary>
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr>
+                    <th scope="col" className="sr-only">Feature</th>
+                    {tiers.map((t) => (
+                      <th
+                        key={t.key}
+                        scope="col"
+                        className={`w-[18%] sm:w-[15%] pb-3 px-2 text-center text-sm sm:text-base font-semibold ${
+                          "featured" in t ? "bg-green/15" : ""
+                        }`}
+                      >
+                        {t.label}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            ))}
-          </table>
+                </thead>
+                <tbody>
+                  {g.features.map((f) => (
+                    <tr key={f.name}>
+                      <th scope="row" className="text-left font-normal py-3 pl-4 sm:pl-8 pr-2">
+                        <span className="block text-base font-medium">{f.name}</span>
+                        <span className="hidden md:block text-sm text-navy/70 mt-0.5">{f.tip}</span>
+                      </th>
+                      <Cell included={f.starter} />
+                      <Cell included={f.business} featured />
+                      <Cell included={f.enterprise} />
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div className="h-6" />
+            </details>
+          ))}
         </div>
       </AnimateOnScroll>
     </div>

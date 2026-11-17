@@ -36,9 +36,7 @@ const Navbar = () => {
               key={l.href}
               to={l.href}
               className={({ isActive }) =>
-                `text-base font-medium underline-offset-4 hover:text-paper hover:underline ${
-                  isActive ? "text-paper underline decoration-green decoration-2" : "text-paper/85"
-                }`
+                `nav-link text-base font-medium hover:text-paper ${isActive ? "text-paper" : "text-paper/85"}`
               }
             >
               {l.label}

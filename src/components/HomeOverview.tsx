@@ -21,7 +21,7 @@ const HomeOverview = () => (
           <AnimateOnScroll key={t.to} delay={i * 0.06} className="h-full">
             <Link
               to={t.to}
-              className={`${t.field} group flex h-full min-h-[240px] flex-col justify-between p-8 md:p-12`}
+              className={`${t.field} group flex h-full min-h-[240px] flex-col justify-between p-8 md:p-12 transition-transform duration-300 ease-out hover:-translate-y-1`}
             >
               <div>
                 <h3 className="text-3xl md:text-4xl font-semibold tracking-tight">{t.title}</h3>

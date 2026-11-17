@@ -134,7 +134,7 @@ const AboutSection = () => (
         <div className="lg:col-span-5 lg:justify-self-end">
           <p className="text-xl font-semibold tracking-tight">Let's build something meaningful together.</p>
           <Link to="/contact" className="btn-navy mt-5">
-            Get in touch
+            Discuss a project
             <ArrowRight size={18} />
           </Link>
         </div>

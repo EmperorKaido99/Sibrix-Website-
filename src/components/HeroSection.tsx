@@ -45,7 +45,10 @@ const HeroSection = () => {
 
         <motion.figure {...rise(0.24)} className="lg:col-span-5">
           <div className="overflow-hidden aspect-[4/3] bg-navy-deep">
-            <img
+            <motion.img
+              initial={{ scale: 1.12 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.6, delay: 0.24, ease }}
               src={capeTown}
               alt="Cape Town and Table Mountain at dusk, with connected network lines over the city"
               className="w-full h-full object-cover"

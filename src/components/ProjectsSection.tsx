@@ -35,9 +35,9 @@ const inDevelopment = [
 const ProjectsSection = () => (
   <section id="projects" className="field-navy section">
     <div className="frame">
-      <AnimateOnScroll className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end">
-        <h2 className="heading-xl lg:col-span-7">Our work</h2>
-        <p className="lead lg:col-span-5 text-paper/80 max-w-[34ch]">
+      <AnimateOnScroll>
+        <h2 className="heading-xl">Our work</h2>
+        <p className="lead mt-6 text-paper/80 max-w-[40ch]">
           Products we design, build and run ourselves. One is live today; three more are on the way.
         </p>
       </AnimateOnScroll>

@@ -61,7 +61,7 @@ const packages = [
       { name: "AI-powered personalised user journeys", detail: "Your website adapts to each visitor, showing relevant content and recommendations." },
       { name: "End-to-end business automation", detail: "Automate invoicing, scheduling, alerts, and reporting to save time and reduce errors." },
       { name: "AI workflow automation", detail: "Intelligent workflows that learn from your processes and optimise them over time." },
-      { name: "5 custom internal business apps", detail: "Tailored apps for your team — CRM, HR, project tracking, finance, and supplier management." },
+      { name: "5 custom internal business apps", detail: "Tailored apps for your team: CRM, HR, project tracking, finance, and supplier management." },
       { name: "Advanced AI chatbot + assistant", detail: "A powerful AI assistant that handles complex queries and supports your team internally." },
       { name: "AI insights & analytics dashboard", detail: "Visual dashboards with AI-generated insights to help you make smarter decisions." },
       { name: "Third-party integrations", detail: "Connect to accounting, logistics, and social media tools you already use." },
@@ -132,7 +132,7 @@ const PackageModal = ({ pkg, open, onOpenChange }: { pkg: Package; open: boolean
       )}
 
       <Link to="/contact" onClick={() => onOpenChange(false)} className="btn-navy w-full mt-2">
-        Request a Quote
+        Discuss a project
         <ArrowRight size={16} />
       </Link>
     </DialogContent>
@@ -149,7 +149,7 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
     <>
       <AnimateOnScroll delay={index * 0.1} className="h-full">
         <div
-          className={`relative h-full flex flex-col p-7 sm:p-10 ${
+          className={`relative h-full flex flex-col p-7 sm:p-10 transition-transform duration-300 ease-out hover:-translate-y-1.5 ${
             featured ? "field-navy" : "bg-paper text-navy"
           }`}
         >
@@ -194,7 +194,7 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
               to="/contact"
               className={`${featured ? "btn-green" : "btn-navy"} w-full`}
             >
-              Request a Quote
+              Discuss a project
             </Link>
             <button
               type="button"
@@ -215,15 +215,15 @@ const PackageCard = ({ pkg, index }: { pkg: Package; index: number }) => {
 const PackagesSection = () => (
   <section id="packages" className="field-paper-2 section">
     <div className="frame">
-      <AnimateOnScroll className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-end mb-12 md:mb-20">
-        <h2 className="heading-xl lg:col-span-7">Packages</h2>
-        <p className="lead lg:col-span-5 max-w-[34ch]">
+      <AnimateOnScroll className="mb-12 md:mb-20">
+        <h2 className="heading-xl">Packages</h2>
+        <p className="lead mt-6 max-w-[44ch]">
           Start with what you need today and add capability as you grow. Every package includes one
           month of post-launch support.
         </p>
       </AnimateOnScroll>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-5 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr_1fr] gap-4 lg:gap-5 items-stretch">
         {packages.map((pkg, i) => (
           <PackageCard key={pkg.tier} pkg={pkg} index={i} />
         ))}

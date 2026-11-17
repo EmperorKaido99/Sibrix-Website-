@@ -5,6 +5,23 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Taste pass (design-taste-frontend skill, preserve mode) (branch `multi-page`)
+
+**Author:** Sibusiso (GitHub: Cibucico), with Claude Code. Same brand, colours, content and pages; detail and motion upgraded.
+
+- **No em dashes in visible text:** page titles in `src/seo/pages.ts` and `index.html` now use `|` and `:`.
+- **One button label per intent:** every contact button says **"Discuss a project"** (was also "Get in touch", "Discuss your project",
+  "Ask about a retainer", "Request a Quote"). Keep it that way.
+- **Section headers stacked:** Our work, Packages and Compare packages no longer use "headline left / small paragraph right".
+- **Compare packages:** the 20-row table is now 4 expandable groups (`<details>`, first open) with a feature count; no line under every row.
+- **Packages:** featured Business card is wider (`lg:grid-cols-[1fr_1.2fr_1fr]`); cards lift slightly on hover.
+- **Motion:** hero photo settles from 112% to 100%; nav links get a sliding green underline (`.nav-link` in `index.css`, also marks the current page);
+  trailing arrows in `.btn` nudge on hover; Home tiles lift on hover. All transform/opacity only, and reduced motion is respected.
+- **Type:** headings use `text-wrap: balance`, paragraphs `text-wrap: pretty`.
+- Checked: tsc clean, lint 0 errors, build OK, all 7 pages hydrate without console errors (motion on and reduced), no mobile overflow.
+
+---
+
 ## 2026-11-17 — WhatsApp button, POPIA privacy page, "How we work" (branch `multi-page`)
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code.

@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimateOnScroll from "./AnimateOnScroll";
 
@@ -116,7 +117,8 @@ const AdditionalServices = () => (
             One team for the whole system: the website your customers see and the automation behind it.
           </p>
           <Link to="/contact" className="btn-navy mt-10">
-            Discuss your project
+            Discuss a project
+            <ArrowRight size={18} />
           </Link>
         </div>
       </AnimateOnScroll>
