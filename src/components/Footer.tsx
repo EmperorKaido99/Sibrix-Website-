@@ -1,6 +1,6 @@
 import { CONTACT } from "@/lib/contact";
 import { Link } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, ShieldCheck } from "lucide-react";
 
 const links = [
   { label: "Home", href: "/" },
@@ -36,7 +36,17 @@ const Footer = () => (
         </p>
       </div>
 
-      <p className="mt-16 md:mt-24 text-base text-paper/60">© {new Date().getFullYear()} Sibrix Group (Pty) Ltd. All rights reserved.{" "}
+      {/* Data protection: a compact trust line instead of a full section on Home. Keep in step with the privacy policy. */}
+      <div className="mt-14 md:mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-paper/10 pt-8 text-base text-paper/75">
+        <span className="inline-flex items-center gap-2 font-semibold text-paper">
+          <ShieldCheck size={18} className="text-green" aria-hidden="true" /> Data protection
+        </span>
+        <span>POPIA-aligned</span>
+        <span>Least-privilege access</span>
+        <span>Human oversight of automated decisions</span>
+      </div>
+
+      <p className="mt-10 text-base text-paper/60">© {new Date().getFullYear()} Sibrix Group (Pty) Ltd. All rights reserved.{" "}
         <Link to="/privacy" className="underline underline-offset-4 hover:text-paper">Privacy policy</Link>
       </p>
     </div>

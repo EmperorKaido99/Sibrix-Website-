@@ -4,7 +4,6 @@ import HeroSection from "@/components/HeroSection";
 import LeadOffers from "@/components/LeadOffers";
 import ClientStrip from "@/components/ClientStrip";
 import ClientJourney from "@/components/ClientJourney";
-import DataTrust from "@/components/DataTrust";
 import FeaturedWork from "@/components/FeaturedWork";
 import CTASection from "@/components/CTASection";
 
@@ -34,7 +33,6 @@ const Index = () => {
       <LeadOffers />
       <FeaturedWork />
       <ClientJourney />
-      <DataTrust />
       <CTASection />
     </>
   );

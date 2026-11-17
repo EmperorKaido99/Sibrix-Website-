@@ -5,6 +5,16 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Data protection moved to the footer (branch `automation-led`)
+
+- Removed the full "Data protection and compliance" section from Home (`DataTrust.tsx` deleted); it interrupted the page flow.
+- The reviewer's compliance point is kept in lighter form: a **footer trust line on every page** (Data protection: POPIA-aligned,
+  least-privilege access, human oversight of automated decisions) and a note in the booking panel: "Your information is handled in
+  line with POPIA. Privacy policy". Keep these in step with `src/pages/PrivacyPage.tsx`.
+- Home now runs: Hero → Built by Sibrix → Our core services → Featured work → The Journey → Book a free consultation.
+
+---
+
 ## 2026-11-17 — "Built by Sibrix" logo strip; Packages page rebuilt with tabs (branch `automation-led`)
 
 **Home: "Built by Sibrix" strip** directly under the hero (`ClientStrip.tsx`): Easy Scribe and CrimeSpots logos scroll slowly

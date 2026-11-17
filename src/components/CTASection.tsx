@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
 import { CONTACT } from "@/lib/contact";
 import { PACKAGE_LABELS } from "@/data/packages";
@@ -101,6 +101,10 @@ const CTASection = () => {
                 </li>
               ))}
             </ul>
+            <p className="mt-6 text-sm text-navy/70">
+              Your information is handled in line with POPIA.{" "}
+              <Link to="/privacy" className="underline underline-offset-4 hover:text-navy">Privacy policy</Link>
+            </p>
           </div>
         </AnimateOnScroll>
       </div>

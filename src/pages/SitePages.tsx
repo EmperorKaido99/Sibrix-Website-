@@ -4,7 +4,6 @@ import ServicesDetail from "@/components/ServicesDetail";
 import FeaturedWork from "@/components/FeaturedWork";
 import ClientWork from "@/components/ClientWork";
 import ClientJourney from "@/components/ClientJourney";
-import DataTrust from "@/components/DataTrust";
 import CTASection from "@/components/CTASection";
 import PageIntro from "@/components/PageIntro";
 import PackagesFAQ from "@/components/PackagesFAQ";
