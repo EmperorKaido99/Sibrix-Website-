@@ -43,7 +43,7 @@ export const PAGES: PageMeta[] = [
     path: "/contact",
     title: "Contact Sibrix Group — start a project",
     description:
-      "Tell us what you need. Email info@sibrixgroup.co.za or call 066 404 0070. We reply within one business day with next steps and a quote.",
+      "Tell us what you need. Email info@sibrixgroup.co.za or call (+27) 66 404 0070. We reply within one business day with next steps and a quote.",
   },
 ];
 

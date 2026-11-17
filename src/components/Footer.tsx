@@ -1,3 +1,4 @@
+import { CONTACT } from "@/lib/contact";
 import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
 
@@ -25,8 +26,8 @@ const Footer = () => (
           <a href="mailto:info@sibrixgroup.co.za" className="inline-flex items-center gap-2 hover:underline underline-offset-4">
             <Mail size={16} className="shrink-0" /> info@sibrixgroup.co.za
           </a>
-          <a href="tel:+27664040070" className="inline-flex items-center gap-2 hover:underline underline-offset-4">
-            <Phone size={16} className="shrink-0" /> 066 404 0070
+          <a href={CONTACT.phoneHref} className="inline-flex items-center gap-2 hover:underline underline-offset-4">
+            <Phone size={16} className="shrink-0" /> {CONTACT.phoneDisplay}
           </a>
         </div>
         <p className="md:col-span-4 text-base text-paper/70 leading-relaxed">

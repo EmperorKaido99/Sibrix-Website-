@@ -1,3 +1,4 @@
+import { CONTACT } from "@/lib/contact";
 import AnimateOnScroll from "./AnimateOnScroll";
 import ContactForm from "./ContactForm";
 
@@ -24,8 +25,8 @@ const CTASection = () => (
           <div>
             <dt className="text-base text-paper/70">Phone</dt>
             <dd>
-              <a href="tel:+27664040070" className="text-xl md:text-2xl font-semibold hover:underline underline-offset-4">
-                066 404 0070
+              <a href={CONTACT.phoneHref} className="text-xl md:text-2xl font-semibold hover:underline underline-offset-4">
+                {CONTACT.phoneDisplay}
               </a>
             </dd>
           </div>
