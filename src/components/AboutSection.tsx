@@ -6,25 +6,21 @@ import AnimateOnScroll from "./AnimateOnScroll";
 const pillars = [
   {
     title: "Strategy & Technology Advisory",
-    detail: "Helping clients understand their technology needs and identify suitable solutions.",
+    detail: "Helping clients understand their technology needs and identify the right solutions.",
   },
   {
-    title: "Software & Digital Solutions",
-    detail: "Developing applications, business tools and automation solutions that improve everyday operations.",
-  },
-  {
-    title: "Smart Technology & Innovation",
-    detail: "Exploring AI, the Internet of Things (IoT), intelligent monitoring and connected systems.",
+    title: "Business Automation",
+    detail: "Applications, business tools and automated workflows, powered by AI, IoT and connected systems, that improve everyday operations.",
   },
   {
     title: "IT Infrastructure & Support",
-    detail: "Supporting networking, installations, system maintenance, cloud solutions and CCTV installations.",
+    detail: "Networking, installations, system maintenance, cloud solutions and CCTV.",
   },
   {
     title: "Training & Skills Development",
-    detail: "Building digital skills and exploring opportunities to make technology knowledge more accessible.",
+    detail: "Practical training that builds digital skills and makes technology knowledge accessible.",
   },
-];
+]
 
 const AboutSection = () => (
   <section id="about" className="field-paper-2 section">

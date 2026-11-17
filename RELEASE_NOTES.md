@@ -5,6 +5,14 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — About "What we do": merged repetitive pillars (branch `automation-led`)
+
+- "Software & Digital Solutions" and "Smart Technology & Innovation" said the same thing and overlapped the core service. Merged into one
+  **"Business Automation"** pillar (applications, business tools and automated workflows, powered by AI, IoT and connected systems).
+- Now four distinct pillars: Strategy & Technology Advisory, Business Automation, IT Infrastructure & Support, Training & Skills Development.
+
+---
+
 ## 2026-11-17 — Easy Scribe moved into "Selected work"; assessment-marking case study parked (branch `automation-led`)
 
 - Easy Scribe is now the lead **client project card** in `FeaturedWork` ("Selected work"): logo, one-line description, a one-sentence quote
