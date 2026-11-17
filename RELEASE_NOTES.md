@@ -5,6 +5,16 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Easy Scribe card cleaned up (branch `automation-led`)
+
+- Client card now shows only: the Easy Scribe logo (larger, centred, transparent background) and the client's quote **exactly as supplied**,
+  including its dash, with "— Easy Chats Projects (Pty) Ltd". Same on Home and Work. Extra description and "Client project" label removed.
+- Hover (CSS in `index.css`, `.client-card*`): card lifts with a green edge glow, a soft light follows the cursor, the logo scales up and the
+  line under the quote sweeps wider. Disabled for reduced motion.
+- "Selected work" cards are now equal width and equal height (2 columns), CrimeSpots text centred under its video.
+
+---
+
 ## 2026-11-17 — Core service cards rewritten (branch `automation-led`)
 
 - Business automation: "Efficient processes that scale with your business." + "We design and implement automated processes that reduce

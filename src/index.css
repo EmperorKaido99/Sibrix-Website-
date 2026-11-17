@@ -262,6 +262,28 @@ html[data-theme="teal"] { /* Teal night: navy leaning teal, calmer green, mint p
   @keyframes intro-drift { to { transform: translate(-90px, 70px); } }
   @media (prefers-reduced-motion: reduce) { .page-intro::before { animation: none; } }
 
+  /* Client card (Selected work): lifts, a green light follows the cursor (--mx/--my set on pointer move),
+     the logo grows and the line under the quote sweeps wider. Transform/opacity only. */
+  .client-card { transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 450ms ease; }
+  .client-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 32px 64px -24px hsl(var(--green) / 0.45), 0 0 0 1px hsl(var(--green) / 0.5);
+  }
+  .client-card__glow {
+    background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 25%), hsl(var(--green) / 0.16), transparent 62%);
+    opacity: 0;
+    transition: opacity 450ms ease;
+  }
+  .client-card:hover .client-card__glow { opacity: 1; }
+  .client-card__logo { transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), filter 700ms ease; }
+  .client-card:hover .client-card__logo { transform: scale(1.06); filter: drop-shadow(0 14px 22px hsl(212 90% 55% / 0.28)); }
+  .client-card__line { width: 3rem; transition: width 700ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .client-card:hover .client-card__line { width: 9rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .client-card, .client-card__logo, .client-card__line, .client-card__glow { transition: none; }
+    .client-card:hover, .client-card:hover .client-card__logo { transform: none; }
+  }
+
   /* Comparison groups: hide the native disclosure marker. */
   .compare-group > summary::-webkit-details-marker { display: none; }
 

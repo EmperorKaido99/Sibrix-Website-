@@ -25,7 +25,7 @@ export const AboutPage = () => (
 export const WorkPage = () => (
   <>
     <PageIntro title="Selected *work.*" lead="Systems in production today, and the products in development." />
-    <FeaturedWork full />
+    <FeaturedWork />
     <section className="field-navy pb-[clamp(5rem,11vw,10rem)]">
       <ProjectsSection inDevelopmentOnly />
     </section>
