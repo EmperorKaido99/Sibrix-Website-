@@ -5,6 +5,22 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Full POPIA privacy policy; Information Officer named; footer link fix (branch `automation-led`)
+
+- `src/pages/PrivacyPage.tsx` rewritten as a full POPIA privacy policy (15 sections with a contents list): who we are, Information Officer,
+  scope, what we collect, why, marketing, sharing, data processed for clients (Sibrix as operator), cross-border, security and breach
+  notification, retention, cookies/browser storage (only the theme choice, kept in the visitor's browser), rights (incl. PAIA), complaints
+  to the Information Regulator, changes. Summary box at the top with company details and the Information Officer.
+- **Information Officer: Sibusiso Skhosana**, contact via the company email/phone.
+- Company legal details in `src/lib/company.ts` (from CIPC): registered as **K2026262121 (South Africa) (Pty) Ltd**, reg. no.
+  **2026/262121/07**, trading as Sibrix Group (Pty) Ltd. **If a name change to Sibrix Group has not been filed with CIPC, do that
+  and update `legalName`.** Footer now shows the registration number.
+- **Bug fix (also on the live site):** the giant "Sibrix" footer wordmark overlapped the copyright line and swallowed clicks on the footer
+  "Privacy policy" link. The wordmark is now `pointer-events-none`.
+- Not legal advice: have an attorney review the policy before relying on it.
+
+---
+
 ## 2026-11-17 — Partnership vocabulary in case studies and The Journey (branch `automation-led`)
 
 - Borrowed common consulting vocabulary (not slogans): **co-create, tangible value, shoulder to shoulder, bottlenecks, aligned with your

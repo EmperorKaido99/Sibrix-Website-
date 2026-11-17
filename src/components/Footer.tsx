@@ -1,4 +1,5 @@
 import { CONTACT } from "@/lib/contact";
+import { COMPANY } from "@/lib/company";
 import { Link } from "react-router-dom";
 import { Mail, Phone, ShieldCheck } from "lucide-react";
 
@@ -46,14 +47,14 @@ const Footer = () => (
         <span>Human oversight of automated decisions</span>
       </div>
 
-      <p className="mt-10 text-base text-paper/60">© {new Date().getFullYear()} Sibrix Group (Pty) Ltd. All rights reserved.{" "}
+      <p className="relative z-10 mt-10 text-base text-paper/60">© {new Date().getFullYear()} {COMPANY.tradingName}. Registration number {COMPANY.registrationNumber}. All rights reserved.{" "}
         <Link to="/privacy" className="underline underline-offset-4 hover:text-paper">Privacy policy</Link>
       </p>
     </div>
 
     <p
       aria-hidden="true"
-      className="mt-6 text-green font-semibold leading-[0.8] tracking-[-0.06em] text-center whitespace-nowrap select-none"
+      className="pointer-events-none mt-6 text-green font-semibold leading-[0.8] tracking-[-0.06em] text-center whitespace-nowrap select-none"
       style={{ fontSize: "clamp(5rem, 30vw, 32rem)", marginBottom: "-0.04em" }}
     >
       Sibrix
