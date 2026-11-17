@@ -5,6 +5,14 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Original hero headline restored (branch `automation-led`)
+
+- Back to **"Technology. / Designed for Progress."** (stronger, more memorable brand line than "Streamlined operations. Dependable IT.").
+- Sub-line keeps the original rhythm but names the two core services: "We design, develop and support business automation and IT systems
+  that turn real-world challenges into opportunities." The button stays **"Book a free consultation"** (not "Discuss a project").
+
+---
+
 ## 2026-11-17 — "Business automation" naming; first real client testimonial (branch `automation-led`)
 
 - **Renamed "Workflow automation" → "Business automation"** everywhere (offer card, Services, Packages heading, contact labels,
