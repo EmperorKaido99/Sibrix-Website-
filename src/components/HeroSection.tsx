@@ -22,7 +22,7 @@ const HeroSection = () => {
       <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
         <div className="lg:col-span-7">
           <p className="text-lg font-semibold text-cyan">
-            <Typewriter text="Systems built right." delay={250} speed={60} />
+            <Typewriter text="Systems built right." delay={250} speed={60} repeatEvery={20000} />
           </p>
           <motion.h1 {...rise(0.06)} className="mt-5 font-semibold text-[clamp(2.75rem,4.7vw,5.5rem)] leading-[1] tracking-[-0.035em]">
             Technology.

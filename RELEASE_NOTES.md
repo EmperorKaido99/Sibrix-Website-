@@ -13,6 +13,8 @@ Written for both people and AI coding assistants working on this repo — read t
 - Timing is pure CSS (`--tw-at` per letter), so pre-rendered HTML and the browser render match (no hydration mismatch).
   Screen readers get the full phrase once (`sr-only`); reduced-motion visitors see the text immediately.
 - Checked: typing order verified frame by frame, About waits until visible, no console errors, build OK.
+- **Loop:** `repeatEvery={20000}` on both uses: the text clears and retypes every 20 s (remounts the letters via a `key`).
+  Not run for reduced-motion visitors and paused while the browser tab is hidden.
 
 ---
 

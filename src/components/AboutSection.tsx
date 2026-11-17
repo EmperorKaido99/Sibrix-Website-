@@ -108,7 +108,7 @@ const AboutSection = () => (
         <AnimateOnScroll delay={0.08} className="lg:col-span-7 field-navy p-8 md:p-12 flex flex-col">
           <h3 className="text-2xl font-semibold tracking-tight text-green">Our brand promise</h3>
           <p className="mt-4 text-5xl md:text-7xl font-semibold tracking-[-0.04em] leading-[0.95]">
-            <Typewriter text="Systems built right." startOnView delay={150} speed={70} />
+            <Typewriter text="Systems built right." startOnView delay={150} speed={70} repeatEvery={20000} />
           </p>
           <p className="mt-8 text-lg leading-relaxed max-w-[56ch]">
             This reflects our commitment to thoughtful planning, practical implementation and solutions

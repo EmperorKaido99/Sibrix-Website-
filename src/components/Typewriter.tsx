@@ -10,13 +10,15 @@ interface TypewriterProps {
   delay?: number;
   /** Wait until the text scrolls into view (for text below the fold). */
   startOnView?: boolean;
+  /** Retype the text every N milliseconds (counted from when typing starts). */
+  repeatEvery?: number;
 }
 
 // Types text out letter by letter with a cursor that follows the last letter, then
 // blinks a few times and disappears. Pure CSS timing, so the server-rendered HTML and
 // the browser render are identical (safe for pre-rendering). Screen readers get the
 // whole phrase once; reduced-motion visitors see the text immediately (index.css).
-const Typewriter = ({ text, className, speed = 55, delay = 300, startOnView = false }: TypewriterProps) => {
+const Typewriter = ({ text, className, speed = 55, delay = 300, startOnView = false, repeatEvery }: TypewriterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -39,10 +41,23 @@ const Typewriter = ({ text, className, speed = 55, delay = 300, startOnView = fa
   const play = !startOnView || inView;
   const chars = Array.from(text);
 
+  // Looping: bumping the key remounts the letters, which restarts their CSS animations.
+  // Runs only in the browser after hydration, so the pre-rendered HTML is unaffected.
+  // Skipped for reduced-motion visitors and paused while the tab is hidden.
+  const [cycle, setCycle] = useState(0);
+  useEffect(() => {
+    if (!repeatEvery || !play) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => {
+      if (!document.hidden) setCycle((c) => c + 1);
+    }, repeatEvery);
+    return () => window.clearInterval(id);
+  }, [repeatEvery, play]);
+
   return (
     <span ref={ref} className={cn("typewriter", className)} data-play={play}>
       <span className="sr-only">{text}</span>
-      <span aria-hidden="true">
+      <span aria-hidden="true" key={cycle}>
         {chars.map((ch, i) => (
           <span
             key={i}
