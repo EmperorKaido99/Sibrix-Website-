@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SiteLayout from "@/components/SiteLayout";
 import Index from "./pages/Index.tsx";
+import PrivacyPage from "./pages/PrivacyPage.tsx";
 import { AboutPage, ContactPage, PackagesPage, ServicesPage, WorkPage } from "./pages/SitePages.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -35,6 +36,7 @@ export const AppRoutes = () => (
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/packages" element={<PackagesPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   </Routes>

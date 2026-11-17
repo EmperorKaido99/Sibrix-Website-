@@ -45,6 +45,12 @@ export const PAGES: PageMeta[] = [
     description:
       "Tell us what you need. Email info@sibrixgroup.co.za or call (+27) 66 404 0070. We reply within one business day with next steps and a quote.",
   },
+  {
+    path: "/privacy",
+    title: "Privacy policy | Sibrix Group",
+    description:
+      "How Sibrix Group collects, uses and protects personal information under POPIA, and how to exercise your rights.",
+  },
 ];
 
 export const NOT_FOUND: PageMeta = {

@@ -5,6 +5,7 @@ import PackagesSection from "@/components/PackagesSection";
 import ComparisonTable from "@/components/ComparisonTable";
 import RetainerSection from "@/components/RetainerSection";
 import CTASection from "@/components/CTASection";
+import ProcessSection from "@/components/ProcessSection";
 
 // Each page reuses the existing sections unchanged; every page ends with the contact form.
 
@@ -25,6 +26,7 @@ export const WorkPage = () => (
 export const ServicesPage = () => (
   <>
     <AdditionalServices />
+    <ProcessSection />
     <CTASection />
   </>
 );

@@ -5,6 +5,24 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — WhatsApp button, POPIA privacy page, "How we work" (branch `multi-page`)
+
+**Author:** Sibusiso (GitHub: Cibucico), with Claude Code.
+
+- **Phone format:** shown as `(+27) 66 404 0070` everywhere. Contact details now live in `src/lib/contact.ts` (email, phone, WhatsApp number). Change them there only.
+- **WhatsApp:** floating "WhatsApp us" button on every page (`src/components/WhatsAppButton.tsx`), opens `wa.me/27664040070` with a pre-typed message.
+  **Check that 066 404 0070 is on WhatsApp (ideally WhatsApp Business).**
+- **POPIA:** new `/privacy` page (`src/pages/PrivacyPage.tsx`), linked from the footer and from a notice under the contact form submit button.
+  It is a plain-language draft. **Before going live:** confirm the details are accurate (email host, Supabase use, retention),
+  name the Information Officer registered with the Information Regulator, and have it reviewed.
+- **How we work:** Discover, Design, Build, Support (`src/components/ProcessSection.tsx`) on Home and Services; green lines draw in sequence on scroll.
+  Uses one `whileInView` on the list with `staggerChildren` (separate per-item `whileInView` left the first line stuck at width 0 after hydration).
+- `/privacy` added to `src/seo/pages.ts` (pre-rendered) and `sitemap.xml`.
+- **Do not use `src/components/TestimonialsSection.tsx`:** its clients, quotes and figures are invented. Replace with real, permitted quotes or delete it.
+- Checked: tsc clean, lint 0 errors, build OK, all 7 pages hydrate with no console errors, lines draw with motion on and reduced, no mobile overflow.
+
+---
+
 ## 2026-11-17 — Split the one-page site into pages (branch `multi-page`)
 
 **Author:** Sibusiso (GitHub: Cibucico), with Claude Code. **Design:** unchanged; the existing sections were moved onto separate pages.

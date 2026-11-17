@@ -36,7 +36,9 @@ const Footer = () => (
         </p>
       </div>
 
-      <p className="mt-16 md:mt-24 text-base text-paper/60">© {new Date().getFullYear()} Sibrix Group (Pty) Ltd. All rights reserved.</p>
+      <p className="mt-16 md:mt-24 text-base text-paper/60">© {new Date().getFullYear()} Sibrix Group (Pty) Ltd. All rights reserved.{" "}
+        <Link to="/privacy" className="underline underline-offset-4 hover:text-paper">Privacy policy</Link>
+      </p>
     </div>
 
     <p

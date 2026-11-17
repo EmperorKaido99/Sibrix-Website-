@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
@@ -189,6 +190,10 @@ const ContactForm = () => {
           </>
         )}
       </Button>
+      <p className="text-sm text-navy/70 leading-relaxed">
+        We use your details only to reply to your enquiry. See our{" "}
+        <Link to="/privacy" className="underline underline-offset-4 hover:text-navy">privacy policy</Link>.
+      </p>
     </form>
   );
 };
