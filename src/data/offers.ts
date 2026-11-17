@@ -81,12 +81,10 @@ export const EXTRAS: { id: string; title: string; detail: string; icon: LucideIc
   { id: "training", title: "Training & skills", detail: "Practical training that equips your team to use new systems with confidence.", icon: GraduationCap, to: bookingLink("training") },
 ];
 
-/** The client journey, from the five "What we do" pillars, starting with a free consultation. */
+/** "The Journey": four steps, from understanding the business to staying on after launch. */
 export const JOURNEY = [
-  { title: "Consultation", detail: "A complimentary 30-minute session to understand your operations and identify where time and cost are lost." },
-  { title: "Proposal", detail: "A written proposal setting out the solution, its scope and the expected return." },
-  { title: "Delivery", detail: "Delivered in stages with regular reviews, so the solution fits how your team works." },
-  { title: "Integration", detail: "Automation, AI and IoT integrated with your existing systems." },
-  { title: "IT support", detail: "Ongoing infrastructure support to keep systems secure, backed up and available." },
-  { title: "Training and aftercare", detail: "Team training at go-live, with continued support as your needs evolve." },
+  { title: "Consult", detail: "A free 30-minute consultation to understand how your business runs and where time and money are being lost." },
+  { title: "Propose", detail: "A written proposal setting out what we will build, what it costs and what it will save you." },
+  { title: "Build", detail: "We build in stages alongside your team, automating the work and connecting it to the systems you already use." },
+  { title: "Support", detail: "We don't build and walk away. Your team is trained at go-live, and we keep everything secure, maintained and improving." },
 ];

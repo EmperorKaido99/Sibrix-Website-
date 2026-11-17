@@ -5,6 +5,17 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Featured work back to the live layout; "The Journey" (branch `automation-led`)
+
+- `FeaturedWork.tsx` restored **exactly** to the live version (CrimeSpots video + "Featured work" / CrimeSpots / "Read the case study").
+- Easy Scribe moved to its own **"Client work"** section on the Work page only (`ClientWork.tsx`, same card, verbatim quote, hover effects).
+- Work page intro back to the live heading "Products we build and run." (sub-line now also covers client work).
+- `ClientJourney` restyled to the live "How we work" layout (four columns, lines draw in sequence, no button) and retitled **"The Journey"**:
+  Consult → Propose → Build → Support, worded around the positioning (understand the business first, show what it saves,
+  build alongside the team, don't build and walk away). Content in `JOURNEY` (`src/data/offers.ts`).
+
+---
+
 ## 2026-11-17 — Services: removed "Technology we apply" (branch `automation-led`)
 
 - The AI / IoT / Integration block repeated the capability list directly above it (Document workflows, Operational monitoring,

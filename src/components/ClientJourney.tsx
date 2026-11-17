@@ -1,28 +1,26 @@
-import { bookingLink } from "@/lib/booking";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { JOURNEY } from "@/data/offers";
 
-// The client journey: six steps from a free consultation to aftercare. A green line draws
-// across each step in sequence (one whileInView trigger with staggerChildren).
+// "The Journey": four steps in the live "How we work" layout, each with a green line that draws across
+// as it scrolls into view (one whileInView trigger with staggerChildren).
 const ClientJourney = () => (
   <section className="field-navy-deep section">
     <div className="frame">
       <AnimateOnScroll>
-        <h2 className="heading-xl max-w-[14ch]">Our approach</h2>
+        <h2 className="heading-xl max-w-[12ch]">The Journey</h2>
         <p className="lead mt-6 max-w-[44ch] text-paper/80">
-          A structured engagement, from the first consultation to long-term support.
+          We start by understanding your business, build what saves you time and money, and stay with you long after
+          launch.
         </p>
       </AnimateOnScroll>
 
       <motion.ol
-        className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14"
+        className="mt-16 md:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14"
         initial="hidden"
         whileInView="shown"
         viewport={{ once: true, margin: "-80px" }}
-        variants={{ hidden: {}, shown: { transition: { staggerChildren: 0.12 } } }}
+        variants={{ hidden: {}, shown: { transition: { staggerChildren: 0.15 } } }}
       >
         {JOURNEY.map((s) => (
           <motion.li
@@ -37,18 +35,11 @@ const ClientJourney = () => (
               variants={{ hidden: { scaleX: 0 }, shown: { scaleX: 1 } }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             />
-            <h3 className="text-3xl font-semibold tracking-tight">{s.title}</h3>
+            <h3 className="text-3xl md:text-4xl font-semibold tracking-tight">{s.title}</h3>
             <p className="mt-4 text-lg leading-relaxed text-paper/80 max-w-[34ch]">{s.detail}</p>
           </motion.li>
         ))}
       </motion.ol>
-
-      <AnimateOnScroll className="mt-16">
-        <Link to={bookingLink()} className="btn-green">
-          Book a free consultation
-          <ArrowRight size={18} />
-        </Link>
-      </AnimateOnScroll>
     </div>
   </section>
 );
