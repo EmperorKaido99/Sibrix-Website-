@@ -27,6 +27,6 @@ npm run build
 ## Contact
 
 - **Email:** info@sibrixgroup.co.za
-- **Phone:** (+27) 66 404 0070
+- **Phone:** (+27) 60 960 9830
 
 © 2026 Sibrix. All rights reserved.

@@ -5,6 +5,15 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — New phone number: (+27) 60 960 9830
+
+- Replaces 066 404 0070 everywhere: `src/lib/contact.ts` (display, `tel:` link and WhatsApp), the JSON-LD `telephone` in `index.html`,
+  the Contact page description in `src/seo/pages.ts`, and `README.md`. The footer, contact section, privacy page, FAQ and WhatsApp button all read from `contact.ts`.
+- **Check that 060 960 9830 is on WhatsApp**, since the floating button now opens `wa.me/27609609830`.
+- Older entries below still mention 066 404 0070; they are history.
+
+---
+
 ## 2026-11-17 — Visitor colour themes (branch `palettes`, based on `recommendations`)
 
 - Visitors can switch the site's colours from a **palette icon in the navbar** (mobile: inside the menu): **Classic** (default), **Refined**, **Ocean**, **Teal night**.
