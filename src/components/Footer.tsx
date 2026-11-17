@@ -31,6 +31,7 @@ const Footer = () => (
           </a>
         </div>
         <p className="md:col-span-4 text-base text-paper/70 leading-relaxed">
+          <span className="block text-paper font-semibold mb-2">Cape Town, South Africa</span>
           Services are available as a once-off purchase or billed monthly or annually. Custom solutions
           are available on request.
         </p>

@@ -1,6 +1,8 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import DemoVideo from "./DemoVideo";
+import { CRIMESPOTS_VIDEO } from "@/lib/media";
 import AnimateOnScroll from "./AnimateOnScroll";
-import crimeSpotsImage from "@/assets/project-crimespots.webp";
 
 const featured = {
   title: "CrimeSpots",
@@ -58,26 +60,14 @@ const ProjectsSection = () => (
             Visit CrimeSpots
             <ArrowUpRight size={18} />
           </a>
+          <Link to="/work/crimespots" className="link-arrow mt-6 ml-0 sm:ml-6 text-paper">
+            Read the case study
+            <ArrowRight size={18} />
+          </Link>
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={0.1} className="lg:col-span-7 lg:order-2 order-1">
-          <a
-            href={featured.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block overflow-hidden aspect-[4/3] bg-navy-deep"
-            aria-label="Open CrimeSpots in a new tab"
-          >
-            <img
-              src={crimeSpotsImage}
-              alt="CrimeSpots area ranking and heatmap of Cape Town suburbs"
-              loading="lazy"
-              decoding="async"
-              width={1440}
-              height={900}
-              className="w-full h-full object-cover object-right-top transition-transform duration-700 group-hover:scale-[1.03]"
-            />
-          </a>
+          <DemoVideo {...CRIMESPOTS_VIDEO} className="aspect-[16/10]" />
         </AnimateOnScroll>
       </div>
 

@@ -210,6 +210,22 @@
     .tw-char::after { display: none; }
   }
 
+  /* Inner-page intro band: slow drifting green glow behind the headline. */
+  .page-intro::before {
+    content: "";
+    position: absolute;
+    width: 760px;
+    height: 760px;
+    right: -240px;
+    top: -300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(var(--green) / 0.16), transparent 62%);
+    animation: intro-drift 14s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  @keyframes intro-drift { to { transform: translate(-90px, 70px); } }
+  @media (prefers-reduced-motion: reduce) { .page-intro::before { animation: none; } }
+
   /* Comparison groups: hide the native disclosure marker. */
   .compare-group > summary::-webkit-details-marker { display: none; }
 

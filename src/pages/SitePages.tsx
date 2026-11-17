@@ -6,11 +6,15 @@ import ComparisonTable from "@/components/ComparisonTable";
 import RetainerSection from "@/components/RetainerSection";
 import CTASection from "@/components/CTASection";
 import ProcessSection from "@/components/ProcessSection";
+import PageIntro from "@/components/PageIntro";
+import PackagePicker from "@/components/PackagePicker";
+import PackagesFAQ from "@/components/PackagesFAQ";
 
 // Each page reuses the existing sections unchanged; every page ends with the contact form.
 
 export const AboutPage = () => (
   <>
+    <PageIntro title="Bridging ideas and *implementation.*" lead="A South African technology company built around practical, reliable solutions." />
     <AboutSection />
     <CTASection />
   </>
@@ -18,6 +22,7 @@ export const AboutPage = () => (
 
 export const WorkPage = () => (
   <>
+    <PageIntro title="Products we build *and run.*" lead="One is live today. Three more are on the way." />
     <ProjectsSection />
     <CTASection />
   </>
@@ -25,6 +30,7 @@ export const WorkPage = () => (
 
 export const ServicesPage = () => (
   <>
+    <PageIntro title="Everything a business *runs on.*" lead="Six practices, one team. Pick one service or let us run the whole stack." />
     <AdditionalServices />
     <ProcessSection />
     <CTASection />
@@ -33,11 +39,14 @@ export const ServicesPage = () => (
 
 export const PackagesPage = () => (
   <>
+    <PageIntro title="Start where *you are.*" lead="Every package includes a month of support after launch. Pay once, monthly or annually." />
     <PackagesSection />
+    <PackagePicker />
     <ComparisonTable />
     <RetainerSection />
+    <PackagesFAQ />
     <CTASection />
   </>
 );
 
-export const ContactPage = () => <CTASection />;
+export const ContactPage = () => <CTASection asPage />;

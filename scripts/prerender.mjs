@@ -3,7 +3,7 @@
 //   /          -> dist/index.html
 //   /about     -> dist/about.html         (and so on for each entry in src/seo/pages.ts)
 //   not found  -> dist/404.html           (served by Vercel for unknown URLs, noindex)
-import { readFile, writeFile, rm } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
 
@@ -44,6 +44,7 @@ for (const meta of PAGES) {
   // Flat files (about.html) rather than folders (about/index.html): with "cleanUrls" in
   // vercel.json, /about serves about.html with no redirect, and vite preview does the same.
   const file = meta.path === "/" ? path.join(dist, "index.html") : path.join(dist, `${meta.path.slice(1)}.html`);
+  await mkdir(path.dirname(file), { recursive: true });
   const body = render(meta.path);
   await writeFile(file, pageHtml(meta, body));
   console.log(`prerender: ${meta.path.padEnd(10)} -> ${path.relative(root, file)} (${(body.length / 1024).toFixed(1)} KB)`);

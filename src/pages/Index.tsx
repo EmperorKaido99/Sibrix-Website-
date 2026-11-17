@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import HeroSection from "@/components/HeroSection";
 import HomeOverview from "@/components/HomeOverview";
 import ProcessSection from "@/components/ProcessSection";
+import FeaturedWork from "@/components/FeaturedWork";
 import CTASection from "@/components/CTASection";
 
 // Links from the old single-page site (e.g. sibrixgroup.co.za/#services) open the matching page.
@@ -29,6 +30,7 @@ const Index = () => {
     <>
       <HeroSection />
       <HomeOverview />
+      <FeaturedWork />
       <ProcessSection />
       <CTASection />
     </>

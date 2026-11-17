@@ -5,6 +5,31 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — UI/UX recommendations (branch `recommendations`, based on `multi-page`)
+
+**Author:** Sibusiso (GitHub: Cibucico), with Claude Code. Everything here uses only facts already on the site or visible in the live CrimeSpots app.
+
+- **CrimeSpots video:** `public/media/crimespots-demo.mp4` (1280px, 896 KB) + `-720.mp4` (phones, 260 KB) + poster `.webp`.
+  Recorded from crimespots.vercel.app with Playwright, encoded H.264 High, yuv420p, `+faststart`, 18.5 s loop, no audio.
+  Player: `src/components/DemoVideo.tsx` (muted autoplay, pauses off-screen, starts paused for reduced motion, visible Pause/Play button for WCAG 2.2.2).
+  Paths in `src/lib/media.ts`. Used on Home (new `FeaturedWork`), Work (replaces the screenshot) and the case study.
+- **Case study page** `/work/crimespots` (`src/pages/CrimeSpotsCaseStudy.tsx`): problem, what we built, how it works, tech. No invented numbers;
+  add real usage/outcome figures only when Sibrix has them.
+- **Page intro bands** (`src/components/PageIntro.tsx`): About, Work, Services, Packages and the case study now open with an h1 that rises word by word
+  over a drifting green glow. Every page has exactly one h1 (Contact's is the "Discuss a project" heading via `<CTASection asPage />`).
+- **Service icons:** each of the 18 services in `AdditionalServices.tsx` has a lucide icon tile that turns green on hover.
+- **Package picker** (`src/components/PackagePicker.tsx`, Packages page): 3 yes/no questions, suggests a package, links to `/contact?package=…`,
+  which pre-fills the message (`ContactForm.tsx`, after hydration).
+- **FAQ** (`src/components/PackagesFAQ.tsx`, Packages page) with `FAQPage` JSON-LD. Answers only restate existing site copy. Add price/timeline/ownership answers once confirmed.
+- **Contact form:** optional "What do you need?" chips (sent as "Interested in: …" at the top of the message, so no API/DB change),
+  "What happens next" steps beside the form and in the success message.
+- **Footer:** "Cape Town, South Africa".
+- `src/seo/pages.ts` and `sitemap.xml` include `/work/crimespots`; prerender creates sub-folders (`dist/work/crimespots.html`).
+- Checked: tsc clean, lint 0 errors, test + build OK, all 8 pages 200 with exactly one h1 and no console errors (motion on and reduced),
+  video plays/pauses, phones get the 720p file, picker → contact prefill works, no mobile overflow.
+
+---
+
 ## 2026-11-17 — "Systems built right." typewriter animation (branch `multi-page`)
 
 - New `src/components/Typewriter.tsx` (+ `.typewriter` / `.tw-char` CSS in `src/index.css`): types text letter by letter with a cursor

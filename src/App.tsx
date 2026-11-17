@@ -8,6 +8,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import SiteLayout from "@/components/SiteLayout";
 import Index from "./pages/Index.tsx";
 import PrivacyPage from "./pages/PrivacyPage.tsx";
+import CrimeSpotsCaseStudy from "./pages/CrimeSpotsCaseStudy.tsx";
 import { AboutPage, ContactPage, PackagesPage, ServicesPage, WorkPage } from "./pages/SitePages.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -33,6 +34,7 @@ export const AppRoutes = () => (
       <Route path="/" element={<Index />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/work" element={<WorkPage />} />
+      <Route path="/work/crimespots" element={<CrimeSpotsCaseStudy />} />
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/packages" element={<PackagesPage />} />
       <Route path="/contact" element={<ContactPage />} />

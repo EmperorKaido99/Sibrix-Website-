@@ -28,6 +28,12 @@ export const PAGES: PageMeta[] = [
       "Products Sibrix Group designs, builds and runs, including CrimeSpots, real-time AI crime intelligence for Cape Town.",
   },
   {
+    path: "/work/crimespots",
+    title: "CrimeSpots case study: AI crime intelligence for Cape Town | Sibrix Group",
+    description:
+      "How Sibrix designed and built CrimeSpots: AI that turns news reports into verified incidents on a live map of Cape Town, with area rankings and alerts.",
+  },
+  {
     path: "/services",
     title: "Services: websites, AI, automation, IoT & IT | Sibrix Group",
     description:
