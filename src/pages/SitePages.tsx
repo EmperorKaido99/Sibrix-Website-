@@ -5,13 +5,10 @@ import FeaturedWork from "@/components/FeaturedWork";
 import ClientWork from "@/components/ClientWork";
 import ClientJourney from "@/components/ClientJourney";
 import DataTrust from "@/components/DataTrust";
-import WebsiteTiers from "@/components/packages/WebsiteTiers";
-import { AutomationPlans, ITPlans } from "@/components/packages/LeadPlans";
-import { CarePlans } from "@/components/packages/ExtraOffers";
-import ComparisonTable from "@/components/ComparisonTable";
 import CTASection from "@/components/CTASection";
 import PageIntro from "@/components/PageIntro";
 import PackagesFAQ from "@/components/PackagesFAQ";
+import PackagesExplorer from "@/components/packages/PackagesExplorer";
 
 // Positioning: lead with business automation and IT support; websites, apps and training are "also available".
 
@@ -46,12 +43,8 @@ export const ServicesPage = () => (
 
 export const PackagesPage = () => (
   <>
-    <PageIntro title="Start where *you are.*" lead="Automation and IT support plans first, plus websites and website care. Pay once, monthly or annually." />
-    <AutomationPlans />
-    <ITPlans />
-    <WebsiteTiers />
-    <CarePlans />
-    <ComparisonTable />
+    <PageIntro title="Start where *you are.*" lead="Business automation, IT support and websites. Pay once, monthly or annually." />
+    <PackagesExplorer />
     <PackagesFAQ />
     <CTASection />
   </>

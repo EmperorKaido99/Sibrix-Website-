@@ -5,6 +5,26 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — "Built by Sibrix" logo strip; Packages page rebuilt with tabs (branch `automation-led`)
+
+**Home: "Built by Sibrix" strip** directly under the hero (`ClientStrip.tsx`): Easy Scribe and CrimeSpots logos scroll slowly
+(the page's only marquee), each on a tile matching its logo (Easy Scribe white, CrimeSpots `#0d0e12`), linking to
+`/work#client-work` and `/work/crimespots`. Pauses on hover/focus; static for reduced motion (`.logo-marquee` in `index.css`).
+New asset `src/assets/product-crimespots-logo.webp` (captured from the live CrimeSpots app).
+
+**Packages** was ~8,000px of five stacked sections with "Price on request" nine times. Now one `PackagesExplorer` section (~4,200px page):
+- Tabs **Business automation | IT support | Websites** (ARIA tabs, arrow-key navigation, green underline). All panels are pre-rendered
+  (inactive ones `hidden`), so every plan is in the HTML for search.
+- One note replaces every "Price on request": "Pricing is tailored to your business and confirmed after your free consultation."
+  A card shows a price only when `price` is set in `src/data/packages.ts`; monthly plans are labelled "Monthly plan".
+- Websites tab holds the three website tiers, "Ongoing care" (care plan + development retainer) and a collapsed "Compare websites" table.
+- Old anchors (`/packages#websites`, `#it-plans`, `#automation-plans`, `#care`, `#comparison`) open the right tab.
+- Removed: `WebsiteTiers.tsx`, `LeadPlans.tsx`, `ExtraOffers.tsx`, `ComparisonTable.tsx`, `priceLabel`. FAQ background switched to white so sections alternate.
+- Checked: tsc clean, lint 0 errors, build OK, no console errors (motion on and reduced), tabs by click and keyboard, anchors, package
+  prefill, all 10 plans in the pre-rendered HTML, no mobile overflow.
+
+---
+
 ## 2026-11-17 — Featured work back to the live layout; "The Journey" (branch `automation-led`)
 
 - `FeaturedWork.tsx` restored **exactly** to the live version (CrimeSpots video + "Featured work" / CrimeSpots / "Read the case study").

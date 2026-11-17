@@ -51,7 +51,7 @@ const jsonLd = {
 };
 
 const PackagesFAQ = () => (
-  <section className="field-paper-2 section">
+  <section className="field-paper section">
     <div className="frame grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
       <AnimateOnScroll className="lg:col-span-4">
         <h2 className="heading-xl">Questions</h2>

@@ -4,7 +4,7 @@ import { LifeBuoy, Wrench, type LucideIcon } from "lucide-react";
  * Everything on the Packages page comes from this file.
  *
  * PRICES: set `price` to a string such as "From R4 500" once Sibrix confirms it.
- * Left undefined, a card shows "Price on request".
+ * Left undefined, no price is shown (the Packages page explains pricing follows the free consultation).
  *
  * TO CONFIRM WITH SIBRIX before going live (new in the 2026-11 restructure, not on the old site):
  *   - Launch: WhatsApp button and Google Business Profile setup
@@ -225,4 +225,3 @@ export const PACKAGE_LABELS: Record<string, string> = {
   training: "Training",
 };
 
-export const priceLabel = (price?: string) => price ?? "Price on request";

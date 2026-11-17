@@ -6,7 +6,7 @@ import { TESTIMONIALS } from "@/data/testimonials";
 const ClientWork = () => {
   const client = TESTIMONIALS[0];
   return (
-    <section className="field-paper-2 section">
+    <section id="client-work" className="field-paper-2 section scroll-mt-16 md:scroll-mt-20">
       <div className="frame">
         <AnimateOnScroll>
           <h2 className="heading-xl max-w-[14ch]">Client work</h2>
