@@ -47,12 +47,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     logoAlt: "Easy Scribe by Easy Chats",
     logoTile: "bg-paper",
     headline: "Streamlining transcript production for Easy Chats",
-    subline: "A platform conceptualised and built by Sibrix around the day-to-day challenges of the Easy Chats team.",
+    subline: "A platform co-created with Easy Chats around the challenges its team faced every day.",
     needed: [
       "Easy Chats needed to reduce time-consuming transcript editing, coordinate its team more effectively and produce consistent, client-ready documents.",
     ],
     helped: [
-      "Sibrix worked with Easy Chats to conceptualise Easy Scribe around those challenges, then designed and built the platform for the team to use every day.",
+      "Sibrix worked closely with Easy Chats to identify the bottlenecks, co-create Easy Scribe around them, then design and build the platform the team now uses every day.",
     ],
     change: [
       "A streamlined workflow",
@@ -72,7 +72,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     benefits: [
       "Easy Scribe has changed how the Easy Chats team works day to day: work moves through a streamlined process, progress on every job is visible, and repetitive administration has been reduced.",
-      "For the business, that means working more productively, managing costs better and having the capacity to deliver more profitable projects.",
+      "For the business, the value is tangible: working more productively, managing costs better and having the capacity to deliver more profitable projects.",
     ],
     difference: { quote: easyScribeQuote.quote, attribution: easyScribeQuote.attribution },
     related: ["crimespots"],
@@ -112,7 +112,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     video: CRIMESPOTS_VIDEO,
     benefits: [
       "Residents get one place to see what is happening across the city, with each incident placed on the map and rated for severity.",
-      "Because collection and extraction are automated, the map stays current without manual data entry, the same principle Sibrix applies to business automation for clients.",
+      "Because collection and extraction are automated, the map stays current without manual data entry. It is the same principle Sibrix applies for clients: automate the manual steps, and the impact is enduring.",
     ],
     difference: {
       text: "CrimeSpots is live today. Open it to see incidents across Cape Town on the map in real time.",

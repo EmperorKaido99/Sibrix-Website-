@@ -84,7 +84,7 @@ export const EXTRAS: { id: string; title: string; detail: string; icon: LucideIc
 /** "The Journey": four steps, from understanding the business to staying on after launch. */
 export const JOURNEY = [
   { title: "Consult", detail: "A free 30-minute consultation to understand how your business runs and where time and money are being lost." },
-  { title: "Propose", detail: "A written proposal setting out what we will build, what it costs and what it will save you." },
-  { title: "Build", detail: "We build in stages alongside your team, automating the work and connecting it to the systems you already use." },
-  { title: "Support", detail: "We don't build and walk away. Your team is trained at go-live, and we keep everything secure, maintained and improving." },
+  { title: "Propose", detail: "A written proposal, aligned with your business goals, setting out what we will build, what it costs and what it will save you." },
+  { title: "Build", detail: "We co-create in stages alongside your team, removing bottlenecks and connecting everything to the systems you already use." },
+  { title: "Support", detail: "We don't build and walk away. Your team is trained at go-live, and we keep everything secure, maintained and improving, for enduring impact." },
 ];

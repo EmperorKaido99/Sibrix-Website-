@@ -5,6 +5,15 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Partnership vocabulary in case studies and The Journey (branch `automation-led`)
+
+- Borrowed common consulting vocabulary (not slogans): **co-create, tangible value, shoulder to shoulder, bottlenecks, aligned with your
+  business goals, enduring impact**, each used once or twice so it does not become buzzwords. BSG's signature lines ("Unlocking potential,
+  accelerating performance", "marathon mindset") are deliberately not used.
+- Updated: Easy Scribe subline/"How we helped"/benefits, CrimeSpots benefits, The Journey intro and the Propose/Build/Support steps.
+
+---
+
 ## 2026-11-17 — Case studies in a consulting-style format; new Easy Scribe case study (branch `automation-led`)
 
 - One reusable page, `src/pages/CaseStudyPage.tsx`, modelled on consulting case studies: header (client, headline, logo) →

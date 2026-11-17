@@ -10,8 +10,8 @@ const ClientJourney = () => (
       <AnimateOnScroll>
         <h2 className="heading-xl max-w-[12ch]">The Journey</h2>
         <p className="lead mt-6 max-w-[44ch] text-paper/80">
-          We start by understanding your business, build what saves you time and money, and stay with you long after
-          launch.
+          We work shoulder to shoulder with your team: understanding your business first, then delivering tangible value
+          that lasts long after launch.
         </p>
       </AnimateOnScroll>
 
