@@ -211,7 +211,7 @@ export const CARE_PLANS: CarePlan[] = [
 
 /** Used by the booking panel (CTASection) when arriving from a package or the picker (/contact?package=grow). */
 export const PACKAGE_LABELS: Record<string, string> = {
-  automation: "Workflow automation",
+  automation: "Business automation",
   "automation-starter": "Automation Starter",
   "automation-growth": "Automation Growth",
   "automation-care": "Automation care",

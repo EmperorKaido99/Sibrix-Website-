@@ -11,7 +11,7 @@ export interface PageMeta {
 export const PAGES: PageMeta[] = [
   {
     path: "/",
-    title: "Sibrix Group | Workflow automation & IT support",
+    title: "Sibrix Group | Business automation & IT support",
     description:
       "Business automation and IT support for South African organisations. We automate processes and support the technology behind them. Book a complimentary consultation.",
   },
@@ -19,7 +19,7 @@ export const PAGES: PageMeta[] = [
     path: "/about",
     title: "About Sibrix Group | South African technology company",
     description:
-      "Who we are, our vision and mission, and how Sibrix Group helps South African businesses with workflow automation and IT support.",
+      "Who we are, our vision and mission, and how Sibrix Group helps South African businesses with business automation and IT support.",
   },
   {
     path: "/work",
@@ -41,9 +41,9 @@ export const PAGES: PageMeta[] = [
   },
   {
     path: "/services",
-    title: "Services: workflow automation & IT support | Sibrix Group",
+    title: "Services: business automation & IT support | Sibrix Group",
     description:
-      "Workflow automation with AI, IoT and integrations, and IT support: networks, devices, security, CCTV and help when things break. Plus websites, apps and training.",
+      "Business automation with AI, IoT and integrations, and IT support: networks, devices, security, CCTV and help when things break. Plus websites, apps and training.",
   },
   {
     path: "/packages",

@@ -19,7 +19,7 @@ import {
 
 /*
  * Positioning (2026-11, after reviewer feedback): Sibrix LEADS with
- *   1. Workflow automation (AI and IoT are the "how", explained on the Services page)
+ *   1. Business automation (AI and IoT are the "how", explained on the Services page)
  *   2. IT support
  * and offers three extras: website creation, app development, training.
  *
@@ -42,7 +42,7 @@ export interface Offer {
 export const LEAD_OFFERS: Offer[] = [
   {
     id: "automation",
-    title: "Workflow automation",
+    title: "Business automation",
     promise: "Less manual work. Fewer errors.",
     detail:
       "We analyse how work moves through your business and automate the repetitive steps, integrated with the systems you already use.",

@@ -5,6 +5,20 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — "Business automation" naming; first real client testimonial (branch `automation-led`)
+
+- **Renamed "Workflow automation" → "Business automation"** everywhere (offer card, Services, Packages heading, contact labels,
+  SEO titles/descriptions, JSON-LD). "Automation" alone is ambiguous (industrial, home, marketing) and hard to rank; "workflow" was too
+  narrow for the IoT monitoring side. Inside copy, "workflow" is still used where it is literally a workflow.
+- **Client testimonial: Easy Chats Projects (Pty) Ltd on Easy Scribe**, a platform Sibrix helped conceptualise and develop. Published with
+  permission. `src/data/testimonials.ts` holds the verbatim quote (only change: the dash after "Easy Chats" shown as a comma) plus the
+  logo `src/assets/client-easy-scribe.webp`. `ClientTestimonial` shows the results sentences on **Home, directly under the hero**
+  (reviewer: lead with testimonials) and the **full quote on Work**.
+- Deleted `src/components/TestimonialsSection.tsx` (the old, invented testimonials). **Only real, permitted quotes go on this site.**
+- Checked: tsc clean, lint 0 errors, build OK, pages without console errors, no mobile overflow.
+
+---
+
 ## 2026-11-17 — Professional tone pass; package picker removed (branch `automation-led`)
 
 - Feedback: the copy read as casual ("busywork", "off your team's plate", quiz-style questions). Rewrote ~60 strings in a confident,

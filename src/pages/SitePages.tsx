@@ -2,6 +2,7 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ServicesDetail from "@/components/ServicesDetail";
 import FeaturedWork from "@/components/FeaturedWork";
+import ClientTestimonial from "@/components/ClientTestimonial";
 import ClientJourney from "@/components/ClientJourney";
 import DataTrust from "@/components/DataTrust";
 import WebsiteTiers from "@/components/packages/WebsiteTiers";
@@ -12,11 +13,11 @@ import CTASection from "@/components/CTASection";
 import PageIntro from "@/components/PageIntro";
 import PackagesFAQ from "@/components/PackagesFAQ";
 
-// Positioning: lead with workflow automation and IT support; websites, apps and training are "also available".
+// Positioning: lead with business automation and IT support; websites, apps and training are "also available".
 
 export const AboutPage = () => (
   <>
-    <PageIntro title="Bridging ideas and *implementation.*" lead="A South African technology company focused on workflow automation and IT support." />
+    <PageIntro title="Bridging ideas and *implementation.*" lead="A South African technology company focused on business automation and IT support." />
     <AboutSection />
     <CTASection />
   </>
@@ -25,6 +26,7 @@ export const AboutPage = () => (
 export const WorkPage = () => (
   <>
     <PageIntro title="Selected *work.*" lead="Systems in production today, and the products in development." />
+    <ClientTestimonial full />
     <FeaturedWork />
     <section className="field-navy pb-[clamp(5rem,11vw,10rem)]">
       <ProjectsSection inDevelopmentOnly />

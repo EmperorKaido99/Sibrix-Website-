@@ -49,7 +49,7 @@ export const AutomationPlans = () => (
   <section id="automation-plans" className="field-paper-2 section">
     <div className="frame">
       <AnimateOnScroll>
-        <h2 className="heading-xl">Workflow automation</h2>
+        <h2 className="heading-xl">Business automation</h2>
         <p className="lead mt-6 max-w-[46ch]">
           From a single workflow to integrated operations, with optional monthly care.
         </p>
