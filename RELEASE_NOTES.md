@@ -5,6 +5,14 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Services: removed "Technology we apply" (branch `automation-led`)
+
+- The AI / IoT / Integration block repeated the capability list directly above it (Document workflows, Operational monitoring,
+  Systems integration), so it was removed from `ServicesDetail.tsx`. AI and IoT are still named inside those capability areas.
+- Possible future replacement: a "Platforms we work with" logo row, only once Sibrix confirms which platforms it has integrated with.
+
+---
+
 ## 2026-11-17 — Easy Scribe card cleaned up (branch `automation-led`)
 
 - Client card now shows only: the Easy Scribe logo (larger, centred, transparent background) and the client's quote **exactly as supplied**,

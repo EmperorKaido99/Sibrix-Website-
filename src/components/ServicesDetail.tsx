@@ -1,16 +1,10 @@
 import { bookingLink } from "@/lib/booking";
 import { Link } from "react-router-dom";
-import { ArrowRight, Bot, Cable, Cpu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { EXTRAS, LEAD_OFFERS } from "@/data/offers";
 
 const [automation, itSupport] = LEAD_OFFERS;
-
-const howWeAutomate = [
-  { icon: Bot, title: "AI", detail: "Processes documents, emails, forms and customer queries, and generates reports." },
-  { icon: Cpu, title: "IoT", detail: "Sensors on equipment, power supply and premises that trigger alerts or actions." },
-  { icon: Cable, title: "Integration", detail: "Connects your existing platforms so data is captured once and shared reliably." },
-];
 
 // Services page: the two lead offers in depth, then the three extras.
 const ServicesDetail = () => (
@@ -31,7 +25,7 @@ const ServicesDetail = () => (
             </Link>
           </div>
         </AnimateOnScroll>
-        <div className="lg:col-span-7 space-y-14">
+        <div className="lg:col-span-7">
           <div>
             <AnimateOnScroll>
               <h3 className="text-3xl font-semibold tracking-tight">Typical engagements</h3>
@@ -49,22 +43,6 @@ const ServicesDetail = () => (
                 </AnimateOnScroll>
               ))}
             </ul>
-          </div>
-          <div>
-            <AnimateOnScroll>
-              <h3 className="text-3xl font-semibold tracking-tight">Technology we apply</h3>
-            </AnimateOnScroll>
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-              {howWeAutomate.map((h, i) => (
-                <AnimateOnScroll key={h.title} delay={i * 0.06} className="h-full">
-                  <div className="h-full field-navy p-7">
-                    <h.icon size={24} strokeWidth={1.75} className="text-green" aria-hidden="true" />
-                    <h4 className="mt-5 text-2xl font-semibold tracking-tight">{h.title}</h4>
-                    <p className="mt-3 text-base leading-relaxed text-paper/85">{h.detail}</p>
-                  </div>
-                </AnimateOnScroll>
-              ))}
-            </div>
           </div>
         </div>
       </div>
