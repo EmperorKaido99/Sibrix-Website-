@@ -7,7 +7,7 @@ import crimeSpotsLogo from "@/assets/product-crimespots-logo.webp";
 // (one marquee per page). Each logo sits on a tile that suits it (Easy Scribe is designed for light
 // backgrounds, CrimeSpots for dark). Pauses on hover; static for reduced motion (see .logo-marquee in index.css).
 const LOGOS = [
-  { name: "Easy Scribe by Easy Chats", src: TESTIMONIALS[0].logo, width: 1140, height: 244, to: "/work#client-work", tile: "bg-paper ring-1 ring-navy/10" },
+  { name: "Easy Scribe by Easy Chats", src: TESTIMONIALS[0].logo, width: 1140, height: 244, to: "/work/easy-scribe", tile: "bg-paper ring-1 ring-navy/10" },
   { name: "CrimeSpots", src: crimeSpotsLogo, width: 0, height: 0, to: "/work/crimespots", tile: "bg-[#0d0e12]" },
 ];
 

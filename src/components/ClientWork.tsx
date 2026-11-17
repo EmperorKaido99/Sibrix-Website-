@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { TESTIMONIALS } from "@/data/testimonials";
 
@@ -35,6 +37,10 @@ const ClientWork = () => {
               <span aria-hidden="true" className="client-card__line mx-auto mt-8 block h-[3px] bg-green" />
               <figcaption className="mt-5 text-base font-semibold">{client.attribution}</figcaption>
             </figure>
+            <Link to="/work/easy-scribe" className="btn-navy relative mt-10">
+              Read the case study
+              <ArrowRight size={18} />
+            </Link>
           </article>
         </AnimateOnScroll>
       </div>

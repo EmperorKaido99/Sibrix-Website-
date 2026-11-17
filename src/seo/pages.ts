@@ -34,6 +34,12 @@ export const PAGES: PageMeta[] = [
       "How Sibrix designed and built CrimeSpots: AI that turns news reports into verified incidents on a live map of Cape Town, with area rankings and alerts.",
   },
   {
+    path: "/work/easy-scribe",
+    title: "Easy Scribe case study for Easy Chats | Sibrix Group",
+    description:
+      "How Sibrix conceptualised and built Easy Scribe for Easy Chats Projects: a streamlined workflow, visibility of job progress and less repetitive administration.",
+  },
+  {
     path: "/services",
     title: "Services: business automation & IT support | Sibrix Group",
     description:

@@ -5,6 +5,22 @@ Written for both people and AI coding assistants working on this repo — read t
 
 ---
 
+## 2026-11-17 — Case studies in a consulting-style format; new Easy Scribe case study (branch `automation-led`)
+
+- One reusable page, `src/pages/CaseStudyPage.tsx`, modelled on consulting case studies: header (client, headline, logo) →
+  What was needed / How we helped → The positive change (outcome list) → Engagement overview → The solution (+ tech, video) →
+  Benefits of the change → Making a difference (client quote or result) → Related work → booking section.
+- Content lives in `src/data/cases.ts`. **Facts only**: every line traces to the client's words, the live product or Sibrix.
+- **New: `/work/easy-scribe`** (Easy Chats Projects), built from the client's testimonial. Linked from the "Built by Sibrix" strip,
+  the Work page ("Read the case study") and CrimeSpots' related work. Added to `src/seo/pages.ts` and the sitemap.
+- `/work/crimespots` now uses the same format (old `CrimeSpotsCaseStudy.tsx` removed).
+- **Easy Scribe, to confirm with Sibrix** (top of `cases.ts`): main features, technology, go-live date, measurable results, and a
+  screenshot Easy Chats is happy to publish. Add them as `tech` / `video` / extra paragraphs once confirmed.
+- Checked: tsc clean, lint 0 errors, build OK, both case studies and Work/Home without console errors (motion on and reduced),
+  one h1 each, links verified, no mobile overflow.
+
+---
+
 ## 2026-11-17 — Data protection moved to the footer (branch `automation-led`)
 
 - Removed the full "Data protection and compliance" section from Home (`DataTrust.tsx` deleted); it interrupted the page flow.
